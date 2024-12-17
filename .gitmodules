@@ -1,6 +1,6 @@
 [submodule "revorbstd"]
 	path = revorbstd
-	url = https://github.com/yretenai/revorbstd
+	url = https://github.com/Claw256/revorbstd.git
 [submodule "TACTLib"]
 	path = TACTLib
-	url = https://github.com/overtools/TACTLib
+	url = https://github.com/Claw256/TACTLib.git

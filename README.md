@@ -3,7 +3,7 @@
 Series of programs (tools) to interact with the Overwatch files.
 
 ## Downloads & Help
-Downloads for the tools and updates are posted on our Discord where you can also find support and disccusion around using them.
+Downloads for the tools and updates are posted on GitHub releases and on our Discord where you can also find support and disccusion around using them.
 
 Join the Discord here: [https://discord.gg/XM93ZdB](https://discord.gg/XM93ZdB)
 
@@ -35,10 +35,10 @@ DataTool.exe "C:\Games\Overwatch" list-achievements
 
 #### JSON output
 Many of the list commands support JSON output.<br>
-To do this you must provide the `--json` flag as well as an `--output` flag to specify where to save the JSON file.<br>
+To do this you must provide the `--json` flag as well as an `--out` flag to specify where to save the JSON file.<br>
 Example:
 ```
-DataTool.exe "C:\Games\Overwatch" list-heroes --json --output "C:\Games\Extracts\Heroes.json"
+DataTool.exe "C:\Games\Overwatch" list-heroes --json --out="C:\Games\Extracts\Heroes.json"
 ```
 
 ### Example Extract Commands
@@ -108,4 +108,4 @@ There is also a variety of flags you can use that can change how some of the ext
 ## Disclaimer
 This project is not affiliated with Blizzard Entertainment, Inc.<br>
 All trademarks referenced herein are the properties of their respective owners.<br>
-2022 Blizzard Entertainment, Inc. All rights reserved.
+2025 Blizzard Entertainment, Inc. All rights reserved.

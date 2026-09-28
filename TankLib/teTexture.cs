@@ -35,22 +35,22 @@ namespace TankLib {
                     Depth = 0,
                     MipmapCount = (uint)mips,
                     Format = TextureTypes.TextureType.Unknown.ToPixelFormat(),
-                    Caps1 = 0x1000,
+                    Caps1 = 0x1000, // DDSCAPS_TEXTURE - required
                     Caps2 = 0,
                     Caps3 = 0,
                     Caps4 = 0,
                     Reserved2 = 0
                 };
-                if (surfaces > 1 || IsArray) {
-                    ret.Caps1 = 0x8 | 0x1000;
+
+                if (surfaces > 1 || mips > 1 || IsArray || IsCubemap) {
+                    ret.Caps1 |= 0x8; // DDSCAPS_COMPLEX
                 }
-
-                if (IsCubemap) ret.Caps2 = 0xFE00;
-
-                // todo: wtf
-                if (MipCount > 1 && (PayloadCount == 1 || IsCubemap)) {
-                    ret.MipmapCount = MipCount;
-                    ret.Caps1 = 0x8 | 0x1000 | 0x400000;
+                if (mips > 1) {
+                    ret.Caps1 |= 0x400000; // DDSCAPS_MIPMAP
+                }
+                if (IsCubemap) {
+                    // DDSCAPS2_CUBEMAP_*
+                    ret.Caps2 |= 0xFE00;
                 }
 
                 return ret;
@@ -79,6 +79,7 @@ namespace TankLib {
             }
 
             public bool IsCubemap => HasFlag(Flags.Cube);
+            public bool Is3D => HasFlag(Flags.Tex3D);
 
             public bool IsArray => HasFlag(Flags.Array);
         }
@@ -114,13 +115,12 @@ namespace TankLib {
             Read(reader);
         }
 
-        public bool HasMultipleSurfaces => Header.Surfaces > 1 || Payloads.Any(x => x != null && x.Header.Surfaces > 1);
-
         private void Read(BinaryReader reader) {
             Header = reader.Read<TextureHeader>();
-            if (Header.Format >= 0x1A) Header.Format -= 1;
-
-            // if (Header.Format == 99) Header.Format = 98;
+            if (Header.Format >= 0x1A) {
+                // ow2 hack. value added in the middle of the texture format enum, which desyncs it from dxgi
+                Header.Format -= 1;
+            }
 
             if (Header.DataSize == 0 || Header.PayloadCount > 0) {
                 PayloadRequired = true;
@@ -132,6 +132,9 @@ namespace TankLib {
             }
 
             Data = new byte[Header.DataSize];
+            //reader.ReadExactly(Data);
+
+            // todo: one Naraka texture has invalid size and causes exception when using read exactly, needs investigation
             reader.Read(Data, 0, (int)Header.DataSize);
         }
 
@@ -141,7 +144,7 @@ namespace TankLib {
 
         public static teResourceGUID GetPayloadGUID2(ulong textureGUID, uint payloadIdx) {
             if (payloadIdx == 0) {
-                throw new Exception("dont call me for 0");
+                throw new Exception("dont call me for 0 (embedded)");
             }
 
             byte payloadBit;
@@ -195,44 +198,15 @@ namespace TankLib {
         /// <summary>Save DDS to stream</summary>
         /// <param name="stream">Stream to be written to</param>
         /// <param name="keepOpen">Keep the stream open after writing</param>
-        /// <param name="mips"></param>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
-        /// <param name="surfaces"></param>
-        public void SaveToDDS(Stream stream, bool keepOpen, int? mips, uint? width = null, uint? height = null, uint? surfaces = null) {
-            if (PayloadRequired && Payloads[Payloads.Length-1] == null) throw new Exceptions.TexturePayloadMissingException();
-            using (BinaryWriter ddsWriter = new BinaryWriter(stream, Encoding.Default, keepOpen)) {
-                // Console.Out.WriteLine($"{mips ?? Header.MipCount} {width ?? Header.Width} {height ?? Header.Height} {surfaces ?? Header.Surfaces}");
-
-                var targetMips = mips ?? Header.MipCount;
-                uint saveMipCount = Header.MipCount;
-                int savePayloadCount = 0;
-                if (PayloadRequired) {
-                    /*Console.Out.Write($"-- MIP DEBUG\n {Header.MipCount} ");
-                    foreach (var payload in Payloads)
-                    {
-                        if (payload == null)
-                        {
-                            Console.Out.WriteLine("MISSING!!");
-                            continue;
-                        }
-                        Console.Out.Write($"{payload.Header.Mips} ");
-                    }*/
-
-                    var payloadIdx = Payloads.Length-1;
-                    while (payloadIdx >= 0)
-                    {
-                        var mipLimitIncludedByThisPayload = Header.MipCount - Payloads[payloadIdx--].Header.Mips;
-                        saveMipCount = mipLimitIncludedByThisPayload;
-                        savePayloadCount++;
-
-                        if (mipLimitIncludedByThisPayload >= targetMips) break;
-                    }
-
-                    //Console.Out.WriteLine($"---- {targetMips} {saveMipCount} {payloadIdx} {Payloads.Length} {savePayloadCount} -----");
+        public void SaveToDDS(Stream stream, bool keepOpen) {
+            if (PayloadRequired) {
+                foreach (var texturePayload in Payloads) {
+                    if (texturePayload == null) throw new Exceptions.TexturePayloadMissingException();
                 }
-
-                TextureTypes.DDSHeader dds = Header.ToDDSHeader((int)saveMipCount, width ?? Header.Width, height ?? Header.Height, surfaces ?? Header.Surfaces);
+            }
+            
+            using (BinaryWriter ddsWriter = new BinaryWriter(stream, Encoding.Default, keepOpen)) {
+                TextureTypes.DDSHeader dds = Header.ToDDSHeader(Header.MipCount, Header.Width, Header.Height, Header.Surfaces);
                 ddsWriter.Write(dds);
                 if (dds.Format.FourCC == 0x30315844) {
                     var dimension = TextureTypes.D3D10_RESOURCE_DIMENSION.UNKNOWN;
@@ -252,28 +226,28 @@ namespace TankLib {
                         Format = Header.Format,
                         Dimension = dimension,
                         Misc = (uint) (Header.IsCubemap ? 0x4 : 0), // 4 = D3D11_RESOURCE_MISC_TEXTURECUBE
-                        Size = surfaces ?? (Header.IsCubemap ? Header.Surfaces/6u : Header.Surfaces),
+                        Size = Header.IsCubemap ? Header.Surfaces/6u : Header.Surfaces,
                     };
                     ddsWriter.Write(d10);
                 }
 
                 if (PayloadRequired) {
                     var payloadIdx = Payloads.Length-1;
-                    while (payloadIdx >= 0 && savePayloadCount-- > 0)
+                    while (payloadIdx >= 0)
                     {
                         var payload = Payloads[payloadIdx--];
                         payload.SaveToDDSData(Header, ddsWriter);
                     }
                 } else {
-                    ddsWriter.Write(Data, 0, (int) Header.DataSize);
+                    ddsWriter.Write(Data, 0, Header.DataSize);
                 }
             }
         }
 
         /// <summary>Save DDS to stream</summary>
-        public Stream SaveToDDS(int? mips = null, uint? width = null, uint? height = null, uint? surfaces = null) {
+        public Stream SaveToDDS() {
             MemoryStream stream = new MemoryStream();
-            SaveToDDS(stream, true, mips, width, height, surfaces);
+            SaveToDDS(stream, true);
             stream.Position = 0;
             return stream;
         }

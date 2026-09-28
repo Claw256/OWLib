@@ -184,7 +184,8 @@ namespace TankView {
         private void OpenCASC(object sender, RoutedEventArgs e) {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog {
                 IsFolderPicker = true,
-                EnsurePathExists = true
+                EnsurePathExists = true,
+                Title = "Select Overwatch Install"
             };
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok) {
                 OpenCASC(dialog.FileName);
@@ -239,7 +240,7 @@ namespace TankView {
 
                     BuildTree();
                 } catch (Exception e) {
-                    MessageBox.Show(e.Message, "Error while loading CASC", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                    MessageBox.Show(e.ToString(), "Error while loading CASC", MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                     if (Debugger.IsAttached) {
                         throw;
                     }
@@ -247,16 +248,16 @@ namespace TankView {
                     GCSettings.LatencyMode = GCLatencyMode.Interactive;
                     GC.Collect();
 
-                    if (Settings.Default.LoadManifest) {
-                        DataTool.Program.InitTrackedFiles();
-                    }
-
                     ViewContext.Send(delegate { IsReady = true; NotifyPropertyChanged(nameof(IsReady)); }, null);
                 }
 
                 var productCode = DataTool.Program.Client.ProductCode;
                 if (productCode != null && productCode != "pro") {
                     MessageBox.Show($"The branch \"{productCode}\" is not supported!\nThis might result in failure to load.\nProceed with caution.", "Unsupported Branch", MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
+                }
+
+                if (Settings.Default.LoadManifest) {
+                    DataTool.Program.InitTrackedFiles();
                 }
             });
         }
@@ -371,15 +372,15 @@ namespace TankView {
 
                         using (Stream i = IOHelper.OpenFile(entry))
                         using (Stream o = File.OpenWrite(Path.Combine(outPath, fileOutput))) {
+                            o.SetLength(0);
+
                             switch (dataType) {
                                 case DataHelper.DataType.Sound when ExtractionSettings.EnableConvertSounds:
-                                    o.SetLength(0);
                                     Combo.ConvertSoundFileWw2Ogg(i, o);
                                     break;
-                                // not used, image extraction is handled above
                                 case DataHelper.DataType.Image when ExtractionSettings.EnableConvertImages:
-                                    DataHelper.SaveImage(entry, i, o);
-                                    break;
+                                    // not used, image extraction is handled above
+                                    throw new InvalidDataException("wrong image conversion code running");
                                 default:
                                     i.CopyTo(o);
                                     break;

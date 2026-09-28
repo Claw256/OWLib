@@ -29,16 +29,16 @@ namespace TankLib.STU.Types
         public ushort m_5B098AD4;
     }
 
-    [STU(0x01178155, 256)]
+    [STU(0x01178155, 216)]
     public class STU_01178155 : STUStatescriptState
     {
-        [STUField(0x54653E9B, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x54653E9B, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A1AAB8C4 m_inPlug;
 
-        [STUField(0x7273C81B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7273C81B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_7273C81B;
 
-        [STUField(0xC6F3744E, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC6F3744E, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_C6F3744E;
     }
 
@@ -83,6 +83,11 @@ namespace TankLib.STU.Types
         public STUConfigVar m_526270F7;
     }
 
+    [STU(0x01F9A8D7, 16)]
+    public class STU_01F9A8D7 : STUConfigVarEntityID
+    {
+    }
+
     [STU(0x021DADD1, 24)]
     public class STU_021DADD1 : STU_A30EF84D
     {
@@ -90,10 +95,10 @@ namespace TankLib.STU.Types
         public STUConfigVar m_4992CB75;
     }
 
-    [STU(0x0229FEAB, 240)]
+    [STU(0x0229FEAB, 200)]
     public class STU_0229FEAB : STUStatescriptState
     {
-        [STUField(0x31D1CDEB, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x31D1CDEB, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_31D1CDEB;
     }
 
@@ -102,6 +107,22 @@ namespace TankLib.STU.Types
     {
         [STUField(0xF97609C8, 8, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_bone;
+    }
+
+    [STU(0x033F572D, 96)]
+    public class STU_033F572D : STU_A6E6441F
+    {
+        [STUField(0x1805515A, 48)] // size: 16
+        public teStructuredDataAssetRef<STU_03167A2A>[] m_1805515A;
+
+        [STUField(0x7B8073AD, 64)] // size: 16
+        public teStructuredDataAssetRef<STUIdentifier> m_7B8073AD;
+
+        [STUField(0x7FD1411D, 80)] // size: 8
+        public double m_7FD1411D;
+
+        [STUField(0xBAA74493, 88)] // size: 4
+        public Enum_3F31B83E m_condition;
     }
 
     [STU(0x03AC8ACD, 32)]
@@ -126,16 +147,16 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x066B4605, 272)]
+    [STU(0x066B4605, 232)]
     public class STU_066B4605 : STU_BCD004B5
     {
-        [STUField(0xD66E7D68, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD66E7D68, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D66E7D68;
 
-        [STUField(0xF2810377, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF2810377, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F2810377;
 
-        [STUField(0xF8585ABF, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF8585ABF, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F8585ABF;
     }
 
@@ -146,7 +167,7 @@ namespace TankLib.STU.Types
         public float[] m_5E85FC69;
     }
 
-    [STU(0x07B98AB7, 144)]
+    [STU(0x07B98AB7, 104)]
     public class STU_07B98AB7 : STUStatescriptAction
     {
     }
@@ -156,6 +177,11 @@ namespace TankLib.STU.Types
     {
         [STUField(0x1F753B44, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1F753B44;
+    }
+
+    [STU(0x07F26021, 8)]
+    public class STU_07F26021 : STU_BFE8C97B
+    {
     }
 
     [STU(0x092D53B5, 120)]
@@ -202,15 +228,41 @@ namespace TankLib.STU.Types
         public STUConfigVar m_A53100D5;
     }
 
-    [STU(0x094DDA09, 80)]
+    [STU(0x094DDA09, 24)]
     public class STU_094DDA09 : STU_FD30AD69
     {
     }
 
-    [STU(0x0A431631, 336)]
+    [STU(0x09FCA56B, 64)]
+    public class STU_09FCA56B : STUGenericSettings_Base
+    {
+        [STUField(0x7C323D5C, 8)] // size: 16
+        public int[] m_7C323D5C;
+
+        [STUField(0xB0670378, 24, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_99DB1592[] m_rankedTiers;
+
+        [STUField(0xB98780B8, 40)] // size: 16
+        public teStructuredDataAssetRef<STU_F9392C2B> m_B98780B8;
+
+        [STUField(0xD968DA45, 56)] // size: 4
+        public int m_D968DA45;
+
+        [STUField(0x69A7A20C, 60)] // size: 4
+        public int m_69A7A20C;
+    }
+
+    [STU(0x0A291F1F, 72)]
+    public class STU_0A291F1F : STU_A5C34F7B
+    {
+        [STUField(0x3426ED32, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 64
+        public STU_7E82C4D1 m_3426ED32;
+    }
+
+    [STU(0x0A431631, 296)]
     public class STU_0A431631 : STU_E93F8B17
     {
-        [STUField(0x4086A628, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4086A628, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4086A628;
     }
 
@@ -238,6 +290,18 @@ namespace TankLib.STU.Types
     {
     }
 
+    [STU(0x0B3CF68D, 24)]
+    public class STU_0B3CF68D : STUInstance
+    {
+        [STUField(0x11B47C68, 8)] // size: 16
+        public teStructuredDataAssetRef<STUIdentifier> m_id;
+    }
+
+    [STU(0x0B8D8913, 32)]
+    public class STU_0B8D8913 : STUConfigVarResource
+    {
+    }
+
     [STU(0x0BFE7E4D, 24)]
     public class STU_0BFE7E4D : STUConfigVarBoolBase
     {
@@ -255,7 +319,7 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x0D8B88EB, 552)]
+    [STU(0x0D8B88EB, 600)]
     public class STU_0D8B88EB : STU_4B6F9A4C
     {
         [STUField(0xA7AC6320, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
@@ -282,66 +346,14 @@ namespace TankLib.STU.Types
         [STUField(0xB6D26A37, 472, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
         public STU_95A02A46 m_B6D26A37;
 
-        [STUField(0x6A8E244E, 520, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        [STUField(0xB095E488, 520, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        public STU_E47FEDBB m_B095E488;
+
+        [STUField(0x6A8E244E, 552, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
         public STU_7FF01065 m_6A8E244E;
-    }
 
-    [STU(0x0E2A6763, 128)]
-    public class STU_0E2A6763 : STUInstance
-    {
-        [STUField(0xB48F1D22, 8)] // size: 16
-        public teString m_name;
-
-        [STUField(0x081724C6, 24, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
-        public STU_4416C532[] m_081724C6;
-
-        [STUField(0x273A938B, 40)] // size: 16
-        public teStructuredDataAssetRef<STU_E01AD2FB> m_273A938B;
-
-        [STUField(0xA69DF1ED, 56)] // size: 12
-        public teVec3 m_A69DF1ED = new teVec3(1f, 1f, 1f);
-
-        [STUField(0xA749D7DA, 68)] // size: 12
-        public teVec3 m_A749D7DA = new teVec3(1f, 1f, 1f);
-
-        [STUField(0xA93B2832, 80)] // size: 4
-        public float m_A93B2832 = 0.7854f;
-
-        [STUField(0xEEF76E04, 84)] // size: 4
-        public float m_EEF76E04 = 5f;
-
-        [STUField(0x6E37DC4E, 88)] // size: 4
-        public float m_6E37DC4E = 11f;
-
-        [STUField(0x8BF3DB73, 92)] // size: 4
-        public float m_8BF3DB73 = 3f;
-
-        [STUField(0x36943086, 96)] // size: 4
-        public float m_36943086 = 1f;
-
-        [STUField(0x1C9A1939, 100)] // size: 4
-        public float m_1C9A1939 = 30f;
-
-        [STUField(0x43474DF3, 104)] // size: 4
-        public float m_43474DF3 = 20f;
-
-        [STUField(0x2E95CB03, 108)] // size: 4
-        public float m_2E95CB03 = 0.7f;
-
-        [STUField(0x1C9DB42C, 112)] // size: 4
-        public float m_1C9DB42C = 0f;
-
-        [STUField(0x2A675C55, 116)] // size: 4
-        public float m_2A675C55 = 0.75f;
-
-        [STUField(0xEFD6CE53, 120)] // size: 4
-        public float m_EFD6CE53 = 0.5f;
-
-        [STUField(0x6E8461E0, 124)] // size: 1
-        public byte m_6E8461E0 = 0x1;
-
-        [STUField(0x64D63FF8, 125)] // size: 1
-        public byte m_64D63FF8 = 0x0;
+        [STUField(0x4E913BD2, 584, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_1819A707 m_4E913BD2;
     }
 
     [STU(0x0E54E01F, 24)]
@@ -351,43 +363,53 @@ namespace TankLib.STU.Types
         public STUConfigVar m_entity;
     }
 
-    [STU(0x0E913A0B, 336)]
+    [STU(0x0E5C0E0D, 48)]
+    public class STU_0E5C0E0D : STUConfigVarResource
+    {
+        [STUField(0x90E98527, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_90E98527;
+
+        [STUField(0x37AB13D3, 40, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_hero;
+    }
+
+    [STU(0x0E913A0B, 296)]
     public class STU_0E913A0B : STUStatescriptState
     {
-        [STUField(0xFEADFC68, 232, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xFEADFC68, 192, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_5D6FC3CC[] m_FEADFC68;
 
-        [STUField(0x0FC04765, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0FC04765, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0FC04765;
 
-        [STUField(0xFD29A448, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xFD29A448, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_FD29A448;
 
-        [STUField(0x0566DC50, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0566DC50, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0566DC50;
 
-        [STUField(0xA519B7A6, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA519B7A6, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A519B7A6;
 
-        [STUField(0x861FA5EE, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x861FA5EE, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_861FA5EE;
 
-        [STUField(0x8B103ADE, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8B103ADE, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8B103ADE;
 
-        [STUField(0x52C54CB2, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x52C54CB2, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_52C54CB2;
 
-        [STUField(0x7226E64C, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7226E64C, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7226E64C;
 
-        [STUField(0x48481646, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x48481646, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_48481646;
 
-        [STUField(0x3E447223, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3E447223, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_3E447223;
 
-        [STUField(0xBB844B42, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBB844B42, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BB844B42;
     }
 
@@ -401,18 +423,18 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_AB9DC011> m_skin;
     }
 
-    [STU(0x0FA59851, 160)]
+    [STU(0x0FA59851, 120)]
     public class STU_0FA59851 : STUStatescriptAction
     {
-        [STUField(0x176ED263, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x176ED263, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_controller;
 
-        [STUField(0x231E42F8, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x231E42F8, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_231E42F8;
     }
 
     [STU(0x0FE9AD39, 24)]
-    public class STU_0FE9AD39 : STUConfigVarStringBase
+    public class STU_0FE9AD39 : STUConfigVarFloatBase
     {
         [STUField(0x0D9A6EF4, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0D9A6EF4;
@@ -433,106 +455,106 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x11E07FD7, 1424)]
+    [STU(0x11E07FD7, 1280)]
     public class STU_11E07FD7 : STU_E9DE9DF8
     {
-        [STUField(0x2CC9732B, 72, ReaderType = typeof(InlineInstanceFieldReader))] // size: 144
-        public STU_5B9E59A5 m_2CC9732B;
-
-        [STUField(0x8DBB26E3, 216, ReaderType = typeof(InlineInstanceFieldReader))] // size: 64
+        [STUField(0x8DBB26E3, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 64
         public STU_6B62E4AD m_8DBB26E3;
 
-        [STUField(0xF44B9618, 280, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xF44B9618, 80, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_2C948C3D m_F44B9618;
 
-        [STUField(0xF861E309, 336, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xF861E309, 136, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_2C948C3D m_F861E309;
 
-        [STUField(0xAFC41FBA, 392, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xAFC41FBA, 192, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_AFC41FBA;
 
-        [STUField(0x870ECF0E, 448, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x870ECF0E, 248, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_870ECF0E;
 
-        [STUField(0x709835CE, 504, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x709835CE, 304, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_709835CE;
 
-        [STUField(0xB4531CD2, 560, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xB4531CD2, 360, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_B4531CD2;
 
-        [STUField(0xEAFA56E7, 616, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xEAFA56E7, 416, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_EAFA56E7;
 
-        [STUField(0x265B80C0, 672, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x265B80C0, 472, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_B651E94A m_265B80C0;
 
-        [STUField(0x6C39792F, 728, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x6C39792F, 528, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_6C39792F;
 
-        [STUField(0x8625D3BE, 784, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x8625D3BE, 584, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_8625D3BE;
 
-        [STUField(0xD92455D0, 840, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xE7190E09, 640, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        public STU_5FF2A50C m_E7190E09;
+
+        [STUField(0xD92455D0, 696, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_D92455D0;
 
-        [STUField(0xC998663F, 896, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xC998663F, 752, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_C998663F;
 
-        [STUField(0x0F84BB27, 952, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x0F84BB27, 808, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_0F84BB27;
 
-        [STUField(0x4501C042, 1008, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x4501C042, 864, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_4501C042;
 
-        [STUField(0xEB5B8C0C, 1064, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xEB5B8C0C, 920, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_EB5B8C0C;
 
-        [STUField(0x4FD9CA4E, 1120, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x4FD9CA4E, 976, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_4FD9CA4E;
 
-        [STUField(0x012FEE23, 1176, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x012FEE23, 1032, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_012FEE23;
 
-        [STUField(0x412AAC0D, 1232, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x412AAC0D, 1088, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_D5E7FD6F m_412AAC0D;
 
-        [STUField(0xF812959F, 1288, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xF812959F, 1144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_F812959F;
 
-        [STUField(0xA8480A99, 1344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA8480A99, 1200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_95ECA8A6 m_A8480A99;
 
-        [STUField(0x0B617568, 1352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0B617568, 1208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_0B617568;
 
-        [STUField(0xBABB3C12, 1360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBABB3C12, 1216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_BABB3C12;
 
-        [STUField(0x47F45C09, 1368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x47F45C09, 1224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_47F45C09;
 
-        [STUField(0x69DB59E2, 1376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x69DB59E2, 1232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_69DB59E2;
 
-        [STUField(0xD3EBFD7E, 1384, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD3EBFD7E, 1240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_D3EBFD7E;
 
-        [STUField(0x2FDD15E0, 1392, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2FDD15E0, 1248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_2FDD15E0;
 
-        [STUField(0x5E5B8D9A, 1400, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5E5B8D9A, 1256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_5E5B8D9A;
 
-        [STUField(0xCE652628, 1408)] // size: 4
+        [STUField(0xCE652628, 1264)] // size: 4
         public float m_CE652628;
 
-        [STUField(0x423B8CCB, 1412)] // size: 4
+        [STUField(0x423B8CCB, 1268)] // size: 4
         public Enum_E5E7F5F2 m_423B8CCB = Enum_E5E7F5F2.x01F42FD2;
 
-        [STUField(0xF5ABC9A8, 1416)] // size: 1
+        [STUField(0xF5ABC9A8, 1272)] // size: 1
         public byte m_F5ABC9A8;
 
-        [STUField(0xCD4ACB14, 1417)] // size: 1
+        [STUField(0xCD4ACB14, 1273)] // size: 1
         public byte m_CD4ACB14;
     }
 
@@ -546,10 +568,10 @@ namespace TankLib.STU.Types
         public STU_8D0E2B79 m_5E3CC9FE;
     }
 
-    [STU(0x122CD607, 88)]
+    [STU(0x122CD607, 32)]
     public class STU_122CD607 : STU_4C99A608
     {
-        [STUField(0x64F87F5E, 80, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x64F87F5E, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_64F87F5E;
     }
 
@@ -596,25 +618,25 @@ namespace TankLib.STU.Types
         public float m_A2743EAE = 0.1f;
     }
 
-    [STU(0x132C38C7, 272)]
+    [STU(0x132C38C7, 232)]
     public class STU_132C38C7 : STUStatescriptState
     {
-        [STUField(0xA904CE0B, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA904CE0B, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptInputPlug m_A904CE0B;
 
-        [STUField(0x6E003023, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6E003023, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptInputPlug m_6E003023;
 
-        [STUField(0x5DA62D02, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5DA62D02, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onAbortPlug;
 
-        [STUField(0xA0B58111, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA0B58111, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onFinishedPlug;
 
-        [STUField(0x2B98273A, 264)] // size: 4
+        [STUField(0x2B98273A, 224)] // size: 4
         public float m_2B98273A = 0f;
 
-        [STUField(0x503D6044, 268)] // size: 4
+        [STUField(0x503D6044, 228)] // size: 4
         public float m_503D6044 = 5f;
     }
 
@@ -633,6 +655,30 @@ namespace TankLib.STU.Types
 
         [STUField(0xA3D74E35, 24, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_FB2A36D7[] m_A3D74E35;
+    }
+
+    [STU(0x15E1103D, 48)]
+    public class STU_15E1103D : STU_E4324757
+    {
+        [STUField(0xBDD09826, 32)] // size: 16
+        public teStructuredDataAssetRef<STU_42B75C40> m_BDD09826;
+    }
+
+    [STU(0x1603BFA7, 16)]
+    public class STU_1603BFA7 : STU_DE8F518A
+    {
+        [STUField(0xF8274C10, 8, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVarFilter m_filter;
+    }
+
+    [STU(0x16ECE7DB, 312)]
+    public class STU_16ECE7DB : STU_3021DDED
+    {
+        [STUField(0xC779C9D7, 288)] // size: 16
+        public teStructuredDataAssetRef<ulong> m_C779C9D7;
+
+        [STUField(0x85CA53C8, 304)] // size: 4
+        public int m_85CA53C8;
     }
 
     [STU(0x176E7ACB, 104)]
@@ -660,6 +706,13 @@ namespace TankLib.STU.Types
         public teColorRGB m_08D07397;
     }
 
+    [STU(0x1819A707, 16)]
+    public class STU_1819A707 : STU_890B32A0
+    {
+        [STUField(0x4E3A9345, 8, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STU_EEAF4F07 m_4E3A9345;
+    }
+
     [STU(0x18908331, 48)]
     public class STU_18908331 : STU_E4324757
     {
@@ -667,41 +720,41 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_67A38DF7> m_B1367BAA;
     }
 
-    [STU(0x1947632B, 304)]
+    [STU(0x1947632B, 264)]
     public class STU_1947632B : STUStatescriptState
     {
-        [STUField(0x5EEDF7A4, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5EEDF7A4, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5EEDF7A4;
 
-        [STUField(0xF6EE7E9B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF6EE7E9B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F6EE7E9B;
 
-        [STUField(0x6EF5241E, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6EF5241E, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_6EF5241E;
 
-        [STUField(0xBA80CEA8, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBA80CEA8, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BA80CEA8;
 
-        [STUField(0x0DF478A5, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0DF478A5, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0DF478A5;
 
-        [STUField(0x0DBAFD7F, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0DBAFD7F, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0DBAFD7F;
 
-        [STUField(0x872083B7, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x872083B7, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_872083B7;
 
-        [STUField(0x9B5A2762, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9B5A2762, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_9B5A2762;
 
-        [STUField(0xA0B58111, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA0B58111, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onFinishedPlug;
     }
 
-    [STU(0x19A7C487, 152)]
+    [STU(0x19A7C487, 112)]
     public class STU_19A7C487 : STUStatescriptAction
     {
-        [STUField(0x8F1335C4, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8F1335C4, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8F1335C4;
     }
 
@@ -720,7 +773,7 @@ namespace TankLib.STU.Types
         public int m_41180910;
     }
 
-    [STU(0x1AE1E7C9, 280)]
+    [STU(0x1AE1E7C9, 240)]
     public class STU_1AE1E7C9 : STU_EF94F024
     {
     }
@@ -732,20 +785,20 @@ namespace TankLib.STU.Types
         public STUConfigVar[] m_configVars;
     }
 
-    [STU(0x1B74ED17, 3640)]
+    [STU(0x1B74ED17, 3496)]
     public class STU_1B74ED17 : STU_2CE5082B
     {
-        [STUField(0xED61D926, 3624, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED61D926, 3480, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_radius;
 
-        [STUField(0xC6CDB6AB, 3632, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC6CDB6AB, 3488, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_C6CDB6AB;
     }
 
-    [STU(0x1B91CAEF, 248)]
+    [STU(0x1B91CAEF, 192)]
     public class STU_1B91CAEF : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 104
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 104
         public STU_264F6EBC m_F891229F;
     }
 
@@ -766,10 +819,10 @@ namespace TankLib.STU.Types
         public uint m_A9BCF453;
     }
 
-    [STU(0x1C2CC6D5, 152)]
+    [STU(0x1C2CC6D5, 112)]
     public class STU_1C2CC6D5 : STUStatescriptAction
     {
-        [STUField(0x26E3B366, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x26E3B366, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_26E3B366;
     }
 
@@ -778,13 +831,13 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x1CAF6239, 248)]
+    [STU(0x1CAF6239, 208)]
     public class STU_1CAF6239 : STUStatescriptState
     {
-        [STUField(0x2D9866ED, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2D9866ED, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2D9866ED;
 
-        [STUField(0x1511D47B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1511D47B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1511D47B;
     }
 
@@ -825,18 +878,18 @@ namespace TankLib.STU.Types
         public byte m_5BE794B6;
     }
 
-    [STU(0x1DD78CB3, 144)]
+    [STU(0x1DD78CB3, 88)]
     public class STU_1DD78CB3 : STUStatescriptSubGraph
     {
     }
 
-    [STU(0x1DF0C66F, 160)]
+    [STU(0x1DF0C66F, 120)]
     public class STU_1DF0C66F : STUStatescriptAction
     {
-        [STUField(0xE2D1B6BF, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE2D1B6BF, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E2D1B6BF;
 
-        [STUField(0x5EFF7EAE, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5EFF7EAE, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5EFF7EAE;
     }
 
@@ -853,17 +906,17 @@ namespace TankLib.STU.Types
         public STU_2588E787 m_9B64056C;
     }
 
-    [STU(0x1E67177F, 152)]
+    [STU(0x1E67177F, 112)]
     public class STU_1E67177F : STUStatescriptAction
     {
-        [STUField(0xF5087894, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF5087894, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_unlock;
     }
 
-    [STU(0x1E72A5D1, 264)]
+    [STU(0x1E72A5D1, 224)]
     public class STU_1E72A5D1 : STU_619A132D
     {
-        [STUField(0x8742CE14, 256)] // size: 4
+        [STUField(0x8742CE14, 216)] // size: 4
         public Enum_DC148F14 m_8742CE14 = Enum_DC148F14.xDB259E1F;
     }
 
@@ -890,16 +943,6 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STUEntityDefinition> m_723A98D5;
     }
 
-    [STU(0x1ED304DF, 40)]
-    public class STU_1ED304DF : STUInstance
-    {
-        [STUField(0xDB803F2F, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
-        public STUUnlocks m_unlocks;
-
-        [STUField(0x120378C3, 32)] // size: 4
-        public int m_120378C3;
-    }
-
     [STU(0x1EE7628B, 24)]
     public class STU_1EE7628B : STUInstance
     {
@@ -910,17 +953,17 @@ namespace TankLib.STU.Types
         public ushort m_flags = 0x7;
     }
 
-    [STU(0x1F8B0AD5, 1432)]
+    [STU(0x1F8B0AD5, 1288)]
     public class STU_1F8B0AD5 : STU_11E07FD7
     {
-        [STUField(0x51285B31, 1424, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x51285B31, 1280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_51285B31;
     }
 
-    [STU(0x1FEA316D, 248)]
+    [STU(0x1FEA316D, 192)]
     public class STU_1FEA316D : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 104
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 104
         public STU_A2E38EA0 m_F891229F;
     }
 
@@ -932,6 +975,11 @@ namespace TankLib.STU.Types
 
         [STUField(0x1F753B44, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_BCD1C634 m_1F753B44;
+    }
+
+    [STU(0x20DE3CE5, 16)]
+    public class STU_20DE3CE5 : STU_4798EB4E
+    {
     }
 
     [STU(0x20E022FD, 40)]
@@ -960,40 +1008,40 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x23A00A53, 328)]
+    [STU(0x23A00A53, 288)]
     public class STU_23A00A53 : STUStatescriptState
     {
-        [STUField(0x03AD3873, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
+        [STUField(0x03AD3873, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
         public STUConfigVar[] m_ignoreEntities;
 
-        [STUField(0x53FCEDBF, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x53FCEDBF, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_53FCEDBF;
 
-        [STUField(0x0A84537A, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0A84537A, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_contactSet;
 
-        [STUField(0x3BB153B8, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3BB153B8, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_26E723DA m_3BB153B8;
 
-        [STUField(0x5BC939F0, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5BC939F0, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5BC939F0;
 
-        [STUField(0x04732804, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x04732804, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_04732804;
 
-        [STUField(0x3B671E99, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3B671E99, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_3B671E99;
 
-        [STUField(0x63CB0D07, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x63CB0D07, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_63CB0D07;
 
-        [STUField(0x485109CB, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x485109CB, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_485109CB;
 
-        [STUField(0x7AD5153D, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7AD5153D, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_7AD5153D;
 
-        [STUField(0x6A3C1510, 320)] // size: 1
+        [STUField(0x6A3C1510, 280)] // size: 1
         public byte m_6A3C1510 = 0x0;
     }
 
@@ -1041,43 +1089,43 @@ namespace TankLib.STU.Types
         public STUConfigVar m_slot;
     }
 
-    [STU(0x2557EC99, 344)]
+    [STU(0x2557EC99, 304)]
     public class STU_2557EC99 : STUStatescriptState
     {
-        [STUField(0x7EEFB57A, 232, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x7EEFB57A, 192, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STUConfigVarIdentifier[] m_flags;
 
-        [STUField(0xFFA188A2, 248, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xFFA188A2, 208, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STUStatescriptForCodeValue[] m_values;
 
-        [STUField(0xE03436B5, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE03436B5, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A1AAB8C4 m_E03436B5;
 
-        [STUField(0xF33C877D, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF33C877D, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_F33C877D;
 
-        [STUField(0xB4D989B6, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB4D989B6, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_BCD1C634 m_B4D989B6;
 
-        [STUField(0x439CCB3A, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x439CCB3A, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_439CCB3A;
 
-        [STUField(0xC9A39F64, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC9A39F64, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C9A39F64;
 
-        [STUField(0xE304ECC8, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE304ECC8, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E304ECC8;
 
-        [STUField(0xE5F4C3BE, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE5F4C3BE, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E5F4C3BE;
 
-        [STUField(0x94334FCA, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x94334FCA, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_94334FCA;
 
-        [STUField(0xC1A18CC2, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC1A18CC2, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C1A18CC2;
 
-        [STUField(0x7E12265D, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7E12265D, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7E12265D;
     }
 
@@ -1184,43 +1232,43 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x26B87F59, 320)]
+    [STU(0x26B87F59, 280)]
     public class STU_26B87F59 : STUStatescriptState
     {
-        [STUField(0xB141AAE4, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB141AAE4, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entityID;
 
-        [STUField(0xF2772535, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF2772535, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_1260DC1B m_F2772535;
 
-        [STUField(0x5026DB3A, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5026DB3A, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_E71B7371 m_5026DB3A;
 
-        [STUField(0xEDF66DD9, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEDF66DD9, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_EDF66DD9;
 
-        [STUField(0x01105045, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x01105045, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_01105045;
 
-        [STUField(0x75B01469, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x75B01469, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_75B01469;
 
-        [STUField(0x646ED600, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x646ED600, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_646ED600;
 
-        [STUField(0xEEFC676F, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEEFC676F, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_EEFC676F;
 
-        [STUField(0x806B068F, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x806B068F, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_806B068F;
 
-        [STUField(0x12F5B3E7, 304)] // size: 4
+        [STUField(0x12F5B3E7, 264)] // size: 4
         public Enum_116A2F82 m_12F5B3E7 = Enum_116A2F82.x48622997;
 
-        [STUField(0x0895546C, 308)] // size: 4
+        [STUField(0x0895546C, 268)] // size: 4
         public int m_0895546C = 0x3;
 
-        [STUField(0x371A502E, 312)] // size: 1
+        [STUField(0x371A502E, 272)] // size: 1
         public byte m_371A502E;
     }
 
@@ -1299,7 +1347,7 @@ namespace TankLib.STU.Types
         public STUConfigVar m_912A1EEF;
     }
 
-    [STU(0x29DED34F, 144)]
+    [STU(0x29DED34F, 104)]
     public class STU_29DED34F : STUStatescriptAction
     {
     }
@@ -1309,129 +1357,126 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x29FCC715, 80)]
+    [STU(0x29FCC715, 24)]
     public class STU_29FCC715 : STU_16AD58DE
     {
-        [STUField(0xBAA74493, 72, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBAA74493, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_8C127DE2 m_condition;
     }
 
-    [STU(0x2B8093CD, 984)]
+    [STU(0x2B8093CD, 992)]
     public class STU_2B8093CD : STUInstance
     {
-        [STUField(0x2226CBD8, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 288
+        [STUField(0x2226CBD8, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 304
         public STU_91B28B0A m_2226CBD8;
 
-        [STUField(0x0503A846, 296)] // size: 16
+        [STUField(0x0503A846, 312)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier> m_0503A846;
 
-        [STUField(0x2C05CD95, 312)] // size: 16
+        [STUField(0x2C05CD95, 328)] // size: 16
         public teStructuredDataAssetRef<STUMapCatalog> m_catalog;
 
-        [STUField(0xE953CE56, 328)] // size: 16
+        [STUField(0xE953CE56, 344)] // size: 16
         public teStructuredDataAssetRef<STUMapCatalog> m_E953CE56;
 
-        [STUField(0x4EEA6AF4, 344)] // size: 16
+        [STUField(0x4EEA6AF4, 360)] // size: 16
         public teStructuredDataAssetRef<STUGameRuleset>[] m_rulesets;
 
-        [STUField(0x6F71E9AA, 360, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x6F71E9AA, 376, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STUGameModeVarValuePair[] m_6F71E9AA;
 
-        [STUField(0xAF929704, 376)] // size: 16
+        [STUField(0xAF929704, 392)] // size: 16
         public teStructuredDataAssetRef<STU_8B0E97DC>[] m_AF929704;
 
-        [STUField(0x3CE93B76, 392, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x3CE93B76, 408, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STUGameModeVarValuePair[] m_3CE93B76;
 
-        [STUField(0x13E9E420, 408)] // size: 16
+        [STUField(0x13E9E420, 424)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier> m_13E9E420;
 
-        [STUField(0x70045C77, 424, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x70045C77, 440, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_58E4EC09[] m_70045C77;
 
-        [STUField(0x27326EE2, 440)] // size: 16
+        [STUField(0x27326EE2, 456)] // size: 16
         public teStructuredDataAssetRef<STUStat> m_27326EE2;
 
-        [STUField(0xBA265ADB, 456)] // size: 16
+        [STUField(0xBA265ADB, 472)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_BA265ADB;
 
-        [STUField(0x920F5684, 472)] // size: 16
+        [STUField(0x920F5684, 488)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier>[] m_920F5684;
 
-        [STUField(0x5797DE13, 488)] // size: 16
+        [STUField(0x5797DE13, 504)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier>[] m_5797DE13;
 
-        [STUField(0x01C6C793, 504, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x01C6C793, 520, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_BBD4F905[] m_01C6C793;
 
-        [STUField(0x0096CE3B, 520)] // size: 16
+        [STUField(0x0096CE3B, 536)] // size: 16
         public teStructuredDataAssetRef<STU_B86DD783> m_0096CE3B;
 
-        [STUField(0xA848F2C7, 536)] // size: 16
+        [STUField(0xA848F2C7, 552)] // size: 16
         public teStructuredDataAssetRef<STU_2A88312E> m_A848F2C7;
 
-        [STUField(0x7B61EE6D, 552)] // size: 16
+        [STUField(0x7B61EE6D, 568)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_7B61EE6D;
 
-        [STUField(0xC9A72F26, 568)] // size: 16
+        [STUField(0xC9A72F26, 584)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_C9A72F26;
 
-        [STUField(0x6578AB75, 584)] // size: 16
+        [STUField(0x6578AB75, 600)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_6578AB75;
 
-        [STUField(0xECCC6D23, 600)] // size: 16
+        [STUField(0xECCC6D23, 616)] // size: 16
         public teStructuredDataAssetRef<STUAchievement>[] m_ECCC6D23;
 
-        [STUField(0xB1449DF7, 616)] // size: 16
+        [STUField(0xB1449DF7, 632)] // size: 16
         public teStructuredDataAssetRef<STUUnlock>[] m_B1449DF7;
 
-        [STUField(0x3A709228, 632)] // size: 16
+        [STUField(0x3A709228, 648)] // size: 16
         public teStructuredDataAssetRef<STUUnlock>[] m_3A709228;
 
-        [STUField(0x2593569C, 648)] // size: 16
+        [STUField(0x2593569C, 664)] // size: 16
         public teStructuredDataAssetRef<STU_2B8093CD> m_2593569C;
 
-        [STUField(0x66C923AF, 664, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x66C923AF, 680, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_1A325379[] m_66C923AF;
 
-        [STUField(0x5066F820, 680, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x5066F820, 696, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_80039E9E[] m_5066F820;
 
-        [STUField(0x746C254B, 696)] // size: 16
+        [STUField(0x746C254B, 712)] // size: 16
         public teStructuredDataAssetRef<STUUnlock>[] m_746C254B;
 
-        [STUField(0xDD50F6A1, 712)] // size: 16
+        [STUField(0xDD50F6A1, 728)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier> m_DD50F6A1;
 
-        [STUField(0xF3F4D66C, 728, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xF3F4D66C, 744, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_E0F80D38 m_F3F4D66C;
 
-        [STUField(0x810E87D5, 744)] // size: 16
+        [STUField(0x810E87D5, 760)] // size: 16
         public teStructuredDataAssetRef<STUUnlock>[] m_810E87D5;
 
-        [STUField(0x7FB46D96, 760, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x7FB46D96, 776, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_2B17E5B4[] m_7FB46D96;
 
-        [STUField(0xD7E28280, 776)] // size: 16
+        [STUField(0xD7E28280, 792)] // size: 16
         public teStructuredDataAssetRef<ulong> m_D7E28280;
 
-        [STUField(0xE5757B69, 792)] // size: 16
+        [STUField(0xE5757B69, 808)] // size: 16
         public teStructuredDataAssetRef<ulong>[] m_E5757B69;
 
-        [STUField(0x679737B3, 808)] // size: 16
+        [STUField(0x679737B3, 824)] // size: 16
         public teStructuredDataAssetRef<STU_2B8093CD> m_679737B3;
 
-        [STUField(0xC5CC626A, 824)] // size: 16
+        [STUField(0xC5CC626A, 840)] // size: 16
         public teStructuredDataAssetRef<STU_C87931B7> m_C5CC626A;
 
-        [STUField(0x3BA59A8A, 840)] // size: 16
+        [STUField(0x3BA59A8A, 856)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_3BA59A8A;
 
-        [STUField(0xEC0A47FA, 856)] // size: 4
+        [STUField(0xEC0A47FA, 872)] // size: 4
         public Enum_C9C683EA[] m_EC0A47FA;
-
-        [STUField(0x07CC45D7, 872)] // size: 16
-        public teStructuredDataAssetRef<STUGenericSettings_Base> m_07CC45D7;
 
         [STUField(0x7F1401C1, 888, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUCriteriaContainer m_7F1401C1;
@@ -1449,10 +1494,10 @@ namespace TankLib.STU.Types
         public float m_53EE78EF = 3600f;
 
         [STUField(0xFAD2B85E, 912)] // size: 4
-        public Enum_AEBE2F30 m_FAD2B85E;
+        public Enum_AEBE2F30 m_FAD2B85E = Enum_AEBE2F30.xC28B86AD;
 
         [STUField(0x8E1FAC41, 916)] // size: 4
-        public Enum_AEBE2F30 m_8E1FAC41;
+        public Enum_AEBE2F30 m_8E1FAC41 = Enum_AEBE2F30.xC28B86AD;
 
         [STUField(0x73BB99EF, 920)] // size: 4
         public float m_73BB99EF = 1f;
@@ -1460,119 +1505,149 @@ namespace TankLib.STU.Types
         [STUField(0xDF9B21EF, 924)] // size: 4
         public int m_DF9B21EF;
 
-        [STUField(0xD0D08449, 928)] // size: 4
+        [STUField(0x11D04F3C, 928)] // size: 4
+        public int m_11D04F3C;
+
+        [STUField(0xD0D08449, 932)] // size: 4
         public float m_D0D08449 = 15f;
 
-        [STUField(0x68F23F53, 932)] // size: 4
+        [STUField(0x68F23F53, 936)] // size: 4
         public int m_68F23F53 = 0x5;
 
-        [STUField(0x1C34CCEA, 936)] // size: 4
+        [STUField(0x1C34CCEA, 940)] // size: 4
         public TeamIndex m_1C34CCEA = TeamIndex.xBC219E96;
 
-        [STUField(0xDF00F7CE, 940)] // size: 4
+        [STUField(0xDF00F7CE, 944)] // size: 4
         public Enum_753C0469 m_DF00F7CE;
 
-        [STUField(0xFC9C2480, 944)] // size: 2
+        [STUField(0xFC9C2480, 948)] // size: 2
         public ushort m_FC9C2480 = 0xF;
 
-        [STUField(0x4E1B3CE2, 946)] // size: 1
+        [STUField(0x4E1B3CE2, 950)] // size: 1
         public byte m_4E1B3CE2;
 
-        [STUField(0xF643F8D5, 947)] // size: 1
+        [STUField(0xF643F8D5, 951)] // size: 1
         public byte m_F643F8D5;
 
-        [STUField(0x90FE588D, 948)] // size: 1
+        [STUField(0x90FE588D, 952)] // size: 1
         public byte m_90FE588D = 0x0;
 
-        [STUField(0x44BB5E3A, 949)] // size: 1
+        [STUField(0x44BB5E3A, 953)] // size: 1
         public byte m_44BB5E3A;
 
-        [STUField(0x9B440F30, 950)] // size: 1
+        [STUField(0x9B440F30, 954)] // size: 1
         public byte m_9B440F30;
 
-        [STUField(0x855B82C4, 951)] // size: 1
+        [STUField(0x855B82C4, 955)] // size: 1
         public byte m_855B82C4 = 0x1;
 
-        [STUField(0x5B8FD4D9, 952)] // size: 1
+        [STUField(0x5B8FD4D9, 956)] // size: 1
         public byte m_5B8FD4D9 = 0x0;
 
-        [STUField(0x5E1EE04A, 953)] // size: 1
+        [STUField(0x5E1EE04A, 957)] // size: 1
         public byte m_5E1EE04A;
 
-        [STUField(0x08E3EC71, 954)] // size: 1
+        [STUField(0x08E3EC71, 958)] // size: 1
         public byte m_08E3EC71;
 
-        [STUField(0x9C833A7F, 955)] // size: 1
+        [STUField(0x9C833A7F, 959)] // size: 1
         public byte m_9C833A7F;
 
-        [STUField(0x042CE0C5, 956)] // size: 1
+        [STUField(0x042CE0C5, 960)] // size: 1
         public byte m_042CE0C5 = 0x1;
 
-        [STUField(0x0BB1E4C3, 957)] // size: 1
+        [STUField(0x0BB1E4C3, 961)] // size: 1
         public byte m_0BB1E4C3;
 
-        [STUField(0x157AF68C, 958)] // size: 1
+        [STUField(0x157AF68C, 962)] // size: 1
         public byte m_157AF68C;
 
-        [STUField(0x143B6DFA, 959)] // size: 1
+        [STUField(0x143B6DFA, 963)] // size: 1
         public byte m_143B6DFA;
 
-        [STUField(0x35B1160E, 960)] // size: 1
+        [STUField(0x35B1160E, 964)] // size: 1
         public byte m_35B1160E;
 
-        [STUField(0x69DC4D43, 961)] // size: 1
+        [STUField(0x71C512ED, 965)] // size: 1
+        public byte m_71C512ED;
+
+        [STUField(0xC199D1A7, 966)] // size: 1
+        public byte m_C199D1A7;
+
+        [STUField(0x69DC4D43, 967)] // size: 1
         public byte m_69DC4D43;
 
-        [STUField(0x3A9D36A5, 962)] // size: 1
+        [STUField(0x3A9D36A5, 968)] // size: 1
         public byte m_3A9D36A5;
 
-        [STUField(0x0BF2EFB0, 963)] // size: 1
+        [STUField(0x0BF2EFB0, 969)] // size: 1
         public byte m_0BF2EFB0;
 
-        [STUField(0xB412D9AA, 964)] // size: 1
+        [STUField(0xB412D9AA, 970)] // size: 1
         public byte m_B412D9AA;
 
-        [STUField(0x1B24ACFF, 965)] // size: 1
+        [STUField(0x1B24ACFF, 971)] // size: 1
         public byte m_1B24ACFF;
 
-        [STUField(0x58739879, 966)] // size: 1
+        [STUField(0x58739879, 972)] // size: 1
         public byte m_58739879;
 
-        [STUField(0xA6570990, 967)] // size: 1
+        [STUField(0xA6570990, 973)] // size: 1
         public byte m_A6570990;
 
-        [STUField(0xD66FABE0, 968)] // size: 1
+        [STUField(0xD66FABE0, 974)] // size: 1
         public byte m_D66FABE0 = 0x1;
 
-        [STUField(0x7F08E444, 969)] // size: 1
+        [STUField(0x7F08E444, 975)] // size: 1
         public byte m_7F08E444 = 0x1;
 
-        [STUField(0x313C5ED5, 970)] // size: 1
+        [STUField(0x313C5ED5, 976)] // size: 1
         public byte m_313C5ED5 = 0x1;
 
-        [STUField(0xF011ED7A, 971)] // size: 1
+        [STUField(0xF011ED7A, 977)] // size: 1
         public byte m_F011ED7A = 0x1;
 
-        [STUField(0x8F862EC7, 972)] // size: 1
+        [STUField(0x8F862EC7, 978)] // size: 1
         public byte m_8F862EC7 = 0x1;
 
-        [STUField(0xE566638A, 973)] // size: 1
+        [STUField(0xE566638A, 979)] // size: 1
         public byte m_E566638A;
 
-        [STUField(0x60F1B417, 974)] // size: 1
+        [STUField(0x60F1B417, 980)] // size: 1
         public byte m_60F1B417;
 
-        [STUField(0xCC271A4B, 975)] // size: 1
+        [STUField(0xCC271A4B, 981)] // size: 1
         public byte m_CC271A4B;
 
-        [STUField(0x0EE766D7, 976)] // size: 1
+        [STUField(0x0EE766D7, 982)] // size: 1
         public byte m_0EE766D7;
 
-        [STUField(0xBBB6CAB9, 977)] // size: 1
+        [STUField(0x3AC337FA, 983)] // size: 1
+        public byte m_3AC337FA;
+
+        [STUField(0xBBB6CAB9, 984)] // size: 1
         public byte m_BBB6CAB9;
 
-        [STUField(0xBCFF9FE2, 978)] // size: 1
+        [STUField(0xA695F5DA, 985)] // size: 1
+        public byte m_A695F5DA;
+
+        [STUField(0xCB70E1B9, 986)] // size: 1
+        public byte m_CB70E1B9;
+
+        [STUField(0x9AE585CE, 987)] // size: 1
+        public byte m_9AE585CE;
+
+        [STUField(0x9FF5692F, 988)] // size: 1
+        public byte m_9FF5692F = 0x1;
+
+        [STUField(0xBCFF9FE2, 989)] // size: 1
         public byte m_BCFF9FE2 = 0x1;
+
+        [STUField(0x7E2BE478, 990)] // size: 1
+        public byte m_7E2BE478;
+
+        [STUField(0xEEC3CA83, 991)] // size: 1
+        public byte m_EEC3CA83;
     }
 
     [STU(0x2BA25A03, 8)]
@@ -1613,17 +1688,17 @@ namespace TankLib.STU.Types
         public Enum_3A093C68 m_CDD00864;
     }
 
-    [STU(0x2CACF54D, 152)]
+    [STU(0x2CACF54D, 112)]
     public class STU_2CACF54D : STUStatescriptAction
     {
-        [STUField(0x5DC61E59, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5DC61E59, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5DC61E59;
     }
 
-    [STU(0x2D14210F, 368)]
+    [STU(0x2D14210F, 312)]
     public class STU_2D14210F : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 224
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 224
         public STU_9327E22A m_F891229F;
     }
 
@@ -1641,11 +1716,28 @@ namespace TankLib.STU.Types
         public STU_BEE7F20E[] m_8F5C84AC;
     }
 
+    [STU(0x2E17B7BF, 16)]
+    public class STU_2E17B7BF : STU_4798EB4E
+    {
+    }
+
     [STU(0x2E708EC1, 24)]
     public class STU_2E708EC1 : STUConfigVarIntBase
     {
         [STUField(0x548E5344, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_548E5344;
+    }
+
+    [STU(0x2E70E7A9, 8)]
+    public class STU_2E70E7A9 : STU_BFE8C97B
+    {
+    }
+
+    [STU(0x2ED32AC7, 112)]
+    public class STU_2ED32AC7 : STUStatescriptAction
+    {
+        [STUField(0x94C6D671, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_94C6D671;
     }
 
     [STU(0x2F8A651B, 80)]
@@ -1673,19 +1765,6 @@ namespace TankLib.STU.Types
         public STUConfigVar m_AF7ACE0D;
     }
 
-    [STU(0x303D7971, 56)]
-    public class STU_303D7971 : STUInstance
-    {
-        [STUField(0x034DF311, 8)] // size: 16
-        public byte[] m_034DF311;
-
-        [STUField(0x81C9AF33, 24, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
-        public STU_29DC37F3[] m_81C9AF33;
-
-        [STUField(0x6490D1D6, 40, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
-        public STU_2244844A[] m_6490D1D6;
-    }
-
     [STU(0x305F2003, 40)]
     public class STU_305F2003 : STUConfigVarStringBase
     {
@@ -1696,13 +1775,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_CB60BB76;
     }
 
-    [STU(0x309AAC8B, 248)]
+    [STU(0x309AAC8B, 208)]
     public class STU_309AAC8B : STUStatescriptState
     {
-        [STUField(0xA83C2C26, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA83C2C26, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entity;
 
-        [STUField(0x1AAE9B1A, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1AAE9B1A, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1AAE9B1A;
     }
 
@@ -1716,10 +1795,10 @@ namespace TankLib.STU.Types
         public float m_value;
     }
 
-    [STU(0x3140A5AF, 232)]
+    [STU(0x3140A5AF, 176)]
     public class STU_3140A5AF : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 88
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 88
         public STU_6C227EDD m_F891229F;
     }
 
@@ -1763,22 +1842,22 @@ namespace TankLib.STU.Types
         public STUConfigVar m_216EA6DA;
     }
 
-    [STU(0x3267AB13, 216)]
+    [STU(0x3267AB13, 160)]
     public class STU_3267AB13 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 40
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 40
         public STU_6F42B9D1 m_F891229F;
 
-        [STUField(0x4E9DD4C3, 184, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4E9DD4C3, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_4E9DD4C3;
 
-        [STUField(0x4B67E58F, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4B67E58F, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_4B67E58F;
 
-        [STUField(0x0F148AD3, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0F148AD3, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_0F148AD3;
 
-        [STUField(0x83B15798, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x83B15798, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_83B15798;
     }
 
@@ -1827,10 +1906,10 @@ namespace TankLib.STU.Types
         public STUConfigVar m_unlock;
     }
 
-    [STU(0x34D1D6CB, 112)]
+    [STU(0x34D1D6CB, 96)]
     public class STU_34D1D6CB : STU_F36E8ACD
     {
-        [STUField(0x94FD69A3, 96, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x94FD69A3, 80, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_83D8E005[] m_94FD69A3;
     }
 
@@ -1875,50 +1954,50 @@ namespace TankLib.STU.Types
         public STUInputButtonBinding[] m_bindings;
     }
 
-    [STU(0x361152EB, 160)]
+    [STU(0x361152EB, 120)]
     public class STU_361152EB : STUStatescriptAction
     {
-        [STUField(0x31714AFC, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x31714AFC, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_31714AFC;
 
-        [STUField(0x98D16C9A, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x98D16C9A, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_98D16C9A;
     }
 
-    [STU(0x361352E9, 64)]
+    [STU(0x361352E9, 48)]
     public class STU_361352E9 : STUGraphLink
     {
-        [STUField(0x53420372, 40)] // size: 8
+        [STUField(0x53420372, 24)] // size: 8
         public ulong m_53420372;
 
-        [STUField(0xFF565DCF, 48)] // size: 1
+        [STUField(0xFF565DCF, 32)] // size: 1
         public byte m_FF565DCF = 0x1;
 
-        [STUField(0xB4D8D9BB, 49)] // size: 1
+        [STUField(0xB4D8D9BB, 33)] // size: 1
         public byte m_B4D8D9BB = 0x1;
 
-        [STUField(0x9BC8FDA3, 50)] // size: 1
+        [STUField(0x9BC8FDA3, 34)] // size: 1
         public byte m_9BC8FDA3;
 
-        [STUField(0xFE090BCF, 51)] // size: 1
+        [STUField(0xFE090BCF, 35)] // size: 1
         public byte m_FE090BCF;
 
-        [STUField(0x5E9E1E7C, 52)] // size: 1
+        [STUField(0x5E9E1E7C, 36)] // size: 1
         public byte m_5E9E1E7C;
 
-        [STUField(0x6AF43785, 53)] // size: 1
+        [STUField(0x6AF43785, 37)] // size: 1
         public byte m_6AF43785;
 
-        [STUField(0xC0DB5414, 54)] // size: 1
+        [STUField(0xC0DB5414, 38)] // size: 1
         public byte m_C0DB5414;
 
-        [STUField(0x562141DC, 55)] // size: 1
+        [STUField(0x562141DC, 39)] // size: 1
         public byte m_562141DC;
 
-        [STUField(0xBBA93EAA, 56)] // size: 1
+        [STUField(0xBBA93EAA, 40)] // size: 1
         public byte m_BBA93EAA;
 
-        [STUField(0xC9E6352D, 57)] // size: 1
+        [STUField(0xC9E6352D, 41)] // size: 1
         public byte m_C9E6352D;
     }
 
@@ -2008,6 +2087,16 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STUDataFlow> m_B0E0002D = 0x4800000000001F9;
     }
 
+    [STU(0x3ABE1167, 24)]
+    public class STU_3ABE1167 : STUInstance
+    {
+        [STUField(0xD0E54C06, 0)] // size: 16
+        public teStructuredDataAssetRef<STUStat>[] m_D0E54C06;
+
+        [STUField(0x8AC52B49, 16)] // size: 1
+        public byte m_8AC52B49;
+    }
+
     [STU(0x3ACE35FB, 32)]
     public class STU_3ACE35FB : STUConfigVarBoolBase
     {
@@ -2016,6 +2105,11 @@ namespace TankLib.STU.Types
 
         [STUField(0x012B7AF7, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_012B7AF7;
+    }
+
+    [STU(0x3B45F041, 16)]
+    public class STU_3B45F041 : STU_4798EB4E
+    {
     }
 
     [STU(0x3B915239, 24)]
@@ -2037,13 +2131,13 @@ namespace TankLib.STU.Types
         public byte m_905E93C7 = 0x0;
     }
 
-    [STU(0x3BC72DE1, 248)]
+    [STU(0x3BC72DE1, 208)]
     public class STU_3BC72DE1 : STUStatescriptState
     {
-        [STUField(0x0468C6D4, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0468C6D4, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0468C6D4;
 
-        [STUField(0x176B72EC, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x176B72EC, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_176B72EC;
     }
 
@@ -2090,16 +2184,16 @@ namespace TankLib.STU.Types
         public STUConfigVar m_unlock;
     }
 
-    [STU(0x3F65FB99, 256)]
+    [STU(0x3F65FB99, 216)]
     public class STU_3F65FB99 : STUStatescriptState
     {
-        [STUField(0x799CD1B7, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x799CD1B7, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_799CD1B7;
 
-        [STUField(0x0E84B2C3, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0E84B2C3, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0E84B2C3;
 
-        [STUField(0x48486367, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x48486367, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_instigator;
     }
 
@@ -2155,6 +2249,11 @@ namespace TankLib.STU.Types
         public STUConfigVar m_string;
     }
 
+    [STU(0x422216C9, 8)]
+    public class STU_422216C9 : STU_BFE8C97B
+    {
+    }
+
     [STU(0x426667ED, 64)]
     public class STU_426667ED : STU_9F7A0E66
     {
@@ -2162,16 +2261,26 @@ namespace TankLib.STU.Types
         public teVec3 m_D62358FA;
     }
 
-    [STU(0x431E6901, 256)]
+    [STU(0x430BA627, 32)]
+    public class STU_430BA627 : STUConfigVar
+    {
+        [STUField(0x669474F5, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_669474F5;
+
+        [STUField(0xF12409D0, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_F12409D0;
+    }
+
+    [STU(0x431E6901, 216)]
     public class STU_431E6901 : STUStatescriptState
     {
-        [STUField(0x357C2964, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x357C2964, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_357C2964;
 
-        [STUField(0x7031B953, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7031B953, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7031B953;
 
-        [STUField(0x5BB38E35, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5BB38E35, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5BB38E35;
     }
 
@@ -2204,31 +2313,31 @@ namespace TankLib.STU.Types
         public STU_BF94A5BB[] m_1C263920;
     }
 
-    [STU(0x4531992F, 408)]
+    [STU(0x4531992F, 368)]
     public class STU_4531992F : STU_AF1A4047
     {
-        [STUField(0x8375FB5C, 336)] // size: 16
+        [STUField(0x8375FB5C, 296)] // size: 16
         public teStructuredDataAssetRef<STU_6BE90C5C> m_8375FB5C;
 
-        [STUField(0x7349BF08, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7349BF08, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7349BF08;
 
-        [STUField(0x26B6AA87, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x26B6AA87, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_26B6AA87;
 
-        [STUField(0xE306EAC0, 368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE306EAC0, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E306EAC0;
 
-        [STUField(0x9C139F79, 376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9C139F79, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9C139F79;
 
-        [STUField(0x6FCDCCC6, 384, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6FCDCCC6, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_6FCDCCC6;
 
-        [STUField(0x4DB7F186, 392, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4DB7F186, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4DB7F186;
 
-        [STUField(0x31B537DC, 400, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x31B537DC, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_31B537DC;
     }
 
@@ -2254,17 +2363,17 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x46B2438F, 48)]
+    [STU(0x46B2438F, 72)]
     public class STU_46B2438F : STU_4CD7AF84
     {
-        [STUField(0xC3E03C7F, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC3E03C7F, 56, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_color;
 
-        [STUField(0xAB865FDF, 40, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAB865FDF, 64, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_AB865FDF;
     }
 
-    [STU(0x46D8485F, 40)]
+    [STU(0x46D8485F, 32)]
     public class STU_46D8485F : STU_A30EF84D
     {
         [STUField(0xF5087894, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
@@ -2272,13 +2381,25 @@ namespace TankLib.STU.Types
 
         [STUField(0xE8D59658, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E8D59658;
+    }
 
-        [STUField(0xF4A42A3F, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
-        public STUConfigVar m_F4A42A3F;
+    [STU(0x47228B8B, 1408)]
+    public class STU_47228B8B : STU_11E07FD7
+    {
+        [STUField(0x64EBB7A6, 1280, ReaderType = typeof(InlineInstanceFieldReader))] // size: 64
+        public STU_A53F0B87 m_64EBB7A6;
+
+        [STUField(0x4C5F8405, 1344, ReaderType = typeof(InlineInstanceFieldReader))] // size: 64
+        public STU_15A3FDAE m_4C5F8405;
     }
 
     [STU(0x475AAE8F, 32)]
     public class STU_475AAE8F : STUConfigVarResource
+    {
+    }
+
+    [STU(0x47C0A7A3, 24)]
+    public class STU_47C0A7A3 : STU_43B663B6
     {
     }
 
@@ -2299,7 +2420,7 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STUHero>[] m_heroes;
     }
 
-    [STU(0x48F4173B, 424)]
+    [STU(0x48F4173B, 456)]
     public class STU_48F4173B : STU_4B6F9A4C
     {
         [STUField(0xA7AC6320, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
@@ -2319,6 +2440,9 @@ namespace TankLib.STU.Types
 
         [STUField(0xBA188540, 376, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
         public STU_FD011D1C m_BA188540;
+
+        [STUField(0xB095E488, 424, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        public STU_E47FEDBB m_B095E488;
     }
 
     [STU(0x49374425, 32)]
@@ -2360,33 +2484,48 @@ namespace TankLib.STU.Types
         public STUConfigVar m_5DC61E59;
     }
 
-    [STU(0x4C1AA597, 144)]
+    [STU(0x4C1AA597, 104)]
     public class STU_4C1AA597 : STUStatescriptAction
     {
     }
 
-    [STU(0x4C2054BF, 136)]
+    [STU(0x4C2054BF, 96)]
     public class STU_4C2054BF : STUStatescriptBase
     {
-        [STUField(0x54653E9B, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x54653E9B, 88, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptInputPlug m_inPlug;
     }
 
-    [STU(0x4D076571, 240)]
+    [STU(0x4D076571, 200)]
     public class STU_4D076571 : STUStatescriptState
     {
-        [STUField(0x90C89D90, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x90C89D90, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_90C89D90;
     }
 
-    [STU(0x4D2E07A3, 160)]
+    [STU(0x4D16D097, 16)]
+    public class STU_4D16D097 : STU_4798EB4E
+    {
+    }
+
+    [STU(0x4D2E07A3, 120)]
     public class STU_4D2E07A3 : STUStatescriptAction
     {
-        [STUField(0x92A85396, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x92A85396, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_gameMessage;
 
-        [STUField(0x5A0D8832, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5A0D8832, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_814D595E m_5A0D8832;
+    }
+
+    [STU(0x4D6B5707, 40)]
+    public class STU_4D6B5707 : STUInstance
+    {
+        [STUField(0xC87161D5, 8)] // size: 16
+        public ulong[] m_C87161D5;
+
+        [STUField(0x16B4863C, 24)] // size: 24
+        public teStructuredDataHashMap<STU_CA37F625> m_entries;
     }
 
     [STU(0x4D88EAF1, 88)]
@@ -2422,37 +2561,37 @@ namespace TankLib.STU.Types
         public byte m_0B4D7A22;
     }
 
-    [STU(0x4DEBC09F, 392)]
+    [STU(0x4DEBC09F, 352)]
     public class STU_4DEBC09F : STU_B0C1EEEA
     {
-        [STUField(0x7C2B35A0, 312)] // size: 16
+        [STUField(0x7C2B35A0, 272)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier> m_7C2B35A0;
 
-        [STUField(0x2B613BE2, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2B613BE2, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2B613BE2;
 
-        [STUField(0x35B0080D, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x35B0080D, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_35B0080D;
 
-        [STUField(0xEA1E8F80, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEA1E8F80, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EA1E8F80;
 
-        [STUField(0xBE0AB214, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBE0AB214, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BE0AB214;
 
-        [STUField(0xCA523921, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xCA523921, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_CA523921;
 
-        [STUField(0xEFDC53C7, 368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEFDC53C7, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EFDC53C7;
 
-        [STUField(0xA603A5B9, 376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA603A5B9, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A603A5B9;
 
-        [STUField(0x9678BB1B, 384)] // size: 4
+        [STUField(0x9678BB1B, 344)] // size: 4
         public Enum_2C446EC8 m_9678BB1B;
 
-        [STUField(0xBEAA0407, 388)] // size: 4
+        [STUField(0xBEAA0407, 348)] // size: 4
         public Enum_F0CC2CED m_BEAA0407;
     }
 
@@ -2464,6 +2603,11 @@ namespace TankLib.STU.Types
 
         [STUField(0x9CDDC24D, 24)] // size: 4
         public float m_weight;
+    }
+
+    [STU(0x4E6094BF, 16)]
+    public class STU_4E6094BF : STUConfigVarBoolBase
+    {
     }
 
     [STU(0x4E716D17, 384)]
@@ -2497,13 +2641,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_D1C7F985;
     }
 
-    [STU(0x4F3BCBCF, 248)]
+    [STU(0x4F3BCBCF, 208)]
     public class STU_4F3BCBCF : STUStatescriptState
     {
-        [STUField(0x4AB66462, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4AB66462, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_EB7832E8 m_4AB66462;
 
-        [STUField(0xD69595D4, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD69595D4, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_F6250428 m_D69595D4;
     }
 
@@ -2552,17 +2696,23 @@ namespace TankLib.STU.Types
         public float m_A4C3970F = 4f;
     }
 
-    [STU(0x50ABE6D9, 48)]
+    [STU(0x50ABE6D9, 64)]
     public class STU_50ABE6D9 : STUInstance
     {
         [STUField(0xB48F1D22, 8)] // size: 16
         public teString m_name;
 
-        [STUField(0x4B05919F, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
-        public STU_50ABE6D9[] m_4B05919F;
+        [STUField(0x788ABDB3, 24)] // size: 16
+        public teString m_788ABDB3;
 
-        [STUField(0x09D545A3, 40)] // size: 8
-        public ulong m_09D545A3;
+        [STUField(0x06D56AF1, 40, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
+        public STU_50ABE6D9[] m_06D56AF1;
+
+        [STUField(0x09D545A3, 56)] // size: 4
+        public uint m_09D545A3;
+
+        [STUField(0xFCDBD910, 60)] // size: 4
+        public uint m_FCDBD910;
     }
 
     [STU(0x50BEDC49, 48)]
@@ -2618,10 +2768,10 @@ namespace TankLib.STU.Types
         public teVec2 m_09D545A3;
     }
 
-    [STU(0x51EFC6B9, 104)]
+    [STU(0x51EFC6B9, 48)]
     public class STU_51EFC6B9 : STU_B90213F3
     {
-        [STUField(0x991388CC, 72, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        [STUField(0x991388CC, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
         public STU_D32722AB m_991388CC;
     }
 
@@ -2660,11 +2810,9 @@ namespace TankLib.STU.Types
         public STUConfigVar m_6C15395F;
     }
 
-    [STU(0x52AB57E9, 296)]
+    [STU(0x52AB57E9, 288)]
     public class STU_52AB57E9 : STU_3021DDED
     {
-        [STUField(0xA764C41D, 288)] // size: 1
-        public byte m_A764C41D;
     }
 
     [STU(0x5324DE6B, 32)]
@@ -2685,6 +2833,13 @@ namespace TankLib.STU.Types
 
         [STUField(0x943AF6CE, 104)] // size: 4
         public int m_943AF6CE;
+    }
+
+    [STU(0x53B59DC5, 24)]
+    public class STU_53B59DC5 : STU_9A88FA41
+    {
+        [STUField(0x37AB13D3, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_hero;
     }
 
     [STU(0x53FCD4F1, 136)]
@@ -2769,40 +2924,68 @@ namespace TankLib.STU.Types
     {
     }
 
+    [STU(0x5643E105, 128)]
+    public class STU_5643E105 : STU_F3318C83
+    {
+        [STUField(0x7AB4E3F8, 96)] // size: 8
+        public ulong m_lootBoxType;
+
+        [STUField(0xDA3CB723, 104)] // size: 8
+        public ulong m_DA3CB723;
+
+        [STUField(0x72E6ACD6, 112)] // size: 4
+        public int m_72E6ACD6;
+    }
+
     [STU(0x5664149D, 32)]
     public class STU_5664149D : STUGraphPlug
     {
     }
 
-    [STU(0x56BA2D01, 248)]
+    [STU(0x569C7C25, 128)]
+    public class STU_569C7C25 : STUStatescriptAction
+    {
+        [STUField(0x3CE40E49, 104)] // size: 16
+        public teString m_3CE40E49;
+
+        [STUField(0x4E21F188, 120)] // size: 1
+        public byte m_4E21F188;
+    }
+
+    [STU(0x56BA2D01, 192)]
     public class STU_56BA2D01 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 40
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 40
         public STU_5204EACB m_F891229F;
 
-        [STUField(0x90350E04, 184, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x90350E04, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_90350E04;
 
-        [STUField(0x5F150DBC, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5F150DBC, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_jump;
 
-        [STUField(0xBDD95289, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBDD95289, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_movement;
 
-        [STUField(0x2B6D89C1, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2B6D89C1, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_idle;
 
-        [STUField(0xED9A28ED, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED9A28ED, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_crouchMovement;
 
-        [STUField(0x9556D6E4, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9556D6E4, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_crouch;
 
-        [STUField(0xADFC762A, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xADFC762A, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_ADFC762A;
 
-        [STUField(0x4376ACB9, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4376ACB9, 184, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_additiveFiring;
+    }
+
+    [STU(0x56BBD057, 16)]
+    public class STU_56BBD057 : STUConfigVarBoolBase
+    {
     }
 
     [STU(0x56D1136D, 40)]
@@ -2864,29 +3047,39 @@ namespace TankLib.STU.Types
         public STU_15EF3A7E m_DCB88361;
     }
 
-    [STU(0x5821088B, 168)]
+    [STU(0x571F839F, 32)]
+    public class STU_571F839F : STUInstance
+    {
+        [STUField(0xF97609C8, 0)] // size: 16
+        public teStructuredDataAssetRef<STUBoneLabel> m_bone;
+
+        [STUField(0x128F7430, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
+        public STU_192866D2[] m_items;
+    }
+
+    [STU(0x5821088B, 128)]
     public class STU_5821088B : STUStatescriptAction
     {
-        [STUField(0x37AB13D3, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x37AB13D3, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_hero;
 
-        [STUField(0x33B0B2B6, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x33B0B2B6, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_BD6CC023 m_team;
 
-        [STUField(0xDE3B4F01, 160)] // size: 4
+        [STUField(0xDE3B4F01, 120)] // size: 4
         public Enum_BA0F9EEC m_DE3B4F01;
 
-        [STUField(0xCA6B6914, 164)] // size: 1
+        [STUField(0xCA6B6914, 124)] // size: 1
         public byte m_CA6B6914 = 0x0;
 
-        [STUField(0x897233EF, 165)] // size: 1
+        [STUField(0x897233EF, 125)] // size: 1
         public byte m_897233EF = 0x0;
 
-        [STUField(0xFEF29AA0, 166)] // size: 1
+        [STUField(0xFEF29AA0, 126)] // size: 1
         public byte m_FEF29AA0 = 0x1;
     }
 
-    [STU(0x587041FD, 88)]
+    [STU(0x587041FD, 32)]
     public class STU_587041FD : STU_122CD607
     {
     }
@@ -2896,17 +3089,17 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x58E77FC5, 248)]
+    [STU(0x58E77FC5, 208)]
     public class STU_58E77FC5 : STUStatescriptState
     {
-        [STUField(0xB141AAE4, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB141AAE4, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entityID;
 
-        [STUField(0x4DA577AC, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4DA577AC, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4DA577AC;
     }
 
-    [STU(0x58EB761B, 272)]
+    [STU(0x58EB761B, 288)]
     public class STU_58EB761B : STU_F3318C83
     {
         [STUField(0x11B47C68, 96)] // size: 16
@@ -2951,25 +3144,34 @@ namespace TankLib.STU.Types
         [STUField(0x2C01908B, 240)] // size: 4
         public int m_level;
 
-        [STUField(0x51858041, 244)] // size: 4
+        [STUField(0xFFC63C06, 244)] // size: 4
+        public uint m_FFC63C06;
+
+        [STUField(0x51858041, 248)] // size: 4
         public int m_51858041;
 
-        [STUField(0x8F736177, 248)] // size: 4
+        [STUField(0x8F736177, 252)] // size: 4
         public int m_rank;
 
-        [STUField(0x20DDB16B, 252)] // size: 4
+        [STUField(0x20DDB16B, 256)] // size: 4
         public int m_20DDB16B;
 
-        [STUField(0x4F1FBE73, 256)] // size: 4
+        [STUField(0x4F1FBE73, 260)] // size: 4
         public int m_4F1FBE73;
 
-        [STUField(0x1E5EEC85, 260)] // size: 4
+        [STUField(0x1E5EEC85, 264)] // size: 4
         public int m_1E5EEC85;
 
-        [STUField(0xF24E4110, 264)] // size: 4
+        [STUField(0xF24E4110, 268)] // size: 4
         public int m_slot;
 
-        [STUField(0xF933BD40, 268)] // size: 1
+        [STUField(0xA2D246B3, 272)] // size: 4
+        public int m_A2D246B3;
+
+        [STUField(0x65618E2B, 276)] // size: 4
+        public int m_65618E2B;
+
+        [STUField(0xF933BD40, 280)] // size: 1
         public byte m_F933BD40;
     }
 
@@ -2990,25 +3192,25 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x5A1FEBB1, 280)]
+    [STU(0x5A1FEBB1, 240)]
     public class STU_5A1FEBB1 : STUStatescriptState
     {
-        [STUField(0xA79D07C3, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA79D07C3, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A79D07C3;
 
-        [STUField(0x2D3CDFA9, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2D3CDFA9, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_hardPoint;
 
-        [STUField(0xED61D926, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED61D926, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_radius;
 
-        [STUField(0x9BB2EEB1, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9BB2EEB1, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9BB2EEB1;
 
-        [STUField(0xBB16810A, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBB16810A, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_priority;
 
-        [STUField(0xE370811F, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE370811F, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E370811F;
     }
 
@@ -3028,6 +3230,11 @@ namespace TankLib.STU.Types
         public byte m_C3F6EB11;
     }
 
+    [STU(0x5ADC1FD9, 8)]
+    public class STU_5ADC1FD9 : STU_BFE8C97B
+    {
+    }
+
     [STU(0x5AFBC7CB, 24)]
     public class STU_5AFBC7CB : STUGenericSettings_Base
     {
@@ -3042,6 +3249,22 @@ namespace TankLib.STU.Types
 
         [STUField(0x49B1B3F3, 20)] // size: 4
         public float m_49B1B3F3;
+    }
+
+    [STU(0x5B18BED5, 40)]
+    public class STU_5B18BED5 : STU_1941925D
+    {
+        [STUField(0xA1C4B45C, 8, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STU_0BB9E5AB m_A1C4B45C;
+
+        [STUField(0x6FF59B86, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STU_0BB9E5AB m_6FF59B86;
+
+        [STUField(0x25517A47, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STU_0BB9E5AB m_25517A47;
+
+        [STUField(0xCC1E4A6E, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STU_0BB9E5AB m_CC1E4A6E;
     }
 
     [STU(0x5B208C41, 24)]
@@ -3091,6 +3314,11 @@ namespace TankLib.STU.Types
         public STU_25D5B0B1[] m_2DD80226;
     }
 
+    [STU(0x5D11F049, 8)]
+    public class STU_5D11F049 : STU_BFE8C97B
+    {
+    }
+
     [STU(0x5D36B9DD, 64)]
     public class STU_5D36B9DD : STU_48A39D9B
     {
@@ -3098,13 +3326,13 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_4189AEA5> m_E1D625B8;
     }
 
-    [STU(0x5D3D3F51, 280)]
+    [STU(0x5D3D3F51, 240)]
     public class STU_5D3D3F51 : STU_6243C374
     {
-        [STUField(0xC698BFCC, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC698BFCC, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C698BFCC;
 
-        [STUField(0x7E122730, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7E122730, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7E122730;
     }
 
@@ -3156,34 +3384,34 @@ namespace TankLib.STU.Types
         public Enum_4AA2230D m_3FAFF222;
     }
 
-    [STU(0x5E731805, 2016)]
+    [STU(0x5E731805, 1872)]
     public class STU_5E731805 : STU_820A411A
     {
-        [STUField(0x8F4413B1, 1800, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x8F4413B1, 1656, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_8F4413B1;
 
-        [STUField(0x4A5CA514, 1856, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x4A5CA514, 1712, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_4A5CA514;
 
-        [STUField(0x66D29548, 1912, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x66D29548, 1768, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_AE03805C m_66D29548;
 
-        [STUField(0x9352A840, 1968, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9352A840, 1824, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_direction;
 
-        [STUField(0xBECCAE26, 1976, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBECCAE26, 1832, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_BECCAE26;
 
-        [STUField(0xED61D926, 1984, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED61D926, 1840, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_radius;
 
-        [STUField(0xF6862FE7, 1992, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF6862FE7, 1848, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_falloff;
 
-        [STUField(0xD80AEDB1, 2000, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD80AEDB1, 1856, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_D80AEDB1;
 
-        [STUField(0x3E3DFE0F, 2008, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3E3DFE0F, 1864, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_3E3DFE0F;
     }
 
@@ -3197,6 +3425,49 @@ namespace TankLib.STU.Types
         public Enum_0DCDF3CD m_7567E07D;
     }
 
+    [STU(0x5E987CAD, 112)]
+    public class STU_5E987CAD : STU_C7C085F6
+    {
+        [STUField(0x51A0A481, 8)] // size: 16
+        public teStructuredDataAssetRef<STUAnimation> m_51A0A481;
+
+        [STUField(0xCF61FB7C, 24)] // size: 16
+        public teStructuredDataAssetRef<STUAnimation> m_CF61FB7C;
+
+        [STUField(0xDA7F9CF4, 40)] // size: 16
+        public teStructuredDataAssetRef<STUAnimation> m_DA7F9CF4;
+
+        [STUField(0xD321EC6B, 56)] // size: 16
+        public teStructuredDataAssetRef<STUDataFlow> m_D321EC6B;
+
+        [STUField(0x25E600E5, 72)] // size: 4
+        public float m_25E600E5 = 4f;
+
+        [STUField(0x85018E4C, 76)] // size: 4
+        public float m_85018E4C = 4f;
+
+        [STUField(0x00468465, 80)] // size: 4
+        public float m_00468465;
+
+        [STUField(0x80AB013D, 84)] // size: 4
+        public float m_80AB013D;
+
+        [STUField(0x2D7FD789, 88)] // size: 4
+        public float m_2D7FD789 = 1f;
+
+        [STUField(0x01249970, 92)] // size: 4
+        public float m_01249970 = 1f;
+
+        [STUField(0xE8502460, 96)] // size: 4
+        public float m_E8502460 = -1f;
+
+        [STUField(0x83CE3EB5, 100)] // size: 4
+        public float m_83CE3EB5 = -1f;
+
+        [STUField(0xE5762696, 104)] // size: 1
+        public byte m_E5762696;
+    }
+
     [STU(0x5F05692B, 24)]
     public class STU_5F05692B : STUConfigVarBoolBase
     {
@@ -3204,10 +3475,10 @@ namespace TankLib.STU.Types
         public STUConfigVar m_entity;
     }
 
-    [STU(0x5F26A677, 248)]
+    [STU(0x5F26A677, 208)]
     public class STU_5F26A677 : STU_03DB71B6
     {
-        [STUField(0x1511D47B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1511D47B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1511D47B;
     }
 
@@ -3223,10 +3494,10 @@ namespace TankLib.STU.Types
         public teString m_value;
     }
 
-    [STU(0x60201DDD, 248)]
+    [STU(0x60201DDD, 208)]
     public class STU_60201DDD : STUStatescriptState
     {
-        [STUField(0xFFA188A2, 232, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xFFA188A2, 192, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STUGlobalDataFlowValue[] m_values;
     }
 
@@ -3237,12 +3508,12 @@ namespace TankLib.STU.Types
         public STUConfigVar m_216EA6DA;
     }
 
-    [STU(0x60672F25, 144)]
+    [STU(0x60672F25, 104)]
     public class STU_60672F25 : STUStatescriptAction
     {
     }
 
-    [STU(0x613A9095, 144)]
+    [STU(0x613A9095, 104)]
     public class STU_613A9095 : STUStatescriptAction
     {
     }
@@ -3268,6 +3539,11 @@ namespace TankLib.STU.Types
 
         [STUField(0xFE75FBD5, 24)] // size: 16
         public teStructuredDataAssetRef<STU_8B0E97DC>[] m_FE75FBD5;
+    }
+
+    [STU(0x629F9DE5, 8)]
+    public class STU_629F9DE5 : STU_BFE8C97B
+    {
     }
 
     [STU(0x62B12993, 224)]
@@ -3298,6 +3574,11 @@ namespace TankLib.STU.Types
         public int m_35C420A6;
     }
 
+    [STU(0x62EB8B3D, 16)]
+    public class STU_62EB8B3D : STU_4798EB4E
+    {
+    }
+
     [STU(0x632B0263, 32)]
     public class STU_632B0263 : STUConfigVarStringBase
     {
@@ -3308,10 +3589,10 @@ namespace TankLib.STU.Types
         public Enum_43CDE438 m_type;
     }
 
-    [STU(0x632B74B9, 248)]
+    [STU(0x632B74B9, 208)]
     public class STU_632B74B9 : STU_BBF32277
     {
-        [STUField(0x6852A55B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6852A55B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_6852A55B;
     }
 
@@ -3428,29 +3709,32 @@ namespace TankLib.STU.Types
         public STUConfigVar m_value;
     }
 
-    [STU(0x63B7ADFD, 256)]
+    [STU(0x63B7ADFD, 224)]
     public class STU_63B7ADFD : STUStatescriptState
     {
-        [STUField(0x07DD813E, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x07DD813E, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_value;
 
-        [STUField(0x26E3B366, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x26E3B366, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_26E3B366;
 
-        [STUField(0xDA4423ED, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xDA4423ED, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVarBoolBase m_DA4423ED;
+
+        [STUField(0x91FED9B3, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_91FED9B3;
     }
 
-    [STU(0x63D801B1, 256)]
+    [STU(0x63D801B1, 216)]
     public class STU_63D801B1 : STUStatescriptState
     {
-        [STUField(0xE3798C00, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE3798C00, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_targets;
 
-        [STUField(0x14C5BE5B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x14C5BE5B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_14C5BE5B;
 
-        [STUField(0xB44A42A0, 248)] // size: 4
+        [STUField(0xB44A42A0, 208)] // size: 4
         public STUStatEvent m_B44A42A0;
     }
 
@@ -3549,17 +3833,42 @@ namespace TankLib.STU.Types
         public Enum_7AB77B77 m_4CA6762B;
     }
 
-    [STU(0x683429AB, 168)]
+    [STU(0x683429AB, 128)]
     public class STU_683429AB : STUStatescriptAction
     {
-        [STUField(0x5227D640, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5227D640, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5227D640;
 
-        [STUField(0x5A5E2558, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5A5E2558, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5A5E2558;
 
-        [STUField(0x42423CF7, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x42423CF7, 120, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_42423CF7;
+    }
+
+    [STU(0x68411CFB, 248)]
+    public class STU_68411CFB : STUStatescriptState
+    {
+        [STUField(0x063CFDF4, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_063CFDF4;
+
+        [STUField(0x1069B7CC, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_1069B7CC;
+
+        [STUField(0x17BC2F4C, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_17BC2F4C;
+
+        [STUField(0x6811A739, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_6811A739;
+
+        [STUField(0xFA6B3BBE, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_FA6B3BBE;
+
+        [STUField(0xF6AC57DE, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_F6AC57DE;
+
+        [STUField(0x504050FF, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_504050FF;
     }
 
     [STU(0x6851DBBD, 56)]
@@ -3638,29 +3947,42 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x6AAB212B, 272)]
+    [STU(0x6AAB212B, 232)]
     public class STU_6AAB212B : STUStatescriptState
     {
-        [STUField(0x481B15D1, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x481B15D1, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_481B15D1;
 
-        [STUField(0x5B2774AF, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5B2774AF, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5B2774AF;
 
-        [STUField(0x0A02AA9A, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0A02AA9A, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0A02AA9A;
 
-        [STUField(0x56821B7B, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x56821B7B, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_56821B7B;
 
-        [STUField(0x0DB5611E, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0DB5611E, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0DB5611E;
     }
 
-    [STU(0x6B207A43, 288)]
+    [STU(0x6AE5A305, 12)]
+    public class STU_6AE5A305 : STUInstance
+    {
+        [STUField(0x823E15BD, 0)] // size: 4
+        public float m_823E15BD = 64f;
+
+        [STUField(0xDD798420, 4)] // size: 4
+        public float m_DD798420 = 16f;
+
+        [STUField(0x53A9AC14, 8)] // size: 4
+        public float m_53A9AC14 = -1f;
+    }
+
+    [STU(0x6B207A43, 248)]
     public class STU_6B207A43 : STU_EF94F024
     {
-        [STUField(0xC3E03C7F, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC3E03C7F, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_color;
     }
 
@@ -3845,41 +4167,41 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x6C39E95F, 16)]
-    public class STU_6C39E95F : STUConfigVarIntBase
-    {
-    }
-
-    [STU(0x6C945453, 272)]
+    [STU(0x6C945453, 232)]
     public class STU_6C945453 : STUStatescriptState
     {
-        [STUField(0xE0E4356E, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE0E4356E, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E0E4356E;
 
-        [STUField(0x2334A7D6, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2334A7D6, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2334A7D6;
 
-        [STUField(0xBD22D857, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBD22D857, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BD22D857;
 
-        [STUField(0x41F6368D, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x41F6368D, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_41F6368D;
 
-        [STUField(0x9613163D, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9613163D, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_904BFCEC m_9613163D;
     }
 
-    [STU(0x6CF7D433, 240)]
+    [STU(0x6CD708C5, 16)]
+    public class STU_6CD708C5 : STU_27C6AA11
+    {
+    }
+
+    [STU(0x6CF7D433, 200)]
     public class STU_6CF7D433 : STUStatescriptState
     {
-        [STUField(0xC1BDEB4C, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC1BDEB4C, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C1BDEB4C;
     }
 
-    [STU(0x6D01C0D3, 240)]
+    [STU(0x6D01C0D3, 200)]
     public class STU_6D01C0D3 : STUStatescriptState
     {
-        [STUField(0xC69D334B, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC69D334B, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C69D334B;
     }
 
@@ -3927,31 +4249,31 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STUSound> m_2353D59B;
     }
 
-    [STU(0x6F2230CD, 72)]
+    [STU(0x6F2230CD, 24)]
     public class STU_6F2230CD : STU_2F9C35F4
     {
     }
 
-    [STU(0x6FC739BF, 280)]
+    [STU(0x6FC739BF, 240)]
     public class STU_6FC739BF : STU_619A132D
     {
-        [STUField(0x4749F824, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4749F824, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4749F824;
 
-        [STUField(0x5AE5A935, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5AE5A935, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5AE5A935;
 
-        [STUField(0x3228318E, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3228318E, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_3228318E;
-    }
-
-    [STU(0x6FCB5BE9, 144)]
-    public class STU_6FCB5BE9 : STUStatescriptAction
-    {
     }
 
     [STU(0x70F100C3, 24)]
     public class STU_70F100C3 : STU_6FE9208F
+    {
+    }
+
+    [STU(0x7150E669, 16)]
+    public class STU_7150E669 : STU_4798EB4E
     {
     }
 
@@ -3960,6 +4282,13 @@ namespace TankLib.STU.Types
     {
         [STUField(0xA4339167, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A4339167;
+    }
+
+    [STU(0x72F432EB, 24)]
+    public class STU_72F432EB : STUConfigVar
+    {
+        [STUField(0xBC2E0238, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_BC2E0238;
     }
 
     [STU(0x7327694F, 24)]
@@ -3972,6 +4301,19 @@ namespace TankLib.STU.Types
     {
         [STUField(0x07DD813E, 16)] // size: 16
         public teUUID m_value;
+    }
+
+    [STU(0x736F261D, 56)]
+    public class STU_736F261D : STUEntityComponent
+    {
+        [STUField(0x5032B2E1, 8)] // size: 16
+        public teStructuredDataAssetRef<ulong> m_5032B2E1;
+
+        [STUField(0xFE1F6E84, 24)] // size: 16
+        public teStructuredDataAssetRef<STUAnimBlendTreeSet> m_FE1F6E84;
+
+        [STUField(0xF7CDDB03, 40, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_E7DCAB6C[] m_F7CDDB03;
     }
 
     [STU(0x740FBAB5, 128)]
@@ -3987,55 +4329,55 @@ namespace TankLib.STU.Types
         public byte m_BA6B8E20;
     }
 
-    [STU(0x747D19F7, 408)]
+    [STU(0x747D19F7, 368)]
     public class STU_747D19F7 : STU_EF94F024
     {
-        [STUField(0x8AA6504F, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8AA6504F, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8AA6504F;
 
-        [STUField(0xA527C6BE, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA527C6BE, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A527C6BE;
 
-        [STUField(0xE5AA9496, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE5AA9496, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E5AA9496;
 
-        [STUField(0x65233649, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x65233649, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_65233649;
 
-        [STUField(0xF8043AE4, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF8043AE4, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F8043AE4;
 
-        [STUField(0x34DBD88D, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x34DBD88D, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_34DBD88D;
 
-        [STUField(0xEEFB7A6E, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEEFB7A6E, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EEFB7A6E;
 
-        [STUField(0x4C89E9AA, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4C89E9AA, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4C89E9AA;
 
-        [STUField(0x5AA4CAEE, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5AA4CAEE, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5AA4CAEE;
 
-        [STUField(0x02D4D419, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x02D4D419, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_02D4D419;
 
-        [STUField(0x62B7B6CE, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x62B7B6CE, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_62B7B6CE;
 
-        [STUField(0x33A323B6, 368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x33A323B6, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_33A323B6;
 
-        [STUField(0x7E6145FF, 376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7E6145FF, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7E6145FF;
 
-        [STUField(0xC9F72CAE, 384, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC9F72CAE, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_C9F72CAE;
 
-        [STUField(0xC8A06299, 392, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC8A06299, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_904BFCEC m_C8A06299;
 
-        [STUField(0xB490768A, 400, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB490768A, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_904BFCEC m_B490768A;
     }
 
@@ -4110,16 +4452,16 @@ namespace TankLib.STU.Types
         public uint m_8CD121E8;
     }
 
-    [STU(0x769EDF95, 160)]
+    [STU(0x769EDF95, 120)]
     public class STU_769EDF95 : STUStatescriptAction
     {
-        [STUField(0xCB60BB76, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xCB60BB76, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_CB60BB76;
 
-        [STUField(0x2903C793, 152)] // size: 1
+        [STUField(0x2903C793, 112)] // size: 1
         public byte m_2903C793;
 
-        [STUField(0xA8F1C9B5, 153)] // size: 1
+        [STUField(0xA8F1C9B5, 113)] // size: 1
         public byte m_A8F1C9B5;
     }
 
@@ -4269,6 +4611,11 @@ namespace TankLib.STU.Types
         public STUConfigVar m_entity;
     }
 
+    [STU(0x7B4208B5, 8)]
+    public class STU_7B4208B5 : STU_BFE8C97B
+    {
+    }
+
     [STU(0x7B88B9A9, 8)]
     public class STU_7B88B9A9 : STUInstance
     {
@@ -4372,6 +4719,11 @@ namespace TankLib.STU.Types
         public STUConfigVar m_hero;
     }
 
+    [STU(0x7ECE821F, 16)]
+    public class STU_7ECE821F : STU_4798EB4E
+    {
+    }
+
     [STU(0x7F74BA8B, 48)]
     public class STU_7F74BA8B : STU_38E34B67
     {
@@ -4385,38 +4737,50 @@ namespace TankLib.STU.Types
         public STU_92F31FA1 m_maps;
     }
 
-    [STU(0x7FB4CDDD, 344)]
+    [STU(0x7F7D1A0F, 8)]
+    public class STU_7F7D1A0F : STU_BFE8C97B
+    {
+    }
+
+    [STU(0x7FB4CDDD, 304)]
     public class STU_7FB4CDDD : STU_B0C1EEEA
     {
-        [STUField(0xE6B294D9, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE6B294D9, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E6B294D9;
 
-        [STUField(0xA586524D, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA586524D, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A586524D;
 
-        [STUField(0x984BF150, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x984BF150, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_984BF150;
 
-        [STUField(0xC5870984, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC5870984, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C5870984;
     }
 
-    [STU(0x8082A721, 64)]
+    [STU(0x802595C7, 104)]
+    public class STU_802595C7 : STU_F3318C83
+    {
+        [STUField(0x90E98527, 96)] // size: 8
+        public ulong m_90E98527;
+    }
+
+    [STU(0x8082A721, 72)]
     public class STU_8082A721 : STU_465BA974
     {
-        [STUField(0xF5087894, 8)] // size: 16
+        [STUField(0xF5087894, 16)] // size: 16
         public teStructuredDataAssetRef<STUUnlock> m_unlock;
 
-        [STUField(0x4C167404, 24)] // size: 16
+        [STUField(0x4C167404, 32)] // size: 16
         public teStructuredDataAssetRef<STUSkinTheme> m_skinTheme;
 
-        [STUField(0x3F5B86A4, 40)] // size: 16
+        [STUField(0x3F5B86A4, 48)] // size: 16
         public teStructuredDataAssetRef<STUAnimation> m_animation;
 
-        [STUField(0x99803609, 56)] // size: 4
+        [STUField(0x99803609, 64)] // size: 4
         public Enum_FAB95581 m_99803609 = Enum_FAB95581.xB9C59E8D;
 
-        [STUField(0x495EC1B5, 60)] // size: 1
+        [STUField(0x495EC1B5, 68)] // size: 1
         public byte m_495EC1B5;
     }
 
@@ -4430,18 +4794,11 @@ namespace TankLib.STU.Types
         public STUConfigVar m_513ECE33;
     }
 
-    [STU(0x80B85097, 184)]
+    [STU(0x80B85097, 208)]
     public class STU_80B85097 : STU_62542B9B
     {
-        [STUField(0x37AB13D3, 168)] // size: 16
+        [STUField(0x37AB13D3, 192)] // size: 16
         public teStructuredDataAssetRef<STUHero> m_hero;
-    }
-
-    [STU(0x80E47EB5, 24)]
-    public class STU_80E47EB5 : STUConfigVarNumeric
-    {
-        [STUField(0x08F80FAA, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
-        public STUConfigVar m_08F80FAA;
     }
 
     [STU(0x816F1FED, 32)]
@@ -4454,32 +4811,90 @@ namespace TankLib.STU.Types
         public uint m_priority = 0x1;
     }
 
-    [STU(0x81C5DE19, 144)]
+    [STU(0x81A3948F, 128)]
+    public class STU_81A3948F : STU_C7C085F6
+    {
+        [STUField(0x172CAE5E, 8)] // size: 16
+        public teStructuredDataAssetRef<STUAnimation> m_172CAE5E;
+
+        [STUField(0xEC4CAE23, 24)] // size: 16
+        public teStructuredDataAssetRef<STUDataFlow> m_EC4CAE23;
+
+        [STUField(0x2C9D1489, 40)] // size: 16
+        public teStructuredDataAssetRef<STUAnimation> m_2C9D1489;
+
+        [STUField(0x5620DA50, 56, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
+        public STUAnimGlobalWeightMultipliers m_globalWeightMultipliers;
+
+        [STUField(0xEC42051A, 80, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STUAnimUserWeights m_userWeights;
+
+        [STUField(0xF0E4656D, 96, ReaderType = typeof(InlineInstanceFieldReader))] // size: 8
+        public STUAnimGlobalLayerMultipliers m_globalLayerMultipliers;
+
+        [STUField(0xBF696542, 104)] // size: 4
+        public float m_BF696542;
+
+        [STUField(0xD164234A, 108)] // size: 4
+        public float m_D164234A = 1f;
+
+        [STUField(0xC3C0E4D2, 112)] // size: 4
+        public float m_C3C0E4D2;
+
+        [STUField(0xE8502460, 116)] // size: 4
+        public float m_E8502460 = -1f;
+
+        [STUField(0x83CE3EB5, 120)] // size: 4
+        public float m_83CE3EB5 = -1f;
+
+        [STUField(0x5E009A60, 124)] // size: 1
+        public byte m_5E009A60;
+
+        [STUField(0x409A63B9, 125)] // size: 1
+        public byte m_409A63B9;
+    }
+
+    [STU(0x81C5DE19, 88)]
     public class STU_81C5DE19 : STU_51C18ED3
     {
-        [STUField(0x560940DC, 72, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
+        [STUField(0x560940DC, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
         public STUAnimBlendTree_OnFinished m_onFinished;
 
-        [STUField(0xB4FF0E2F, 120)] // size: 16
+        [STUField(0xB4FF0E2F, 64)] // size: 16
         public teStructuredDataAssetRef<STUAnimAlias> m_animAlias = 0xC80000000000170;
 
-        [STUField(0xF94DAB61, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF94DAB61, 80, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_9D30DD99 m_F94DAB61;
     }
 
-    [STU(0x82085F69, 312)]
+    [STU(0x81C62473, 208)]
+    public class STU_81C62473 : STUStatescriptState
+    {
+        [STUField(0x5FE36F59, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_5FE36F59;
+
+        [STUField(0x441F9DFB, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_441F9DFB;
+    }
+
+    [STU(0x81C82C5F, 16)]
+    public class STU_81C82C5F : STU_4798EB4E
+    {
+    }
+
+    [STU(0x82085F69, 272)]
     public class STU_82085F69 : STU_EF94F024
     {
-        [STUField(0x9DF766FE, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9DF766FE, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9DF766FE;
 
-        [STUField(0x09D545A3, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x09D545A3, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_09D545A3;
 
-        [STUField(0x339A63DB, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x339A63DB, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_339A63DB;
 
-        [STUField(0x1C8CAED9, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1C8CAED9, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_1C8CAED9;
     }
 
@@ -4496,15 +4911,27 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STUEmptyAsset>[] m_115250A9;
     }
 
+    [STU(0x833ED22D, 8)]
+    public class STU_833ED22D : STU_BFE8C97B
+    {
+    }
+
     [STU(0x836E96ED, 16)]
     public class STU_836E96ED : STUConfigVarBoolBase
     {
     }
 
-    [STU(0x841F910F, 688)]
+    [STU(0x83D8012D, 24)]
+    public class STU_83D8012D : STUConfigVar
+    {
+        [STUField(0xEA58FA50, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_mapGUID;
+    }
+
+    [STU(0x841F910F, 632)]
     public class STU_841F910F : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 544
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 544
         public STU_ADD74481 m_F891229F;
     }
 
@@ -4539,30 +4966,30 @@ namespace TankLib.STU.Types
         public STUConfigVar m_DF8ABDB9;
     }
 
-    [STU(0x861D9015, 272)]
+    [STU(0x861D9015, 232)]
     public class STU_861D9015 : STUStatescriptState
     {
-        [STUField(0xE441DC25, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE441DC25, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E441DC25;
 
-        [STUField(0x7F47658A, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7F47658A, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7F47658A;
 
-        [STUField(0x8B2A4DF3, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8B2A4DF3, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8B2A4DF3;
 
-        [STUField(0x9254FB21, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9254FB21, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_9254FB21;
 
-        [STUField(0xA39D2005, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA39D2005, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_A39D2005;
     }
 
-    [STU(0x874A3D49, 40)]
-    public class STU_874A3D49 : STU_6440565A
+    [STU(0x876C7C97, 40)]
+    public class STU_876C7C97 : STUConfigVarResource
     {
-        [STUField(0xA53100D5, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
-        public STUConfigVar m_A53100D5;
+        [STUField(0xEB4F2408, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_gameMode;
     }
 
     [STU(0x87752C07, 16)]
@@ -4570,7 +4997,7 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x87A4D26D, 144)]
+    [STU(0x87A4D26D, 104)]
     public class STU_87A4D26D : STUStatescriptAction
     {
     }
@@ -4585,7 +5012,19 @@ namespace TankLib.STU.Types
         public teString m_commands;
     }
 
-    [STU(0x89F8DBB3, 224)]
+    [STU(0x89CB2B19, 16)]
+    public class STU_89CB2B19 : STUConfigVarStringBase
+    {
+    }
+
+    [STU(0x89D0805F, 112)]
+    public class STU_89D0805F : STUStatescriptAction
+    {
+        [STUField(0xE101F943, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_E101F943;
+    }
+
+    [STU(0x89F8DBB3, 176)]
     public class STU_89F8DBB3 : STUInstance
     {
         [STUField(0x9F6DA84C, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 64
@@ -4600,78 +5039,66 @@ namespace TankLib.STU.Types
         [STUField(0xD1A08C94, 112, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STUAnimBlendTree_PlayAnimCancelItem[] m_D1A08C94;
 
-        [STUField(0xA6C3E336, 128)] // size: 16
-        public teString m_A6C3E336;
-
-        [STUField(0xEBE9C76B, 144)] // size: 16
-        public teString m_EBE9C76B;
-
-        [STUField(0x774B528F, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x774B528F, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_99CD2290 m_774B528F;
 
-        [STUField(0xB622C2CF, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB622C2CF, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_9EEF8557 m_B622C2CF;
 
-        [STUField(0x6F1F8CD6, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6F1F8CD6, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_F583245B m_6F1F8CD6;
 
-        [STUField(0x5EF941B5, 184)] // size: 8
-        public teVec2 m_5EF941B5;
-
-        [STUField(0xB2E34614, 192)] // size: 4
+        [STUField(0xB2E34614, 152)] // size: 4
         public STUPlayAnimSlot m_B2E34614;
 
-        [STUField(0x9EFA9957, 196)] // size: 4
+        [STUField(0x9EFA9957, 156)] // size: 4
         public float m_9EFA9957;
 
-        [STUField(0xD2A155F9, 200)] // size: 4
+        [STUField(0xD2A155F9, 160)] // size: 4
         public Enum_9250F4C2 m_D2A155F9;
 
-        [STUField(0xCF30A8E3, 204)] // size: 4
-        public uint m_CF30A8E3;
-
-        [STUField(0x81A7BF86, 208)] // size: 2
+        [STUField(0x81A7BF86, 164)] // size: 2
         public ushort m_81A7BF86;
 
-        [STUField(0x5691FD28, 210)] // size: 1
+        [STUField(0x5691FD28, 166)] // size: 1
         public byte m_5691FD28;
 
-        [STUField(0x72E74657, 211)] // size: 1
+        [STUField(0x72E74657, 167)] // size: 1
         public byte m_72E74657;
 
-        [STUField(0x46544BA5, 212)] // size: 1
+        [STUField(0x46544BA5, 168)] // size: 1
         public byte m_46544BA5;
 
-        [STUField(0x881FEF39, 213)] // size: 1
+        [STUField(0x881FEF39, 169)] // size: 1
         public byte m_881FEF39;
     }
 
-    [STU(0x8A8255AF, 160)]
+    [STU(0x8A8255AF, 120)]
     public class STU_8A8255AF : STUStatescriptAction
     {
-        [STUField(0x5FAC4660, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5FAC4660, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5FAC4660;
 
-        [STUField(0x5CF63914, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5CF63914, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5CF63914;
     }
 
-    [STU(0x8AE03503, 272)]
+    [STU(0x8AE03503, 232)]
     public class STU_8AE03503 : STUStatescriptState
     {
-        [STUField(0xC3B4D88F, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC3B4D88F, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C3B4D88F;
 
-        [STUField(0x8616C860, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8616C860, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8616C860;
 
-        [STUField(0x5326DCF7, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5326DCF7, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_5326DCF7;
 
-        [STUField(0x35F6D4B9, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x35F6D4B9, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_35F6D4B9;
 
-        [STUField(0x0619C597, 264)] // size: 4
+        [STUField(0x0619C597, 224)] // size: 4
         public Enum_B3FCE7D5 m_type;
     }
 
@@ -4680,12 +5107,12 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x8B1228DD, 144)]
+    [STU(0x8B1228DD, 104)]
     public class STU_8B1228DD : STUStatescriptAction
     {
     }
 
-    [STU(0x8B33BAD9, 232)]
+    [STU(0x8B33BAD9, 192)]
     public class STU_8B33BAD9 : STUStatescriptState
     {
     }
@@ -4718,13 +5145,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_39A13B37;
     }
 
-    [STU(0x8D60204F, 280)]
+    [STU(0x8D60204F, 304)]
     public class STU_8D60204F : STU_4B6F9A4C
     {
-        [STUField(0x6594BDEB, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 248
+        [STUField(0x6594BDEB, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 272
         public STU_9FC4D0BC m_6594BDEB;
 
-        [STUField(0xD697B92C, 256, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
+        [STUField(0xD697B92C, 280, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
         public STU_D11C922F m_D697B92C;
     }
 
@@ -4762,7 +5189,7 @@ namespace TankLib.STU.Types
         public byte m_0220680A = 0x0;
     }
 
-    [STU(0x8F8A3275, 144)]
+    [STU(0x8F8A3275, 104)]
     public class STU_8F8A3275 : STUStatescriptAction
     {
     }
@@ -4790,33 +5217,33 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_A7F15A16> m_F59A0BC1;
     }
 
-    [STU(0x9163D489, 256)]
+    [STU(0x9163D489, 216)]
     public class STU_9163D489 : STUStatescriptState
     {
-        [STUField(0x375BA6FE, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x375BA6FE, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_375BA6FE;
 
-        [STUField(0x5EABB487, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5EABB487, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5EABB487;
 
-        [STUField(0x1A18950A, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1A18950A, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1A18950A;
     }
 
-    [STU(0x919BE419, 376)]
+    [STU(0x919BE419, 392)]
     public class STU_919BE419 : STU_F3318C83
     {
-        [STUField(0xC1BDEB4C, 96, ReaderType = typeof(InlineInstanceFieldReader))] // size: 272
+        [STUField(0xC1BDEB4C, 96, ReaderType = typeof(InlineInstanceFieldReader))] // size: 288
         public STU_58EB761B m_C1BDEB4C;
 
-        [STUField(0x4A8CC53C, 368)] // size: 8
+        [STUField(0x4A8CC53C, 384)] // size: 8
         public long m_4A8CC53C;
     }
 
-    [STU(0x91A8DA89, 152)]
+    [STU(0x91A8DA89, 112)]
     public class STU_91A8DA89 : STUStatescriptAction
     {
-        [STUField(0xB141AAE4, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB141AAE4, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entityID;
     }
 
@@ -4834,21 +5261,31 @@ namespace TankLib.STU.Types
         public STUConfigVar m_08F80FAA;
     }
 
-    [STU(0x920B25D1, 176)]
+    [STU(0x920B25D1, 120)]
     public class STU_920B25D1 : STU_0B30753A
     {
-        [STUField(0x20D151F5, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x20D151F5, 96, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_2F21456C m_destination;
 
-        [STUField(0xF0A29942, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF0A29942, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_C678F0AE m_F0A29942;
 
-        [STUField(0x3A0225AD, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3A0225AD, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_BC6A353E m_3A0225AD;
+    }
+
+    [STU(0x928A775F, 8)]
+    public class STU_928A775F : STU_BFE8C97B
+    {
     }
 
     [STU(0x92AD948D, 16)]
     public class STU_92AD948D : STUConfigVarIntBase
+    {
+    }
+
+    [STU(0x92E300CD, 16)]
+    public class STU_92E300CD : STU_4798EB4E
     {
     }
 
@@ -4871,19 +5308,19 @@ namespace TankLib.STU.Types
         public int m_F68E2B60;
     }
 
-    [STU(0x93088159, 272)]
+    [STU(0x93088159, 232)]
     public class STU_93088159 : STUStatescriptState
     {
-        [STUField(0x36A65239, 232)] // size: 16
+        [STUField(0x36A65239, 192)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier> m_36A65239;
 
-        [STUField(0x14EDDDA7, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x14EDDDA7, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_14EDDDA7;
 
-        [STUField(0x0134037F, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0134037F, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0134037F;
 
-        [STUField(0xA60150E2, 264)] // size: 4
+        [STUField(0xA60150E2, 224)] // size: 4
         public uint m_A60150E2;
     }
 
@@ -4915,6 +5352,45 @@ namespace TankLib.STU.Types
         public int m_D202A3D3;
     }
 
+    [STU(0x935D1D81, 736)]
+    public class STU_935D1D81 : STU_4B6F9A4C
+    {
+        [STUField(0xA7AC6320, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
+        public STU_0969F368 m_A7AC6320;
+
+        [STUField(0x0226D572, 208, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
+        public STU_AD4FD165 m_0226D572;
+
+        [STUField(0xD697B92C, 408, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
+        public STU_D11C922F m_D697B92C;
+
+        [STUField(0xA462421E, 432, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
+        public STU_545C1F60 m_A462421E;
+
+        [STUField(0xB72D3502, 480, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
+        public STU_7B29D635 m_B72D3502;
+
+        [STUField(0xBA188540, 528, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
+        public STU_FD011D1C m_BA188540;
+
+        [STUField(0xD0C09ED9, 576, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
+        public STU_A94880E3 m_D0C09ED9;
+
+        [STUField(0xB6D26A37, 624, ReaderType = typeof(InlineInstanceFieldReader))] // size: 48
+        public STU_95A02A46 m_B6D26A37;
+
+        [STUField(0xB095E488, 672, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        public STU_E47FEDBB m_B095E488;
+
+        [STUField(0x6A8E244E, 704, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        public STU_7FF01065 m_6A8E244E;
+    }
+
+    [STU(0x937B3195, 8)]
+    public class STU_937B3195 : STU_BFE8C97B
+    {
+    }
+
     [STU(0x93CBF16B, 40)]
     public class STU_93CBF16B : STUConfigVarResource
     {
@@ -4944,6 +5420,18 @@ namespace TankLib.STU.Types
     {
         [STUField(0x3CFA3EE6, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_locale;
+    }
+
+    [STU(0x955803AD, 40)]
+    public class STU_955803AD : STU_4F8577CA
+    {
+        [STUField(0x91A9D4CC, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_91A9D4CC;
+    }
+
+    [STU(0x95BF4649, 8)]
+    public class STU_95BF4649 : STUInstance
+    {
     }
 
     [STU(0x95FA12D3, 64)]
@@ -5006,7 +5494,7 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0x991338AF, 144)]
+    [STU(0x991338AF, 104)]
     public class STU_991338AF : STUStatescriptAction
     {
     }
@@ -5018,13 +5506,13 @@ namespace TankLib.STU.Types
         public teString m_274B247F;
     }
 
-    [STU(0x9A8A2FF9, 248)]
+    [STU(0x9A8A2FF9, 208)]
     public class STU_9A8A2FF9 : STUStatescriptState
     {
-        [STUField(0xDAF86B4D, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xDAF86B4D, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_DAF86B4D;
 
-        [STUField(0xBB16810A, 240)] // size: 4
+        [STUField(0xBB16810A, 200)] // size: 4
         public Enum_CFA4D0E5 m_priority = Enum_CFA4D0E5.xEDBCEDED;
     }
 
@@ -5038,18 +5526,33 @@ namespace TankLib.STU.Types
         public STUConfigVar m_42D93DC0;
     }
 
-    [STU(0x9C109BBF, 160)]
+    [STU(0x9B81B913, 16)]
+    public class STU_9B81B913 : STU_4798EB4E
+    {
+    }
+
+    [STU(0x9C109BBF, 120)]
     public class STU_9C109BBF : STUStatescriptAction
     {
-        [STUField(0x63CB0D07, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x63CB0D07, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_63CB0D07;
 
-        [STUField(0x3C4D5889, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3C4D5889, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_3C4D5889;
+    }
+
+    [STU(0x9CB4291F, 16)]
+    public class STU_9CB4291F : STU_4798EB4E
+    {
     }
 
     [STU(0x9CB72205, 16)]
     public class STU_9CB72205 : STUConfigVarIntBase
+    {
+    }
+
+    [STU(0x9E73DD81, 8)]
+    public class STU_9E73DD81 : STU_BFE8C97B
     {
     }
 
@@ -5269,13 +5772,13 @@ namespace TankLib.STU.Types
         public byte m_5B38F6A1;
     }
 
-    [STU(0xA1DF3B2D, 160)]
+    [STU(0xA1DF3B2D, 120)]
     public class STU_A1DF3B2D : STUStatescriptAction
     {
-        [STUField(0x4F64C1D3, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4F64C1D3, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4F64C1D3;
 
-        [STUField(0x9E580984, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9E580984, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_9E580984;
     }
 
@@ -5332,10 +5835,10 @@ namespace TankLib.STU.Types
         public STUConfigVar m_target;
     }
 
-    [STU(0xA34BA7E9, 152)]
+    [STU(0xA34BA7E9, 112)]
     public class STU_A34BA7E9 : STUStatescriptAction
     {
-        [STUField(0xAA19697A, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAA19697A, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_AA19697A;
     }
 
@@ -5382,9 +5885,14 @@ namespace TankLib.STU.Types
         public STUConfigVar m_entity;
     }
 
-    [STU(0xA436E6A5, 32)]
+    [STU(0xA436E6A5, 64)]
     public class STU_A436E6A5 : STU_21276722
     {
+        [STUField(0x37AB13D3, 32)] // size: 16
+        public teStructuredDataAssetRef<STUHero> m_hero;
+
+        [STUField(0x31E8256F, 48)] // size: 16
+        public teStructuredDataAssetRef<STU_CBD8CDF3>[] m_31E8256F;
     }
 
     [STU(0xA499C365, 40)]
@@ -5419,12 +5927,17 @@ namespace TankLib.STU.Types
         public STUConfigVar m_25252423;
     }
 
-    [STU(0xA5BA4E77, 96)]
+    [STU(0xA510976F, 24)]
+    public class STU_A510976F : STU_676C6732
+    {
+    }
+
+    [STU(0xA5BA4E77, 40)]
     public class STU_A5BA4E77 : STU_FCDF431D
     {
     }
 
-    [STU(0xA5C37F47, 144)]
+    [STU(0xA5C37F47, 104)]
     public class STU_A5C37F47 : STUStatescriptAction
     {
     }
@@ -5439,10 +5952,10 @@ namespace TankLib.STU.Types
         public uint m_4E16CE9A;
     }
 
-    [STU(0xA6DE4D71, 248)]
+    [STU(0xA6DE4D71, 192)]
     public class STU_A6DE4D71 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 104
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 104
         public STU_13CAF4F2 m_F891229F;
     }
 
@@ -5459,10 +5972,10 @@ namespace TankLib.STU.Types
         public int m_position;
     }
 
-    [STU(0xA70CCE0D, 264)]
+    [STU(0xA70CCE0D, 208)]
     public class STU_A70CCE0D : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 120
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 120
         public STU_DE765E10 m_F891229F;
     }
 
@@ -5476,36 +5989,36 @@ namespace TankLib.STU.Types
         public STU_0B5C5FB3 m_89F953D0;
     }
 
-    [STU(0xA7D47BFB, 160)]
+    [STU(0xA7D47BFB, 184)]
     public class STU_A7D47BFB : STU_A69B15DF
     {
-        [STUField(0xBD0C1FCC, 80, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xBD0C1FCC, 104, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_BD0C1FCC;
 
-        [STUField(0xAB865FDF, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAB865FDF, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_AB865FDF;
 
-        [STUField(0x7A205EAB, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7A205EAB, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_7A205EAB;
 
-        [STUField(0x5C37D901, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5C37D901, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_5C37D901;
     }
 
-    [STU(0xA7D5607F, 160)]
+    [STU(0xA7D5607F, 120)]
     public class STU_A7D5607F : STUStatescriptAction
     {
-        [STUField(0x0A2195B6, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0A2195B6, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0A2195B6;
 
-        [STUField(0x71220093, 152)] // size: 1
+        [STUField(0x71220093, 112)] // size: 1
         public byte m_71220093 = 0x0;
     }
 
-    [STU(0xA810F649, 256)]
+    [STU(0xA810F649, 200)]
     public class STU_A810F649 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 112
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 112
         public STU_C3D42AEF m_F891229F;
     }
 
@@ -5523,23 +6036,23 @@ namespace TankLib.STU.Types
         public teString m_text;
     }
 
-    [STU(0xA97E6999, 312)]
+    [STU(0xA97E6999, 272)]
     public class STU_A97E6999 : STUStatescriptStateStack
     {
-        [STUField(0xF94DAB61, 280)] // size: 16
+        [STUField(0xF94DAB61, 240)] // size: 16
         public teStructuredDataAssetRef<STUDataFlow> m_F94DAB61;
 
-        [STUField(0x0619C597, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0619C597, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_0AE18767 m_type;
 
-        [STUField(0x903D0FE7, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x903D0FE7, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_903D0FE7;
     }
 
-    [STU(0xA98DD04B, 240)]
+    [STU(0xA98DD04B, 200)]
     public class STU_A98DD04B : STUStatescriptState
     {
-        [STUField(0x377E0A82, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x377E0A82, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_377E0A82;
     }
 
@@ -5575,13 +6088,20 @@ namespace TankLib.STU.Types
         public byte m_38214912 = 0x0;
     }
 
-    [STU(0xAA789B0D, 720)]
+    [STU(0xAA21FAAF, 40)]
+    public class STU_AA21FAAF : STUConfigVarResource
+    {
+        [STUField(0x0D0FAFDC, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_0D0FAFDC;
+    }
+
+    [STU(0xAA789B0D, 664)]
     public class STU_AA789B0D : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 568
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 568
         public STU_53D7245D m_F891229F;
 
-        [STUField(0x3BF203CD, 712, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3BF203CD, 656, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_3BF203CD;
     }
 
@@ -5599,22 +6119,22 @@ namespace TankLib.STU.Types
         public STUConfigVar m_hero;
     }
 
-    [STU(0xAABE3901, 192)]
+    [STU(0xAABE3901, 136)]
     public class STU_AABE3901 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_3466AA12 m_F891229F;
 
-        [STUField(0xED9A28ED, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED9A28ED, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_crouchMovement;
 
-        [STUField(0x9556D6E4, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9556D6E4, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_crouch;
 
-        [STUField(0xBDD95289, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBDD95289, 120, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_movement;
 
-        [STUField(0x45A7A69C, 184, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x45A7A69C, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_default;
     }
 
@@ -5637,11 +6157,18 @@ namespace TankLib.STU.Types
         public teVec2 m_0CD83DF7;
     }
 
-    [STU(0xAB9B30EF, 304)]
+    [STU(0xAB9B30EF, 264)]
     public class STU_AB9B30EF : STU_627A461C
     {
-        [STUField(0xCC7C6F4B, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xCC7C6F4B, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_CC7C6F4B;
+    }
+
+    [STU(0xABBCC773, 56)]
+    public class STU_ABBCC773 : STU_8D9C9892
+    {
+        [STUField(0xB299B51F, 40, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_95E7BF60[] m_B299B51F;
     }
 
     [STU(0xAC0B4B19, 24)]
@@ -5651,13 +6178,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_EE8626EF;
     }
 
-    [STU(0xAC29FFB9, 248)]
+    [STU(0xAC29FFB9, 208)]
     public class STU_AC29FFB9 : STUStatescriptState
     {
-        [STUField(0x5A6D4FBD, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5A6D4FBD, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5A6D4FBD;
 
-        [STUField(0xF92402E9, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF92402E9, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_answer;
     }
 
@@ -5671,6 +6198,11 @@ namespace TankLib.STU.Types
         public STUConfigVar m_bone;
     }
 
+    [STU(0xAC6F564F, 8)]
+    public class STU_AC6F564F : STU_BFE8C97B
+    {
+    }
+
     [STU(0xACACAD83, 56)]
     public class STU_ACACAD83 : STU_904BFCEC
     {
@@ -5678,7 +6210,7 @@ namespace TankLib.STU.Types
         public STUConfigVar m_value;
     }
 
-    [STU(0xAD64070D, 96)]
+    [STU(0xAD64070D, 40)]
     public class STU_AD64070D : STU_FCDF431D
     {
     }
@@ -5690,13 +6222,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_hero;
     }
 
-    [STU(0xADAFD7FF, 152)]
+    [STU(0xADAFD7FF, 112)]
     public class STU_ADAFD7FF : STUStatescriptAction
     {
-        [STUField(0xF3733689, 144)] // size: 1
+        [STUField(0xF3733689, 104)] // size: 1
         public byte m_F3733689;
 
-        [STUField(0x79252765, 145)] // size: 1
+        [STUField(0x79252765, 105)] // size: 1
         public byte m_79252765;
     }
 
@@ -5714,22 +6246,22 @@ namespace TankLib.STU.Types
         public Enum_89B373E9 m_3CE40E49;
     }
 
-    [STU(0xAE99F2C7, 280)]
+    [STU(0xAE99F2C7, 240)]
     public class STU_AE99F2C7 : STU_BBF32277
     {
-        [STUField(0x4498ADD3, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4498ADD3, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4498ADD3;
 
-        [STUField(0xF88859BA, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF88859BA, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F88859BA;
 
-        [STUField(0x6D1BDE54, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6D1BDE54, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_6D1BDE54;
 
-        [STUField(0x4F232A5C, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4F232A5C, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4F232A5C;
 
-        [STUField(0x51609D56, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x51609D56, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_51609D56;
     }
 
@@ -5800,73 +6332,73 @@ namespace TankLib.STU.Types
         public STU_907ED04A[] m_entries;
     }
 
-    [STU(0xB246516D, 440)]
+    [STU(0xB246516D, 400)]
     public class STU_B246516D : STU_43DE3481
     {
-        [STUField(0x9E160CFA, 248, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0x9E160CFA, 208, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_079DC323[] m_9E160CFA;
 
-        [STUField(0x8375FB5C, 264)] // size: 16
+        [STUField(0x8375FB5C, 224)] // size: 16
         public teStructuredDataAssetRef<STU_6BE90C5C> m_8375FB5C;
 
-        [STUField(0x4A5CA514, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4A5CA514, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4A5CA514;
 
-        [STUField(0x1C801B34, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1C801B34, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1C801B34;
 
-        [STUField(0x0B1FCF3D, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0B1FCF3D, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0B1FCF3D;
 
-        [STUField(0x9AAEC1FA, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9AAEC1FA, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9AAEC1FA;
 
-        [STUField(0x946B65F4, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x946B65F4, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_946B65F4;
 
-        [STUField(0xB28D227C, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB28D227C, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_B28D227C;
 
-        [STUField(0x2D32308B, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2D32308B, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2D32308B;
 
-        [STUField(0x8FD6A7CF, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8FD6A7CF, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8FD6A7CF;
 
-        [STUField(0x4414F13C, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4414F13C, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4414F13C;
 
-        [STUField(0x6FCDCCC6, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6FCDCCC6, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_6FCDCCC6;
 
-        [STUField(0xDC57D156, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xDC57D156, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_DC57D156;
 
-        [STUField(0x7349BF08, 368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7349BF08, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7349BF08;
 
-        [STUField(0x26B6AA87, 376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x26B6AA87, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_26B6AA87;
 
-        [STUField(0x2FBAD6A1, 384, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2FBAD6A1, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2FBAD6A1;
 
-        [STUField(0x2BA25EC4, 392, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2BA25EC4, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2BA25EC4;
 
-        [STUField(0x5F62F0C3, 400, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5F62F0C3, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_5F62F0C3;
 
-        [STUField(0xF132486D, 408, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF132486D, 368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_F132486D;
 
-        [STUField(0xC3737535, 416, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC3737535, 376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_C3737535;
 
-        [STUField(0x1C7F29A3, 424, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1C7F29A3, 384, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_1C7F29A3;
 
-        [STUField(0x6672E4A2, 432, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6672E4A2, 392, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_6672E4A2;
     }
 
@@ -5886,13 +6418,13 @@ namespace TankLib.STU.Types
         public Enum_42D371BD m_7567E07D;
     }
 
-    [STU(0xB2725123, 160)]
+    [STU(0xB2725123, 120)]
     public class STU_B2725123 : STUStatescriptAction
     {
-        [STUField(0x216EA6DA, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x216EA6DA, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_216EA6DA;
 
-        [STUField(0x4992CB75, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4992CB75, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4992CB75;
     }
 
@@ -5903,13 +6435,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_E2D1B6BF;
     }
 
-    [STU(0xB391A063, 752)]
+    [STU(0xB391A063, 696)]
     public class STU_B391A063 : STUAnimNode_AnimationPose2d
     {
-        [STUField(0x5E009A60, 704, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
+        [STUField(0x5E009A60, 648, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
         public STU_15EF3A7E m_5E009A60;
 
-        [STUField(0x7F30576A, 728, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
+        [STUField(0x7F30576A, 672, ReaderType = typeof(InlineInstanceFieldReader))] // size: 24
         public STU_15EF3A7E m_7F30576A;
     }
 
@@ -5918,22 +6450,57 @@ namespace TankLib.STU.Types
     {
     }
 
+    [STU(0xB3FB0265, 16)]
+    public class STU_B3FB0265 : STU_EED5A356
+    {
+        [STUField(0x07DD813E, 8)] // size: 8
+        public long m_value;
+    }
+
     [STU(0xB41E24ED, 16)]
     public class STU_B41E24ED : STUConfigVarBoolBase
     {
     }
 
-    [STU(0xB4CFFDD5, 280)]
+    [STU(0xB4CFFDD5, 240)]
     public class STU_B4CFFDD5 : STU_B4CD94F4
     {
-        [STUField(0xD7321421, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD7321421, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D7321421;
 
-        [STUField(0x6EF8D923, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6EF8D923, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_6EF8D923;
     }
 
-    [STU(0xB6095E21, 304)]
+    [STU(0xB540D249, 408)]
+    public class STU_B540D249 : STU_F3318C83
+    {
+        [STUField(0x11B47C68, 96)] // size: 16
+        public teUUID m_id;
+
+        [STUField(0xB48F1D22, 112)] // size: 16
+        public teString m_name;
+
+        [STUField(0xCA7E6EDC, 144)] // size: 16
+        public teString m_description;
+
+        [STUField(0x8F1335C4, 176)] // size: 16
+        public teString m_8F1335C4;
+
+        [STUField(0x0E023673, 208, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_BF4A0F3E[] m_0E023673;
+
+        [STUField(0x7FE9F87A, 376)] // size: 8
+        public ulong m_heroGUID;
+
+        [STUField(0xAE2D8911, 392)] // size: 4
+        public int m_index;
+
+        [STUField(0xEE360E05, 400)] // size: 4
+        public int m_EE360E05;
+    }
+
+    [STU(0xB6095E21, 320)]
     public class STU_B6095E21 : STU_F3318C83
     {
         [STUField(0xF314AF71, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
@@ -5948,19 +6515,25 @@ namespace TankLib.STU.Types
         [STUField(0xE456864A, 280)] // size: 4
         public int m_E456864A;
 
-        [STUField(0x597CBFDE, 288)] // size: 1
+        [STUField(0xA82FC46F, 288)] // size: 4
+        public int m_A82FC46F;
+
+        [STUField(0x987B8D3F, 296)] // size: 4
+        public int m_987B8D3F;
+
+        [STUField(0x597CBFDE, 304)] // size: 1
         public byte m_597CBFDE;
 
-        [STUField(0x5FC9B78E, 290)] // size: 1
+        [STUField(0x5FC9B78E, 306)] // size: 1
         public byte m_5FC9B78E;
 
-        [STUField(0xE265272A, 292)] // size: 1
+        [STUField(0xE265272A, 308)] // size: 1
         public byte m_E265272A;
 
-        [STUField(0x177505F4, 294)] // size: 1
+        [STUField(0x177505F4, 310)] // size: 1
         public byte m_177505F4;
 
-        [STUField(0x15C1E86C, 296)] // size: 1
+        [STUField(0x15C1E86C, 312)] // size: 1
         public byte m_15C1E86C;
     }
 
@@ -5971,75 +6544,75 @@ namespace TankLib.STU.Types
         public STU_2399BBA2[] m_503F0304;
     }
 
-    [STU(0xB61E6681, 280)]
+    [STU(0xB61E6681, 240)]
     public class STU_B61E6681 : STU_6243C374
     {
-        [STUField(0x203D6B00, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x203D6B00, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_203D6B00;
 
-        [STUField(0x9CDDC24D, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9CDDC24D, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_weight;
     }
 
-    [STU(0xB672FB8D, 200)]
+    [STU(0xB672FB8D, 144)]
     public class STU_B672FB8D : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_B7C66FFD m_F891229F;
     }
 
-    [STU(0xB6E3C77D, 280)]
+    [STU(0xB6E3C77D, 240)]
     public class STU_B6E3C77D : STUStatescriptAction
     {
-        [STUField(0x38F997AB, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x38F997AB, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entityDefinition;
 
-        [STUField(0xD749D7D8, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD749D7D8, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D749D7D8;
 
-        [STUField(0xAA26E7DD, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAA26E7DD, 120, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_AA26E7DD;
 
-        [STUField(0x7DC1550F, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7DC1550F, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_position;
 
-        [STUField(0x552BADA4, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x552BADA4, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_552BADA4;
 
-        [STUField(0xAD8E614B, 184, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAD8E614B, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_AD8E614B;
 
-        [STUField(0x1338747A, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1338747A, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1338747A;
 
-        [STUField(0x0D20DAFD, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0D20DAFD, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0D20DAFD;
 
-        [STUField(0xCA734729, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xCA734729, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_CA734729;
 
-        [STUField(0xB36D0FDD, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB36D0FDD, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_B36D0FDD;
 
-        [STUField(0xE5312022, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE5312022, 184, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E5312022;
 
-        [STUField(0x3CCE2E6D, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3CCE2E6D, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_3CCE2E6D;
 
-        [STUField(0xFB3D7C71, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xFB3D7C71, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVarFilter m_FB3D7C71;
 
-        [STUField(0x822A9EA3, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x822A9EA3, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_822A9EA3;
 
-        [STUField(0x888BCD8B, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x888BCD8B, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_888BCD8B;
 
-        [STUField(0xB74283D7, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB74283D7, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_B74283D7;
 
-        [STUField(0xB3019338, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB3019338, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_B3019338;
     }
 
@@ -6129,70 +6702,70 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xBA2FCDEB, 408)]
+    [STU(0xBA2FCDEB, 368)]
     public class STU_BA2FCDEB : STUStatescriptState
     {
-        [STUField(0x817AC279, 232)] // size: 16
+        [STUField(0x817AC279, 192)] // size: 16
         public teString m_817AC279;
 
-        [STUField(0xF649CC6C, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF649CC6C, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F649CC6C;
 
-        [STUField(0xDAD5978F, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xDAD5978F, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_DAD5978F;
 
-        [STUField(0x67B27AC7, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x67B27AC7, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_67B27AC7;
 
-        [STUField(0x35C00EA8, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x35C00EA8, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_35C00EA8;
 
-        [STUField(0xD82171D6, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD82171D6, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D82171D6;
 
-        [STUField(0xBB16810A, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBB16810A, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_priority;
 
-        [STUField(0x5E3DB2F2, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5E3DB2F2, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5E3DB2F2;
 
-        [STUField(0x2B717EC8, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2B717EC8, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_2B717EC8;
 
-        [STUField(0x8FEA3023, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8FEA3023, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_8FEA3023;
 
-        [STUField(0x534ADFD9, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x534ADFD9, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_534ADFD9;
 
-        [STUField(0x1BCC45B9, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1BCC45B9, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_1BCC45B9;
 
-        [STUField(0xEC1B83C7, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEC1B83C7, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EC1B83C7;
 
-        [STUField(0x7084DA43, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7084DA43, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7084DA43;
 
-        [STUField(0xADC02DA1, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xADC02DA1, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_ADC02DA1;
 
-        [STUField(0xA30B383E, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA30B383E, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A30B383E;
 
-        [STUField(0xED61D926, 368, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED61D926, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_radius;
 
-        [STUField(0x7DC1550F, 376, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7DC1550F, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_position;
 
-        [STUField(0xA0B58111, 384, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA0B58111, 344, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onFinishedPlug;
 
-        [STUField(0x7D31C943, 392, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7D31C943, 352, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_7D31C943;
 
-        [STUField(0xF9D59C3A, 400, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF9D59C3A, 360, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_904BFCEC m_F9D59C3A;
     }
 
@@ -6210,13 +6783,13 @@ namespace TankLib.STU.Types
         public Enum_78DABD78 m_503D6044;
     }
 
-    [STU(0xBBCD9C87, 248)]
+    [STU(0xBBCD9C87, 208)]
     public class STU_BBCD9C87 : STUStatescriptState
     {
-        [STUField(0x465AF71F, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x465AF71F, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_465AF71F;
 
-        [STUField(0x7A0B3AD1, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7A0B3AD1, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7A0B3AD1;
     }
 
@@ -6230,10 +6803,15 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_7BB5543E> m_29E273F8;
     }
 
-    [STU(0xBBF32277, 240)]
+    [STU(0xBBDFE77F, 16)]
+    public class STU_BBDFE77F : STU_4798EB4E
+    {
+    }
+
+    [STU(0xBBF32277, 200)]
     public class STU_BBF32277 : STUStatescriptState
     {
-        [STUField(0xA60150E2, 232)] // size: 4
+        [STUField(0xA60150E2, 192)] // size: 4
         public uint m_A60150E2;
     }
 
@@ -6245,6 +6823,13 @@ namespace TankLib.STU.Types
 
         [STUField(0xCB6873D7, 24)] // size: 16
         public teStructuredDataAssetRef<STUEntityDefinition>[] m_CB6873D7;
+    }
+
+    [STU(0xBDAFA62B, 40)]
+    public class STU_BDAFA62B : STU_0D3FC60E
+    {
+        [STUField(0xA5F1C73C, 24)] // size: 16
+        public teStructuredDataAssetRef<STU_BDAFA62B> m_A5F1C73C;
     }
 
     [STU(0xBE078495, 40)]
@@ -6271,15 +6856,17 @@ namespace TankLib.STU.Types
         public teString m_F99A0938;
     }
 
-    [STU(0xC0CE0087, 144)]
+    [STU(0xC0CE0087, 112)]
     public class STU_C0CE0087 : STUStatescriptAction
     {
+        [STUField(0x5F0AA815, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_5F0AA815;
     }
 
-    [STU(0xC143294D, 296)]
+    [STU(0xC143294D, 240)]
     public class STU_C143294D : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 152
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 152
         public STU_EB1C779B m_F891229F;
     }
 
@@ -6290,11 +6877,68 @@ namespace TankLib.STU.Types
         public uint m_identifier = 0x0;
     }
 
+    [STU(0xC245C085, 312)]
+    public class STU_C245C085 : STU_2C3E7D94
+    {
+        [STUField(0xFF8E0BBE, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 72
+        public STU_09B5DE67 m_FF8E0BBE;
+
+        [STUField(0xD9A9A9F1, 80, ReaderType = typeof(InlineInstanceFieldReader))] // size: 72
+        public STU_09B5DE67 m_D9A9A9F1;
+
+        [STUField(0xA4414B32, 152, ReaderType = typeof(InlineInstanceFieldReader))] // size: 72
+        public STU_09B5DE67 m_A4414B32;
+
+        [STUField(0x8C1CA6E2, 224)] // size: 16
+        public teStructuredDataAssetRef<STUTexture> m_8C1CA6E2 = 0xC0000000000000B;
+
+        [STUField(0xE5F03BD8, 240)] // size: 12
+        public teColorRGB m_E5F03BD8 = new teColorRGB(1f, 1f, 1f);
+
+        [STUField(0x747FC2BA, 252)] // size: 12
+        public teColorRGB m_747FC2BA = new teColorRGB(1f, 1f, 1f);
+
+        [STUField(0x1896A4E9, 264)] // size: 12
+        public teColorRGB m_1896A4E9 = new teColorRGB(1f, 1f, 1f);
+
+        [STUField(0x756E7CF0, 276)] // size: 4
+        public float m_756E7CF0 = 0f;
+
+        [STUField(0x3C178A03, 280)] // size: 4
+        public float m_3C178A03 = 0.5f;
+
+        [STUField(0x60F9A130, 284)] // size: 4
+        public float m_60F9A130 = 0f;
+
+        [STUField(0x9068147D, 288)] // size: 4
+        public float m_9068147D = 0f;
+
+        [STUField(0xED88C4D0, 292)] // size: 4
+        public float m_ED88C4D0 = 0.5f;
+
+        [STUField(0x1C294100, 296)] // size: 4
+        public float m_1C294100 = 0f;
+
+        [STUField(0xD2DEDB31, 300)] // size: 4
+        public float m_D2DEDB31 = 0f;
+
+        [STUField(0x6F81D09A, 304)] // size: 4
+        public float m_6F81D09A = 0.5f;
+
+        [STUField(0x9A7C0E9B, 308)] // size: 4
+        public float m_9A7C0E9B = 0f;
+    }
+
     [STU(0xC2541EA5, 64)]
     public class STU_C2541EA5 : STU_48A39D9B
     {
         [STUField(0xE1D625B8, 48)] // size: 16
         public teStructuredDataAssetRef<STUBoneLabel> m_E1D625B8;
+    }
+
+    [STU(0xC2809E7B, 16)]
+    public class STU_C2809E7B : STU_4798EB4E
+    {
     }
 
     [STU(0xC2954B69, 16)]
@@ -6342,17 +6986,17 @@ namespace TankLib.STU.Types
         public byte m_167D64C2;
     }
 
-    [STU(0xC356E3CD, 240)]
+    [STU(0xC356E3CD, 200)]
     public class STU_C356E3CD : STUStatescriptState
     {
-        [STUField(0xC17E7CA2, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC17E7CA2, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C17E7CA2;
     }
 
-    [STU(0xC3704D59, 240)]
+    [STU(0xC3704D59, 200)]
     public class STU_C3704D59 : STUStatescriptState
     {
-        [STUField(0xB889E02C, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB889E02C, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_B889E02C;
     }
 
@@ -6479,10 +7123,10 @@ namespace TankLib.STU.Types
         public STU_A001001F m_3398ECFE;
     }
 
-    [STU(0xC5EC99D9, 152)]
+    [STU(0xC5EC99D9, 112)]
     public class STU_C5EC99D9 : STUStatescriptAction
     {
-        [STUField(0x5F940155, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5F940155, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5F940155;
     }
 
@@ -6553,11 +7197,21 @@ namespace TankLib.STU.Types
         public STUConfigVar m_hardPoint;
     }
 
-    [STU(0xC83DACAF, 344)]
+    [STU(0xC83DACAF, 288)]
     public class STU_C83DACAF : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
         public STU_61810FBD m_F891229F;
+    }
+
+    [STU(0xC8467187, 384)]
+    public class STU_C8467187 : STU_7AC83411
+    {
+        [STUField(0x07E2F663, 176, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
+        public STU_1C5C04E0 m_07E2F663;
+
+        [STUField(0x0619C597, 376)] // size: 4
+        public Enum_2B5CD85D m_type;
     }
 
     [STU(0xC86CE777, 32)]
@@ -6633,16 +7287,16 @@ namespace TankLib.STU.Types
         public byte m_EB8AB54B;
     }
 
-    [STU(0xCB2B3E19, 168)]
+    [STU(0xCB2B3E19, 128)]
     public class STU_CB2B3E19 : STUStatescriptAction
     {
-        [STUField(0xF91CE1C0, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF91CE1C0, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F91CE1C0;
 
-        [STUField(0x896C40ED, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x896C40ED, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_896C40ED;
 
-        [STUField(0xA83C2C26, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA83C2C26, 120, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entity;
     }
 
@@ -6659,57 +7313,57 @@ namespace TankLib.STU.Types
         public teVec3 m_7A429A56 = new teVec3(0f, 0f, 0f);
     }
 
-    [STU(0xCC79A161, 192)]
+    [STU(0xCC79A161, 152)]
     public class STU_CC79A161 : STUStatescriptAction
     {
-        [STUField(0x0FF196C6, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0FF196C6, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_0FF196C6;
 
-        [STUField(0x66F9B811, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x66F9B811, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_66F9B811;
 
-        [STUField(0xDAF90F60, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xDAF90F60, 120, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_DAF90F60;
 
-        [STUField(0xA055CF5D, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA055CF5D, 128, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_A055CF5D;
 
-        [STUField(0x2E6C7F6C, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2E6C7F6C, 136, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_2E6C7F6C;
 
-        [STUField(0x8BF5A26F, 184)] // size: 4
+        [STUField(0x8BF5A26F, 144)] // size: 4
         public Enum_C6763D63 m_8BF5A26F;
     }
 
-    [STU(0xCCFE5483, 2008)]
+    [STU(0xCCFE5483, 1864)]
     public class STU_CCFE5483 : STU_820A411A
     {
-        [STUField(0x8F4413B1, 1800, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x8F4413B1, 1656, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_8F4413B1;
 
-        [STUField(0x4A5CA514, 1856, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x4A5CA514, 1712, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_5FF2A50C m_4A5CA514;
 
-        [STUField(0x66D29548, 1912, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
+        [STUField(0x66D29548, 1768, ReaderType = typeof(InlineInstanceFieldReader))] // size: 56
         public STU_AE03805C m_66D29548;
 
-        [STUField(0xBECCAE26, 1968, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBECCAE26, 1824, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_BECCAE26;
 
-        [STUField(0xED61D926, 1976, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED61D926, 1832, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_radius;
 
-        [STUField(0xF6862FE7, 1984, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF6862FE7, 1840, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_falloff;
 
-        [STUField(0xD80AEDB1, 1992, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD80AEDB1, 1848, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_D80AEDB1;
 
-        [STUField(0x3E3DFE0F, 2000, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x3E3DFE0F, 1856, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_00ABC9FF m_3E3DFE0F;
     }
 
-    [STU(0xCD6BA907, 184)]
+    [STU(0xCD6BA907, 200)]
     public class STU_CD6BA907 : STUInstance
     {
         [STUField(0xF5A2D9BF, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
@@ -6730,16 +7384,19 @@ namespace TankLib.STU.Types
         [STUField(0xFE277D69, 112, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_5A553571[] m_FE277D69;
 
-        [STUField(0x7949EAC6, 128)] // size: 16
+        [STUField(0xF7670BD7, 128, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_B9292D01[] m_F7670BD7;
+
+        [STUField(0x7949EAC6, 144)] // size: 16
         public ushort[] m_7949EAC6;
 
-        [STUField(0x0B4D3067, 144)] // size: 16
+        [STUField(0x0B4D3067, 160)] // size: 16
         public byte[] m_0B4D3067;
 
-        [STUField(0x7D51613A, 160)] // size: 16
-        public uint[] m_7D51613A;
+        [STUField(0x3E4ABB67, 176, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_A4FA308E[] m_3E4ABB67;
 
-        [STUField(0x995F4805, 176)] // size: 8
+        [STUField(0x995F4805, 192)] // size: 8
         public ulong m_995F4805;
     }
 
@@ -6748,42 +7405,42 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xCE7CA26F, 48)]
+    [STU(0xCE7CA26F, 72)]
     public class STU_CE7CA26F : STU_D1A190D9
     {
     }
 
-    [STU(0xCEBDAF17, 224)]
+    [STU(0xCEBDAF17, 184)]
     public class STU_CEBDAF17 : STUStatescriptAction
     {
-        [STUField(0xBC4326FF, 144)] // size: 16
+        [STUField(0xBC4326FF, 104)] // size: 16
         public teStructuredDataAssetRef<STUStat> m_stat;
 
-        [STUField(0x118D9D9F, 160)] // size: 16
+        [STUField(0x118D9D9F, 120)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_stats;
 
-        [STUField(0xD32CB484, 176)] // size: 16
+        [STUField(0xD32CB484, 136)] // size: 16
         public teStructuredDataAssetRef<STUStat>[] m_D32CB484;
 
-        [STUField(0x8DF3F6AD, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8DF3F6AD, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8DF3F6AD;
 
-        [STUField(0xAF872E86, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAF872E86, 160, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_amount;
 
-        [STUField(0xE3798C00, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE3798C00, 168, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_targets;
 
-        [STUField(0x14C5BE5B, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x14C5BE5B, 176, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_14C5BE5B;
     }
 
-    [STU(0xCED36073, 96)]
+    [STU(0xCED36073, 40)]
     public class STU_CED36073 : STU_FCDF431D
     {
     }
 
-    [STU(0xCF5571C1, 144)]
+    [STU(0xCF5571C1, 104)]
     public class STU_CF5571C1 : STUStatescriptAction
     {
     }
@@ -6813,18 +7470,18 @@ namespace TankLib.STU.Types
         public STUConfigVar m_58C5566A;
     }
 
-    [STU(0xCF8C7CC5, 248)]
+    [STU(0xCF8C7CC5, 208)]
     public class STU_CF8C7CC5 : STU_5C5EA990
     {
     }
 
-    [STU(0xCFBDA025, 160)]
+    [STU(0xCFBDA025, 120)]
     public class STU_CFBDA025 : STUStatescriptAction
     {
-        [STUField(0xA83C2C26, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA83C2C26, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entity;
 
-        [STUField(0xC2B3A670, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC2B3A670, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C2B3A670;
     }
 
@@ -6840,9 +7497,25 @@ namespace TankLib.STU.Types
         public STUConfigVar m_gameMode;
     }
 
-    [STU(0xD0C21087, 80)]
+    [STU(0xD0C21087, 104)]
     public class STU_D0C21087 : STU_A69B15DF
     {
+    }
+
+    [STU(0xD0D9CC3B, 48)]
+    public class STU_D0D9CC3B : STUInstance
+    {
+        [STUField(0xF65E9F59, 8)] // size: 16
+        public teStructuredDataAssetRef<STU_61D59E77>[] m_F65E9F59;
+
+        [STUField(0xFE3C2C2B, 24)] // size: 8
+        public teStructuredDataDateAndTime m_FE3C2C2B;
+
+        [STUField(0xA3846D5F, 32)] // size: 8
+        public teStructuredDataDateAndTime m_A3846D5F;
+
+        [STUField(0x5915AAA0, 40)] // size: 4
+        public Enum_C2CD759B m_5915AAA0;
     }
 
     [STU(0xD1A806CD, 24)]
@@ -6852,7 +7525,7 @@ namespace TankLib.STU.Types
         public STUConfigVar m_0E6FAEC2;
     }
 
-    [STU(0xD1DC7C55, 56)]
+    [STU(0xD1DC7C55, 88)]
     public class STU_D1DC7C55 : STU_5427ADC1
     {
     }
@@ -6904,14 +7577,14 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xD3BF7C39, 152)]
+    [STU(0xD3BF7C39, 112)]
     public class STU_D3BF7C39 : STUStatescriptAction
     {
-        [STUField(0x5B9017ED, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5B9017ED, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_5B9017ED;
     }
 
-    [STU(0xD3D7B8FD, 144)]
+    [STU(0xD3D7B8FD, 104)]
     public class STU_D3D7B8FD : STUStatescriptAction
     {
     }
@@ -6934,6 +7607,11 @@ namespace TankLib.STU.Types
     {
     }
 
+    [STU(0xD4B01531, 16)]
+    public class STU_D4B01531 : STU_4798EB4E
+    {
+    }
+
     [STU(0xD510D295, 16)]
     public class STU_D510D295 : STUInstance
     {
@@ -6951,6 +7629,18 @@ namespace TankLib.STU.Types
     {
         [STUField(0x07DD813E, 48)] // size: 4
         public float m_value;
+    }
+
+    [STU(0xD6DD6449, 16)]
+    public class STU_D6DD6449 : STU_4798EB4E
+    {
+    }
+
+    [STU(0xD73D4053, 24)]
+    public class STU_D73D4053 : STUConfigVarBoolBase
+    {
+        [STUField(0xED999C8B, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_celebrationType;
     }
 
     [STU(0xD788FE17, 32)]
@@ -6973,6 +7663,11 @@ namespace TankLib.STU.Types
     {
     }
 
+    [STU(0xD82D21E5, 16)]
+    public class STU_D82D21E5 : STUConfigVarStringBase
+    {
+    }
+
     [STU(0xD82DFAE3, 32)]
     public class STU_D82DFAE3 : STU_97D6F6B2
     {
@@ -6990,22 +7685,22 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<ulong> m_8D5C958B;
     }
 
-    [STU(0xD8B75937, 272)]
+    [STU(0xD8B75937, 232)]
     public class STU_D8B75937 : STUStatescriptState
     {
-        [STUField(0xA904CE0B, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA904CE0B, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptInputPlug m_A904CE0B;
 
-        [STUField(0x6E003023, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6E003023, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptInputPlug m_6E003023;
 
-        [STUField(0x5DA62D02, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5DA62D02, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onAbortPlug;
 
-        [STUField(0xA0B58111, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA0B58111, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onFinishedPlug;
 
-        [STUField(0x2B98273A, 264)] // size: 4
+        [STUField(0x2B98273A, 224)] // size: 4
         public float m_2B98273A = 0f;
     }
 
@@ -7067,6 +7762,13 @@ namespace TankLib.STU.Types
         public byte m_F8996556;
     }
 
+    [STU(0xD94AC203, 24)]
+    public class STU_D94AC203 : STUConfigVarFloatBase
+    {
+        [STUField(0x8E1C8732, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_8E1C8732;
+    }
+
     [STU(0xD98AE419, 32)]
     public class STU_D98AE419 : STUInstance
     {
@@ -7077,16 +7779,16 @@ namespace TankLib.STU.Types
         public STU_00ABC9FF m_64F87F5E;
     }
 
-    [STU(0xD98C2699, 336)]
+    [STU(0xD98C2699, 296)]
     public class STU_D98C2699 : STU_B0C1EEEA
     {
-        [STUField(0x89440237, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x89440237, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_89440237;
 
-        [STUField(0xA5DA8EA9, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA5DA8EA9, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A5DA8EA9;
 
-        [STUField(0xC42F83F7, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC42F83F7, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C42F83F7;
     }
 
@@ -7097,14 +7799,24 @@ namespace TankLib.STU.Types
         public ulong m_34C6805F;
     }
 
-    [STU(0xDA0A88F9, 144)]
+    [STU(0xDA0A88F9, 104)]
     public class STU_DA0A88F9 : STUStatescriptAction
     {
     }
 
-    [STU(0xDA1C9A21, 72)]
+    [STU(0xDA1C9A21, 16)]
     public class STU_DA1C9A21 : STU_15043B61
     {
+    }
+
+    [STU(0xDA3C8043, 40)]
+    public class STU_DA3C8043 : STUInstance
+    {
+        [STUField(0xB91CFF97, 8)] // size: 16
+        public teStructuredDataAssetRef<STU_DA3C8043> m_base;
+
+        [STUField(0xE16EF95E, 24, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_70C6449D[] m_E16EF95E;
     }
 
     [STU(0xDA5562E3, 128)]
@@ -7129,7 +7841,7 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<ulong> m_F83BCB43;
 
         [STUField(0xAF9D3A0C, 48)] // size: 16
-        public teQuat m_rotation = new teQuat(0.96593f, 0f, 0f, 0.25882f);
+        public teQuat m_rotation = new teQuat(0.96592593f, 0f, 0f, 0.25881907f);
 
         [STUField(0xC3E03C7F, 64)] // size: 12
         public teColorRGB m_color = new teColorRGB(1f, 1f, 1f);
@@ -7153,7 +7865,7 @@ namespace TankLib.STU.Types
         public byte m_A9EA3C49 = 0x1;
     }
 
-    [STU(0xDADD0A1D, 48)]
+    [STU(0xDADD0A1D, 56)]
     public class STU_DADD0A1D : STUConfigVarVecBase
     {
         [STUField(0xCFEC5F76, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
@@ -7165,7 +7877,10 @@ namespace TankLib.STU.Types
         [STUField(0xED584F48, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_ED584F48;
 
-        [STUField(0xC3681302, 40)] // size: 4
+        [STUField(0xBA7D1A3A, 40, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_BA7D1A3A;
+
+        [STUField(0xC3681302, 48)] // size: 4
         public Enum_4948E1AA m_C3681302 = Enum_4948E1AA.xD17BAC67;
     }
 
@@ -7179,6 +7894,22 @@ namespace TankLib.STU.Types
     {
         [STUField(0xD05C0494, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D05C0494;
+    }
+
+    [STU(0xDB0493A3, 48)]
+    public class STU_DB0493A3 : STU_81A0D23F
+    {
+        [STUField(0x7FE9F87A, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_heroGUID;
+
+        [STUField(0xA6DDEB43, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_A6DDEB43;
+
+        [STUField(0xDDFBB29F, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_DDFBB29F;
+
+        [STUField(0xF99D9D47, 40, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_F99D9D47;
     }
 
     [STU(0xDBD5E593, 32)]
@@ -7198,7 +7929,7 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_8B0E97DC> m_4A863C6F;
 
         [STUField(0x91A9D4CC, 24)] // size: 16
-        public teStructuredDataAssetRef<STU_BDDF370E> m_91A9D4CC;
+        public teStructuredDataAssetRef<STU_DF0481B0> m_91A9D4CC;
 
         [STUField(0x913C648E, 40)] // size: 4
         public int m_913C648E;
@@ -7301,6 +8032,11 @@ namespace TankLib.STU.Types
         public float m_83CE3EB5 = -1f;
     }
 
+    [STU(0xDE02DFC9, 8)]
+    public class STU_DE02DFC9 : STU_BFE8C97B
+    {
+    }
+
     [STU(0xDE13F8C7, 32)]
     public class STU_DE13F8C7 : STUConfigVarResource
     {
@@ -7320,21 +8056,44 @@ namespace TankLib.STU.Types
         public teStructuredDataHashMap<STU_5D663F1C> m_9325DFD8;
     }
 
+    [STU(0xDFCD06EF, 88)]
+    public class STU_DFCD06EF : STUCriteria
+    {
+        [STUField(0xA17CF0DE, 48)] // size: 16
+        public teStructuredDataAssetRef<STU_A6E6441F> m_A17CF0DE;
+
+        [STUField(0x7B8073AD, 64)] // size: 16
+        public teStructuredDataAssetRef<STUIdentifier> m_7B8073AD;
+
+        [STUField(0x745C9F6B, 80)] // size: 4
+        public int m_745C9F6B;
+    }
+
+    [STU(0xE03A3A03, 24)]
+    public class STU_E03A3A03 : STU_87B3F8AE
+    {
+        [STUField(0xABC68B33, 8, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_ABC68B33;
+
+        [STUField(0x2AFC083F, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_2AFC083F;
+    }
+
     [STU(0xE06BC9E7, 16)]
     public class STU_E06BC9E7 : STUConfigVarNumeric
     {
     }
 
-    [STU(0xE0867067, 256)]
+    [STU(0xE0867067, 216)]
     public class STU_E0867067 : STUStatescriptState
     {
-        [STUField(0x77D11345, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x77D11345, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_77D11345;
 
-        [STUField(0xBB16810A, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBB16810A, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_priority;
 
-        [STUField(0x8E9BF259, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8E9BF259, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_493E07C9 m_8E9BF259;
     }
 
@@ -7432,66 +8191,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_00903303;
     }
 
-    [STU(0xE1B45A3F, 152)]
-    public class STU_E1B45A3F : STUInstance
-    {
-        [STUField(0x081724C6, 0, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
-        public STU_C02C4EC2[] m_081724C6;
-
-        [STUField(0xFBA92198, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
-        public STU_500F2EBF[] m_FBA92198;
-
-        [STUField(0x11188EAD, 32)] // size: 16
-        public byte[] m_11188EAD;
-
-        [STUField(0x12A1A837, 48)] // size: 16
-        public byte[] m_12A1A837;
-
-        [STUField(0x7A206AA7, 64)] // size: 16
-        public byte[] m_7A206AA7;
-
-        [STUField(0xE3CE331D, 80)] // size: 12
-        public teVec3 m_E3CE331D;
-
-        [STUField(0xA69DF1ED, 92)] // size: 12
-        public teVec3 m_A69DF1ED;
-
-        [STUField(0xA749D7DA, 104)] // size: 12
-        public teVec3 m_A749D7DA;
-
-        [STUField(0x843245B3, 116)] // size: 4
-        public float m_843245B3;
-
-        [STUField(0x36943086, 120)] // size: 4
-        public float m_36943086;
-
-        [STUField(0xAE8FAAAE, 124)] // size: 4
-        public float m_AE8FAAAE;
-
-        [STUField(0x37FA1498, 128)] // size: 4
-        public float m_37FA1498;
-
-        [STUField(0x90783DFF, 132)] // size: 4
-        public float m_90783DFF;
-
-        [STUField(0x3F52AC56, 136)] // size: 4
-        public float m_3F52AC56;
-
-        [STUField(0xCAA87F90, 140)] // size: 4
-        public float m_CAA87F90;
-
-        [STUField(0xD676DE61, 144)] // size: 4
-        public float m_D676DE61;
-
-        [STUField(0x6E8461E0, 148)] // size: 1
-        public byte m_6E8461E0;
-
-        [STUField(0x64D63FF8, 149)] // size: 1
-        public byte m_64D63FF8;
-    }
-
     [STU(0xE1B68D2D, 8)]
     public class STU_E1B68D2D : STU_99C76CCD
+    {
+    }
+
+    [STU(0xE2138AC3, 104)]
+    public class STU_E2138AC3 : STUStatescriptAction
     {
     }
 
@@ -7524,6 +8230,25 @@ namespace TankLib.STU.Types
         public STUConfigVar m_key;
     }
 
+    [STU(0xE3AE516F, 32)]
+    public class STU_E3AE516F : STUInstance
+    {
+        [STUField(0x9FBC8212, 0, ReaderType = typeof(InlineInstanceFieldReader))] // size: 8
+        public STU_57B790AB m_9FBC8212;
+
+        [STUField(0x113CBC51, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 8
+        public STU_57B790AB m_113CBC51;
+
+        [STUField(0x872E6F7B, 16)] // size: 8
+        public teStructuredDataDateAndTime m_872E6F7B;
+
+        [STUField(0x0D0E7006, 24)] // size: 4
+        public float m_0D0E7006;
+
+        [STUField(0x8924D284, 28)] // size: 1
+        public byte m_8924D284;
+    }
+
     [STU(0xE3E5C677, 24)]
     public class STU_E3E5C677 : STUConfigVarStringBase
     {
@@ -7554,6 +8279,34 @@ namespace TankLib.STU.Types
         public teStructuredDataAssetRef<STU_7C128E17> m_3C4D5889;
     }
 
+    [STU(0xE5D8C51F, 104)]
+    public class STU_E5D8C51F : STUInstance
+    {
+        [STUField(0xB48F1D22, 0)] // size: 16
+        public teString m_name;
+
+        [STUField(0xC65AA24E, 16)] // size: 16
+        public teString m_C65AA24E;
+
+        [STUField(0x5A98DD1B, 32)] // size: 16
+        public int[] m_5A98DD1B;
+
+        [STUField(0xE612FB66, 48)] // size: 8
+        public ulong m_E612FB66;
+
+        [STUField(0xB8938E78, 56)] // size: 16
+        public teColorRGBA m_backgroundColor;
+
+        [STUField(0xE3C80AC9, 72)] // size: 16
+        public teColorRGBA m_E3C80AC9;
+
+        [STUField(0xA10A5EAF, 88)] // size: 8
+        public teVec2 m_pos;
+
+        [STUField(0xE3B4FA5C, 96)] // size: 4
+        public int m_uniqueID;
+    }
+
     [STU(0xE5EA3F4D, 16)]
     public class STU_E5EA3F4D : STU_2588E787
     {
@@ -7561,10 +8314,10 @@ namespace TankLib.STU.Types
         public STU_9374DE30 m_7257714C;
     }
 
-    [STU(0xE6118369, 240)]
+    [STU(0xE6118369, 200)]
     public class STU_E6118369 : STUStatescriptState
     {
-        [STUField(0xE101F943, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE101F943, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E101F943;
     }
 
@@ -7591,41 +8344,46 @@ namespace TankLib.STU.Types
         public Enum_1570A530 m_A23BD00E;
     }
 
-    [STU(0xE785C74B, 280)]
+    [STU(0xE73210D3, 8)]
+    public class STU_E73210D3 : STUInstance
+    {
+    }
+
+    [STU(0xE785C74B, 240)]
     public class STU_E785C74B : STUStatescriptState
     {
-        [STUField(0xF422B42A, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF422B42A, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_F422B42A;
 
-        [STUField(0x005A2D8E, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x005A2D8E, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_005A2D8E;
 
-        [STUField(0xEB3FE738, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEB3FE738, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_EB3FE738;
 
-        [STUField(0x66FE6E46, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x66FE6E46, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_66FE6E46;
 
-        [STUField(0x5DA62D02, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5DA62D02, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onAbortPlug;
 
-        [STUField(0xA0B58111, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA0B58111, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_onFinishedPlug;
     }
 
-    [STU(0xE7D2C235, 312)]
+    [STU(0xE7D2C235, 272)]
     public class STU_E7D2C235 : STU_EF94F024
     {
-        [STUField(0x8AA6504F, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8AA6504F, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8AA6504F;
 
-        [STUField(0xF1C3B766, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF1C3B766, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F1C3B766;
 
-        [STUField(0x9A9E72EC, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9A9E72EC, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9A9E72EC;
 
-        [STUField(0x1C8CAED9, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1C8CAED9, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_1C8CAED9;
     }
 
@@ -7636,41 +8394,41 @@ namespace TankLib.STU.Types
         public STUConfigVar[] m_configVars;
     }
 
-    [STU(0xE820EDF7, 248)]
+    [STU(0xE820EDF7, 208)]
     public class STU_E820EDF7 : STUStatescriptState
     {
-        [STUField(0xFFA188A2, 232, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xFFA188A2, 192, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_BFA595CA[] m_values;
     }
 
-    [STU(0xE88BA88B, 312)]
+    [STU(0xE88BA88B, 272)]
     public class STU_E88BA88B : STUStatescriptState
     {
-        [STUField(0x36A65239, 232)] // size: 16
+        [STUField(0x36A65239, 192)] // size: 16
         public teStructuredDataAssetRef<STUIdentifier> m_36A65239;
 
-        [STUField(0xEDA78B80, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEDA78B80, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EDA78B80;
 
-        [STUField(0xC53D2763, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC53D2763, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C53D2763;
 
-        [STUField(0x14EDDDA7, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x14EDDDA7, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_14EDDDA7;
 
-        [STUField(0xD50954CF, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD50954CF, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D50954CF;
 
-        [STUField(0x2E6DB8EE, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2E6DB8EE, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2E6DB8EE;
 
-        [STUField(0x49EEBB65, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x49EEBB65, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_49EEBB65;
 
-        [STUField(0xFD4D6C19, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xFD4D6C19, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_FD4D6C19;
 
-        [STUField(0xA60150E2, 304)] // size: 4
+        [STUField(0xA60150E2, 264)] // size: 4
         public uint m_A60150E2;
     }
 
@@ -7699,43 +8457,43 @@ namespace TankLib.STU.Types
         public STU_F96E26CC m_F8247D7C;
     }
 
-    [STU(0xE93F8B17, 328)]
+    [STU(0xE93F8B17, 288)]
     public class STU_E93F8B17 : STUStatescriptState
     {
-        [STUField(0x9524A8D6, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9524A8D6, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9524A8D6;
 
-        [STUField(0x17A441C0, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x17A441C0, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_17A441C0;
 
-        [STUField(0xEE23357E, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEE23357E, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EE23357E;
 
-        [STUField(0x485109CB, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x485109CB, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_485109CB;
 
-        [STUField(0xA4F55B82, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA4F55B82, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A4F55B82;
 
-        [STUField(0xBF438762, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBF438762, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BF438762;
 
-        [STUField(0x0626B955, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x0626B955, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_0626B955;
 
-        [STUField(0xF1230A98, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF1230A98, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_F1230A98;
 
-        [STUField(0x41CF4BA7, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x41CF4BA7, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_41CF4BA7;
 
-        [STUField(0x4A5CA514, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4A5CA514, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4A5CA514;
 
-        [STUField(0x721250CB, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x721250CB, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_721250CB;
 
-        [STUField(0x14498988, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x14498988, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_14498988;
     }
 
@@ -7745,7 +8503,7 @@ namespace TankLib.STU.Types
     }
 
     [STU(0xE95B0BC1, 24)]
-    public class STU_E95B0BC1 : STU_43B663B6
+    public class STU_E95B0BC1 : STU_47C0A7A3
     {
     }
 
@@ -7789,26 +8547,26 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xEACF8DFB, 152)]
+    [STU(0xEACF8DFB, 112)]
     public class STU_EACF8DFB : STUStatescriptAction
     {
-        [STUField(0xD7DDEEAD, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xD7DDEEAD, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_D7DDEEAD;
     }
 
-    [STU(0xEC666059, 528)]
+    [STU(0xEC666059, 472)]
     public class STU_EC666059 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 360
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 360
         public STU_66F2015C m_F891229F;
 
-        [STUField(0x5F150DBC, 504, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x5F150DBC, 448, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_jump;
 
-        [STUField(0x4376ACB9, 512, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4376ACB9, 456, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_additiveFiring;
 
-        [STUField(0xF01470D0, 520, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xF01470D0, 464, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_A8EFC6F0 m_F01470D0;
     }
 
@@ -7825,6 +8583,16 @@ namespace TankLib.STU.Types
         public teString m_text;
     }
 
+    [STU(0xECAA71C7, 48)]
+    public class STU_ECAA71C7 : STUInstance
+    {
+        [STUField(0xB48F1D22, 0)] // size: 16
+        public teString m_name;
+
+        [STUField(0xC6CD4305, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 28
+        public STU_2C81F807 m_C6CD4305;
+    }
+
     [STU(0xED2B22BD, 24)]
     public class STU_ED2B22BD : STU_E5863169
     {
@@ -7839,30 +8607,51 @@ namespace TankLib.STU.Types
         public STUConfigVar m_entity;
     }
 
-    [STU(0xEE25ADA5, 256)]
+    [STU(0xEE25ADA5, 216)]
     public class STU_EE25ADA5 : STUStatescriptState
     {
-        [STUField(0xE75D02C7, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE75D02C7, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E75D02C7;
 
-        [STUField(0x1511D47B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1511D47B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_1511D47B;
 
-        [STUField(0xEA1C80FF, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEA1C80FF, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_EA1C80FF;
     }
 
-    [STU(0xEEA6FD79, 160)]
+    [STU(0xEE6F540F, 40)]
+    public class STU_EE6F540F : STUInstance
+    {
+        [STUField(0x45711EEC, 8, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_45711EEC;
+
+        [STUField(0x33513FE7, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_33513FE7;
+
+        [STUField(0xA28EACAB, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_A28EACAB;
+
+        [STUField(0x236C7A6B, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        public STUConfigVar m_236C7A6B;
+    }
+
+    [STU(0xEEA6FD79, 120)]
     public class STU_EEA6FD79 : STUStatescriptAction
     {
-        [STUField(0x4F64C1D3, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x4F64C1D3, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_4F64C1D3;
 
-        [STUField(0x40B6706F, 152, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x40B6706F, 112, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_40B6706F;
     }
 
-    [STU(0xEF1EE9C9, 144)]
+    [STU(0xEF0B4EAF, 288)]
+    public class STU_EF0B4EAF : STU_52AB57E9
+    {
+    }
+
+    [STU(0xEF1EE9C9, 104)]
     public class STU_EF1EE9C9 : STUStatescriptAction
     {
     }
@@ -7943,19 +8732,6 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xF3A395D5, 40)]
-    public class STU_F3A395D5 : STUConfigVarNumeric
-    {
-        [STUField(0x5B9DD0CB, 16, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
-        public STUConfigVar m_5B9DD0CB;
-
-        [STUField(0xAA19697A, 24, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
-        public STUConfigVar m_AA19697A;
-
-        [STUField(0x08F80FAA, 32, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
-        public STUConfigVar m_08F80FAA;
-    }
-
     [STU(0xF3F5F4A1, 64)]
     public class STU_F3F5F4A1 : STUInstance
     {
@@ -7963,7 +8739,7 @@ namespace TankLib.STU.Types
         public STU_3B0AEB17[] m_ADE4BF15;
 
         [STUField(0x91A9D4CC, 24)] // size: 16
-        public teStructuredDataAssetRef<STU_BDDF370E> m_91A9D4CC;
+        public teStructuredDataAssetRef<STU_DF0481B0> m_91A9D4CC;
 
         [STUField(0xEF4CC355, 40)] // size: 4
         public int m_EF4CC355;
@@ -8011,13 +8787,13 @@ namespace TankLib.STU.Types
         public STUConfigVar m_hardPoint;
     }
 
-    [STU(0xF57FD4E5, 280)]
+    [STU(0xF57FD4E5, 224)]
     public class STU_F57FD4E5 : STU_DA1C9A21
     {
-        [STUField(0x8B47E263, 72, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
+        [STUField(0x8B47E263, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 200
         public STU_8647A412 m_8B47E263;
 
-        [STUField(0x801BC827, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x801BC827, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_95ECA8A6 m_801BC827;
     }
 
@@ -8082,19 +8858,19 @@ namespace TankLib.STU.Types
         public byte m_AE5DD3CC = 0x0;
     }
 
-    [STU(0xF60310C1, 344)]
+    [STU(0xF60310C1, 304)]
     public class STU_F60310C1 : STU_B0C1EEEA
     {
-        [STUField(0x89440237, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x89440237, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_89440237;
 
-        [STUField(0x9BAE5B64, 320, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9BAE5B64, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9BAE5B64;
 
-        [STUField(0xA20085D3, 328, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA20085D3, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A20085D3;
 
-        [STUField(0xC42F83F7, 336, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC42F83F7, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C42F83F7;
     }
 
@@ -8103,46 +8879,59 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xF7216D4F, 320)]
+    [STU(0xF7216D4F, 280)]
     public class STU_F7216D4F : STUStatescriptState
     {
-        [STUField(0xEBA9B3DE, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEBA9B3DE, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EBA9B3DE;
 
-        [STUField(0x9068944B, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x9068944B, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_9068944B;
 
-        [STUField(0x975AAFD2, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x975AAFD2, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_975AAFD2;
 
-        [STUField(0x687C5242, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x687C5242, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_687C5242;
 
-        [STUField(0xC66158DC, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xC66158DC, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_C66158DC;
 
-        [STUField(0xBDA66F78, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBDA66F78, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BDA66F78;
 
-        [STUField(0xEACDBF0D, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xEACDBF0D, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_EACDBF0D;
 
-        [STUField(0x2E5B1D01, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x2E5B1D01, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_2E5B1D01;
 
-        [STUField(0xAFB65395, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xAFB65395, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_AFB65395;
 
-        [STUField(0xE9908871, 304, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE9908871, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E9908871;
 
-        [STUField(0x8A93A5B5, 312, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x8A93A5B5, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_8A93A5B5;
     }
 
     [STU(0xF781E2C9, 16)]
     public class STU_F781E2C9 : STU_8C127DE2
     {
+    }
+
+    [STU(0xF910C047, 40)]
+    public class STU_F910C047 : STUInstance
+    {
+        [STUField(0x10CEFB7E, 0)] // size: 16
+        public teString m_10CEFB7E;
+
+        [STUField(0xFA9D60A7, 16, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        public STU_1FA76927[] m_FA9D60A7;
+
+        [STUField(0xD70243D7, 32)] // size: 4
+        public Enum_95C905FA m_D70243D7;
     }
 
     [STU(0xF9392C2B, 264)]
@@ -8175,8 +8964,8 @@ namespace TankLib.STU.Types
         [STUField(0xB44A42A0, 152)] // size: 16
         public teStructuredDataAssetRef<STUCelebration> m_B44A42A0;
 
-        [STUField(0xED73DBB5, 168)] // size: 16
-        public teStructuredDataAssetRef<STUCelebration> m_ED73DBB5;
+        [STUField(0xCEC13AC8, 168)] // size: 16
+        public teStructuredDataAssetRef<ulong> m_CEC13AC8;
 
         [STUField(0x41A13472, 184)] // size: 16
         public teStructuredDataAssetRef<STUUnlock> m_41A13472;
@@ -8208,19 +8997,22 @@ namespace TankLib.STU.Types
         [STUField(0x598607FE, 252)] // size: 1
         public byte m_598607FE;
 
-        [STUField(0x4555FD85, 253)] // size: 1
+        [STUField(0x02B46E62, 253)] // size: 1
+        public byte m_02B46E62 = 0x0;
+
+        [STUField(0x4555FD85, 254)] // size: 1
         public byte m_4555FD85;
 
-        [STUField(0xBB1206C9, 254)] // size: 1
+        [STUField(0xBB1206C9, 255)] // size: 1
         public byte m_BB1206C9;
 
-        [STUField(0x995D53E6, 255)] // size: 1
+        [STUField(0x995D53E6, 256)] // size: 1
         public byte m_995D53E6;
 
-        [STUField(0x593BAEF5, 256)] // size: 1
+        [STUField(0x593BAEF5, 257)] // size: 1
         public byte m_593BAEF5;
 
-        [STUField(0xA4AF3B02, 257)] // size: 1
+        [STUField(0xA4AF3B02, 258)] // size: 1
         public byte m_A4AF3B02;
     }
 
@@ -8262,56 +9054,59 @@ namespace TankLib.STU.Types
         public STUConfigVar m_67465E75;
     }
 
-    [STU(0xFAC489FF, 304)]
+    [STU(0xFAC489FF, 264)]
     public class STU_FAC489FF : STUStatescriptState
     {
-        [STUField(0x56B8547E, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x56B8547E, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_56B8547E;
 
-        [STUField(0xBD631144, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xBD631144, 200, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_BD631144;
 
-        [STUField(0xED61D926, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xED61D926, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_radius;
 
-        [STUField(0xB96904FE, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB96904FE, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_B96904FE;
 
-        [STUField(0xCB6ABF9A, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xCB6ABF9A, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVarDynamic m_CB6ABF9A;
 
-        [STUField(0xE99C9729, 272, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xE99C9729, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_E99C9729;
 
-        [STUField(0xA67C8B54, 280, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA67C8B54, 240, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_A67C8B54;
 
-        [STUField(0x906CB77D, 288, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x906CB77D, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_906CB77D;
 
-        [STUField(0x6C433538, 296, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x6C433538, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUStatescriptOutputPlug m_6C433538;
     }
 
-    [STU(0xFB0CE29F, 104)]
+    [STU(0xFB0CE29F, 136)]
     public class STU_FB0CE29F : STUInstance
     {
-        [STUField(0xFEEFA3FC, 8)] // size: 16
+        [STUField(0xEA041952, 8, ReaderType = typeof(InlineInstanceFieldReader))] // size: 32
+        public STU_FC1608EC m_EA041952;
+
+        [STUField(0xFEEFA3FC, 40)] // size: 16
         public uint[] m_FEEFA3FC;
 
-        [STUField(0xED5E2E75, 24, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
+        [STUField(0xED5E2E75, 56, ReaderType = typeof(InlineInstanceFieldReader))] // size: 16
         public STU_2C81F807[] m_ED5E2E75;
 
-        [STUField(0x02E8E19C, 40)] // size: 16
+        [STUField(0x02E8E19C, 72)] // size: 16
         public uint[] m_02E8E19C;
 
-        [STUField(0x1552F313, 56)] // size: 16
+        [STUField(0x1552F313, 88)] // size: 16
         public teString[] m_1552F313;
 
-        [STUField(0x01CA9E57, 72)] // size: 16
+        [STUField(0x01CA9E57, 104)] // size: 16
         public uint[] m_01CA9E57;
 
-        [STUField(0x42167545, 88)] // size: 16
+        [STUField(0x42167545, 120)] // size: 16
         public teString[] m_42167545;
     }
 
@@ -8327,14 +9122,24 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xFC16FF45, 264)]
+    [STU(0xFC16FF45, 224)]
     public class STU_FC16FF45 : STU_BCD004B5
     {
-        [STUField(0xB2F9D222, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xB2F9D222, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_baseEntity;
 
-        [STUField(0x7CCD8B4B, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7CCD8B4B, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7CCD8B4B;
+    }
+
+    [STU(0xFCBBE75D, 32)]
+    public class STU_FCBBE75D : STUInstance
+    {
+        [STUField(0x5A6D4FBD, 8)] // size: 16
+        public teStructuredDataAssetRef<STUDataFlow> m_5A6D4FBD;
+
+        [STUField(0x07DD813E, 24)] // size: 4
+        public float m_value;
     }
 
     [STU(0xFD6F82D1, 16)]
@@ -8342,26 +9147,26 @@ namespace TankLib.STU.Types
     {
     }
 
-    [STU(0xFDCF01ED, 272)]
+    [STU(0xFDCF01ED, 232)]
     public class STU_FDCF01ED : STUStatescriptState
     {
-        [STUField(0x8EBF0F6D, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
+        [STUField(0x8EBF0F6D, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
         public STU_076E0DBA[] m_8EBF0F6D;
 
-        [STUField(0x13C49AF3, 248, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x13C49AF3, 208, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_13C49AF3;
 
-        [STUField(0x7A5976D9, 256, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x7A5976D9, 216, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_7A5976D9;
 
-        [STUField(0x1DEF59FA, 264, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x1DEF59FA, 224, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STU_076E0DBA m_1DEF59FA;
     }
 
-    [STU(0xFE240283, 152)]
+    [STU(0xFE240283, 112)]
     public class STU_FE240283 : STUStatescriptAction
     {
-        [STUField(0xA83C2C26, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0xA83C2C26, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_entity;
     }
 
@@ -8387,36 +9192,31 @@ namespace TankLib.STU.Types
         public float[] m_values;
     }
 
-    [STU(0xFEF82E37, 240)]
+    [STU(0xFEF82E37, 200)]
     public class STU_FEF82E37 : STUStatescriptState
     {
-        [STUField(0x5EE3D1C1, 232)] // size: 1
+        [STUField(0x5EE3D1C1, 192)] // size: 1
         public byte m_5EE3D1C1;
     }
 
-    [STU(0xFF2B80E3, 496)]
+    [STU(0xFF2B80E3, 440)]
     public class STU_FF2B80E3 : STU_81C5DE19
     {
-        [STUField(0xF891229F, 144, ReaderType = typeof(InlineInstanceFieldReader))] // size: 352
+        [STUField(0xF891229F, 88, ReaderType = typeof(InlineInstanceFieldReader))] // size: 352
         public STU_8B3170AA m_F891229F;
     }
 
-    [STU(0xFF3471E9, 160)]
+    [STU(0xFF3471E9, 120)]
     public class STU_FF3471E9 : STUStatescriptAction
     {
-        [STUField(0xBC5E91CF, 144, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
+        [STUField(0xBC5E91CF, 104, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 16
         public STU_B024BE51[] m_BC5E91CF;
     }
 
-    [STU(0xFF637D6D, 32)]
-    public class STU_FF637D6D : STU_6440565A
-    {
-    }
-
-    [STU(0xFFB1749B, 240)]
+    [STU(0xFFB1749B, 200)]
     public class STU_FFB1749B : STUStatescriptState
     {
-        [STUField(0x00D49978, 232, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
+        [STUField(0x00D49978, 192, ReaderType = typeof(EmbeddedInstanceFieldReader))] // size: 8
         public STUConfigVar m_00D49978;
     }
 

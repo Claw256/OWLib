@@ -154,7 +154,7 @@ D8,078,Turret/EnemyTurretSeen,1
 69B,078,Hack,1
 69C,078,Hack,1
 69D,078,StealthActivate,1
-69E,078,YourWelcome,1
+69E,078,YoureWelcome,1
 6A1,078,Laugh,1
 6A4,078,Junkenstein,1
 6A5,078,Junkenstein,1
@@ -487,31 +487,66 @@ D8A,078,Charging/EndPhase2,1
 148F,078,Attacking,1
 153B,078,Charging/Finished,1
 
-; Voice line StateScript 01C ids,,,
+; Voice Criteria Identifiers,,,
+A5FD,01C,UltAssist_Nano,1
+A662,01C,UltAssist_Kitsune,1
+AA26,01C,UltAssist_Blizzard,1
+A22A,01C,UltAssist_Grav,1
+A6B2,01C,UltAssist_Flux,1
+ADCB,01C,UltAssist_Shatter,1
+A617,01C,UltShutdown,1
+A697,01C,UltShutdown_NanoBoosted,1
+A6B6,01C,UltShutdown_InFlux,1
+A777,01C,UltShutdown_InGrav,1
+B9B5,01C,UltShutdown_InfrasightActive,1
 A809,01C,LongDistance,1
-A5FD,01C,NanoBoosted,1
-A697,01C,EnemyNanoBoosted,1
-A617,01C,EnemyUsingUltimate,1
-A5B5,01C,UsingUltimate,1
+AD8E,01C,ShortDistance,1
+9227,01C,Headshot,1
 9268,01C,EnemyInAir,1
 A776,01C,InAir,1
-A6FE,01C,MovingFast,1
-A753,01C,Jumped,1
 A81C,01C,LowHealth,1
+B0A3,01C,FromBehind,1
+A5B5,01C,UsingUltimate,1
+C786,01C,UsingDeflect,1
+A89E,01C,UsingHook,1
+B142,01C,UsingWinstonSecondary,1
+A90E,01C,UsingRejuvenatingDash,1
+B670,01C,UsingSplashDamage,1
+B0FB,01C,UsingStagger,1
+BBF8,01C,UsingEnergyJavelin,1
+CDD2,01C,UsingTrap,1
 A752,01C,Melee,1
 A775,01C,DirectHit,1
-AD8E,01C,EnemyClose,1
-A22A,01C,ZaryaUlt,1
-A6B2,01C,SigmaUlt,1
-9227,01C,Headshot,1
-92A4,01C,ReinhardtCharging,1
+A6FC,01C,FastMoving,1
+92A4,01C,Shutdown_ReinhardtCharge,1
+A90D,01C,Shutdown_CassidyRoll,1
+A788,01C,Shutdown_SombraStealth,1
+AF43,01C,Shutdown_Resurrected,1
+B4D2,01C,Shutdown_Bubbled,1
+BE61,01C,Shutdown_Petalled,1
+B531,01C,Shutdown_Lifegripped,1
+A753,01C,Shutdown_Leaped,1
+A893,01C,SigmaWithShoes,1
+A894,01C,SigmaWithoutShoes,1
 B87C,01C,MapNight,1
 B87D,01C,MapRaining,1
 B404,01C,RespawnAfterKillstreak,1
+AF41,01C,AfterRes,1
 AABA,01C,HealedAlly,1
-A788,01C,EnemyUnseen,1
 A966,01C,HealingBeamConnectionLowHealth,1
 A2EA,01C,HealingBeamConnected,1
+E754,01C,OverwatchClassic,1
+; Voice Criteria Tags,,,
+0037,06B,Tank,1
+0D95,06B,GreekSkin,1
+0DFF,06B,Robot,1
+0E3F,06B,GalacticEmpireSkin,1
+0E40,06B,TheWatchersSkin,1
+0E77,06B,Hazard,1
+0F11,06B,Overwatch,1
+0F5C,06B,DiabloSkin,1
+1019,06B,MirrorwatchOverwatchSkin,1
+101A,06B,MirrorwatchTalonSkin,1
 ; Each 'set' of voicelines seem to be in a separate group?,Contains 1 per hero,Kinda weird,?
 5A0,078,Voicelines,1
 5A1,078,Voicelines,1
@@ -529,6 +564,7 @@ A2EA,01C,HealingBeamConnected,1
 59D,078,Voicelines,1
 59E,078,Voicelines,1
 59F,078,Voicelines,1
+766,078,Voicelines,1
 77A,078,Voicelines,1
 77C,078,Voicelines,1
 77D,078,Voicelines,1
@@ -552,9 +588,122 @@ D00,078,Voicelines,1
 D0E,078,Voicelines,1
 D68,078,Voicelines,1
 D77,078,Voicelines,1
+DB8,078,Voicelines,1
+DE2,078,Voicelines,1
 DE5,078,Voicelines,1
 E34,078,Voicelines,1
 E89,078,Voicelines,1
+F5A,078,Voicelines,1 ; 1.59
+F8D,078,Voicelines,1 ; 1.60
+FFB,078,Voicelines,1 ; 1.62
+1094,078,Voicelines,1 ; 1.65
+1109,078,Voicelines,1 ; 1.67
+1234,078,Voicelines,1 ; s1
+1242,078,Voicelines,1 ; s1
+1244,078,Voicelines,1 ; s1
+12F6,078,Voicelines,1 ; s1 - halloween
+12F7,078,Voicelines,1 ; s1 - halloween
+1308,078,Voicelines,1 ; s2
+1311,078,Voicelines,1 ; s2
+132B,078,Voicelines,1 ; s2
+1353,078,Voicelines,1 ; s2
+1357,078,Voicelines,1 ; s3
+1358,078,Voicelines,1 ; s3
+1393,078,Voicelines,1 ; s3 - valentines
+13A1,078,Voicelines,1 ; s3
+1400,078,Voicelines,1 ; s4
+1401,078,Voicelines,1 ; s4
+1402,078,Voicelines,1 ; s4
+1496,078,Voicelines,1 ; s5
+151A,078,Voicelines,1 ; s5
+1539,078,Voicelines,1 ; s5
+1541,078,Voicelines,1 ; s6
+1542,078,Voicelines,1 ; s6
+154D,078,Voicelines,1 ; s6
+154E,078,Voicelines,1 ; s6
+15FF,078,Voicelines,1 ; s7
+1600,078,Voicelines,1 ; s7
+160E,078,Voicelines,1 ; s7
+160F,078,Voicelines,1 ; s7
+164B,078,Voicelines,1 ; s8
+16E0,078,Voicelines,1 ; s8 - lunar
+16FE,078,Voicelines,1 ; s9
+16FF,078,Voicelines,1 ; s9
+1707,078,Voicelines,1 ; s9
+173C,078,Voicelines,1 ; s10
+173D,078,Voicelines,1 ; s10
+173E,078,Voicelines,1 ; s10
+1748,078,Voicelines,1 ; s11
+1772,078,Voicelines,1 ; s11 - transformers
+1773,078,Voicelines,1 ; s11 - transformers
+1774,078,Voicelines,1 ; s11 - transformers
+1793,078,Voicelines,1 ; s12
+17BD,078,Voicelines,1 ; s12 - wow
+17DB,078,Voicelines,1 ; s13 - mha
+17E3,078,Voicelines,1 ; s13
+17ED,078,Voicelines,1 ; s12 - wow
+17F5,078,Voicelines,1 ; s14 - avatar
+17F6,078,Voicelines,1 ; s14 - avatar
+1802,078,Voicelines,1 ; s14 - avatar
+1825,078,Voicelines,1 ; s14
+1826,078,Voicelines,1 ; s14
+1827,078,Voicelines,1 ; s14
+1828,078,Voicelines,1 ; s14 - lunar/valentines
+186C,078,Voicelines,1 ; s15
+187F,078,Voicelines,1 ; s15 - april fools
+1880,078,Voicelines,1 ; s15 - april fools
+18B6,078,Voicelines,1 ; s16 - gundam
+18B7,078,Voicelines,1 ; s16 - gundam
+18B8,078,Voicelines,1 ; s16 - gundam
+18B9,078,Voicelines,1 ; s16 - gundam
+18C2,078,Voicelines,1 ; s16
+1904,078,Voicelines,1 ; s16 - street fighter
+1905,078,Voicelines,1 ; s16 - street fighter
+1921,078,Voicelines,1 ; s17
+1923,078,Voicelines,1 ; s17 - gi joe
+1924,078,Voicelines,1 ; s17 - gi joe
+1925,078,Voicelines,1 ; s17 - gi joe
+1926,078,Voicelines,1 ; s17 - gi joe
+1927,078,Voicelines,1 ; s17 - gi joe
+1929,078,Voicelines,1 ; s17 - gi joe
+192A,078,Voicelines,1 ; s17 - gi joe
+192B,078,Voicelines,1 ; s17 - gi joe
+194F,078,Voicelines,1 ; s18
+195D,078,Voicelines,1 ; s18 - persona
+195E,078,Voicelines,1 ; s18 - persona
+195F,078,Voicelines,1 ; s18 - persona
+1960,078,Voicelines,1 ; s18 - persona
+1961,078,Voicelines,1 ; s18 - persona
+1972,078,Voicelines,1 ; s19
+19B2,078,Voicelines,1 ; s20
+19D0,078,Voicelines,1 ; 2026 - s1
+19D1,078,Voicelines,1 ; 2026 - s1 - hello kitty
+19D2,078,Voicelines,1 ; 2026 - s1 - hello kitty
+19D4,078,Voicelines,1 ; 2026 - s1 - hello kitty
+19D7,078,Voicelines,1 ; 2026 - s1 - hello kitty
+19D8,078,Voicelines,1 ; 2026 - s1
+19E5,078,Voicelines,1 ; 2026 - s1 - hero progression
+19E7,078,Voicelines,1 ; 2026 - s1 - hero progression
+1A09,078,Voicelines,1 ; 2026 - s1 - april fools
+1A0A,078,Voicelines,1 ; 2026 - s2 - diablo
+1A0B,078,Voicelines,1 ; 2026 - s2 - diablo
+1A0C,078,Voicelines,1 ; 2026 - s2 - diablo
+1A0D,078,Voicelines,1 ; 2026 - s2 - diablo
+1A19,078,Voicelines,1 ; 2026 - s2
+1A1A,078,Voicelines,1 ; 2026 - s2
+1A1B,078,Voicelines,1 ; 2026 - s2
+1A20,078,Voicelines,1 ; 2026 - s3
+1A36,078,Voicelines,1 ; 2026 - s3
+1A37,078,Voicelines,1 ; 2026 - s3
+1A5D,078,Voicelines,1 ; 2026 - s3 - yoasobi
+1A5F,078,Voicelines,1 ; 2026 - s3 - yoasobi
+1A64,078,Voicelines,1 ; 2026 - s3 - yoasobi
+1A8E,078,Voicelines,1 ; 2026 - s4
+1AA6,078,Voicelines,1 ; 2026 - s4
+1AA7,078,Voicelines,1 ; 2026 - s4
+1AB8,078,Voicelines,1 ; 2026 - s4
+1AB9,078,Voicelines,1 ; 2026 - s4
+1ABA,078,Voicelines,1 ; 2026 - s4
 ; Note: Weapon models are often two entities, one for 1P, one for 3P, if they have different animations
 ; Ana,Classic,47,
 1610,003,Teabag,0
@@ -609,6 +758,8 @@ AD3F,01C,Shop,1
 C1A7,01C,Pride,1
 C760,01C,Progression,1
 CB01,01C,HeroMastery,1
+43EB,01C,Mythic,1
+107D2,01C,Stadium,1
 AD37,01C,Season1,1
 B647,01C,Season2,1
 B734,01C,Season3,1
@@ -623,6 +774,16 @@ D745,01C,Season11,1
 D748,01C,Season12,1
 D749,01C,Season13,1
 E810,01C,Season14,1
+EC03,01C,Season15,1
+EC0F,01C,Season16,1
+EC11,01C,Season17,1
+EC12,01C,Season18,1
+EC13,01C,Season19,1
+EC14,01C,Season20,1
+11932,01C,2026 Season1,1
+1257D,01C,2026 Season2,1
+127D4,01C,2026 Season3,1
+12ACA,01C,2026 Season4,1
 ; Lobby map names,,,
 664,09F,Menu/Hanamura,1
 675,09F,Menu/Gibraltar,1
@@ -697,6 +858,7 @@ F4A,09F,Menu/Ilios (Junker Queen),1
 11AD,09F,Menu/Winter Wonderland (Blizzard World Art),1
 11B4,09F,Menu/Winter Wonderland (Mercy Art),1
 1200,09F,Menu/Moira Mythic,1
+1216,09F,Menu/Mythic Shop,1
 1219,09F,Menu/Porsche Art,1
 121A,09F,Menu/Venture,1
 121E,09F,Menu/Mirrorwatch A,1
@@ -712,8 +874,38 @@ F4A,09F,Menu/Ilios (Junker Queen),1
 12A5,09F,Menu/Spellbinder Art,1
 12C6,09F,Menu/Hazard Art,1
 12C7,09F,Menu/Reinhardt Mythic,1
+12CA,09F,Menu/Avatar Collab Art,1
+12CB,09F,Menu/Ashe Lead Rose Mythic Weapon,1
+12EA,09F,Menu/China Art,1
+1300,09F,Menu/Celestial Shop Skins Art,1
+1316,09F,Menu/Zenyatta Mythic Art,1
+132D,09F,Menu/Widowmaker Dame Chance Mythic Weapon,1
+132F,09F,Menu/Juno OWCS,1
+1331,09F,Menu/LE SSERAFIM Collab Art 2,1
+1346,09F,Menu/Stadium Art 2,1
+1347,09F,Menu/Freja Art,1
+1348,09F,Menu/Gundam Collab Art 2,1
+134A,09F,Menu/Mercy Merciful Magitech Mythic Weapon,1
+1378,09F,Menu/S17 Mythics Art,1
+1379,09F,Menu/GI Joe Collab Art,1
+1389,09F,Menu/Nerf Collab Art,1
+139D,09F,Menu/Wuyang Art,1
+139F,09F,Menu/S18 Mythics 3D,1
+13A2,09F,Menu/S18 Mythics Art,1
+13AC,09F,Menu/Persona Collab Art,1
+13AD,09F,Menu/Anniversary Art,1
+13B7,09F,Menu/S19 Mythics 3D,1
+13C2,09F,Menu/S19 One Punch Man Art,1
+13C4,09F,Menu/S19 Stadium Art,1
+13C5,09F,Menu/S19 Halloween Art,1
+13CA,09F,Menu/S19 OWCS Art,1
+13DC,09F,Menu/Junkrat Mythic 3D,1
+13E9,09F,Menu/Vendetta 3D,1
+13F0,09F,Menu/S20 Christmas Art,1
+13F1,09F,Menu/S20 Mythics 3D,1
+1407,09F,Menu/Doomfist Mythic 3D,1
 ; Celebrations,,,
-2168,01C,Christmas,1
+2168,01C,Winter,1
 2498,01C,LunarNewYear,1
 237C,01C,LunarNewYear,1
 2497,01C,NewYearResolution,1
@@ -722,7 +914,51 @@ F4A,09F,Menu/Ilios (Junker Queen),1
 2658,01C,StPatricksDay,1
 2659,01C,Easter,1
 212E,01C,Halloween,1
+; Map Variant Celebrations,,,
+14C,0C3,Winter,1 ; after 2.14
+1E9,0C3,Winter (2023),1 ; before 2.14
+254,0C3,Halloween,1
+2F2,0C3,Nerf Collab Teaser,1
+32D,0C3,Persona Collab,1
+; (Unintended) Map Variant Celebrations,,,
+211,0C3,April Fools,1 ; busan
+24B,0C3,Overwatch Classic(release),1 ; gibraltar..
+282,0C3,Kingmaker,1 ; basically all maps..
+29F,0C3,6v6Min1,1 ; basically all maps..
+329,0C3,Anniversary 2025 Week 1,1 ; gibraltar.. few maps..
+32A,0C3,Anniversary 2025 Week 2,1 ; gibraltar.. few maps..
+32B,0C3,Anniversary 2025 Week 3,1 ; gibraltar.. few maps..
+32C,0C3,Anniversary 2025 Week 4,1 ; gibraltar.. few maps..
+330,0C3,Haunted Masquerade,1 ; lijiang
+353,0C3,Winter 2025,1 ; any map with winter modes
+3B0,0C3,Showdown Shuffle,1 ; many maps
 ; NPC VoiceSet names,,,
 1C2,05F,Sojourn,1
 22F,05F,Zeus,1
 238,05F,Roadhog,1
+; Loot Box Names,,,
+007,17B,Loot Box (S15),1
+01E,17B,Legendary Loot Box (S15),1
+021,17B,Epic Loot Box (S16),1
+026,17B,Loot Box (S16),1
+027,17B,Legendary Loot Box (S16),1
+03A,17B,Esports Loot Box (2026 S1),1
+041,17B,Loot Box (2026 S1),1
+042,17B,Epic Loot Box (2026 S1),1
+043,17B,Legendary Loot Box (2026 S1),1
+045,17B,Anniversary Loot Box (2026 S2),1
+048,17B,10-Year Anniversary Loot Box,1
+04A,17B,NEXON's Legendary Loot Box (2026 S4),1
+; Rarities,,,
+297,01C,Common,1
+61ED,01C,Epic,1
+3DA0,01C,Rare,1
+644A,01C,Legendary,1
+64F0,01C,Mythic,1
+; Stadium Categories,,,
+68D3,01C,Weapon,1
+5FDC,01C,Ability,1
+ECD2,01C,Survival,1
+ECC7,01C,HeroPower,1
+2BB,01C,Gadget,1
+

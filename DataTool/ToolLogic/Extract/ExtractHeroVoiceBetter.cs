@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using DataTool.DataModels;
 using DataTool.FindLogic;
 using DataTool.Flag;
 using DataTool.Helper;
+using DataTool.ToolLogic.Util;
 using TACTLib.Container;
 using TankLib;
 using TankLib.Helpers;
@@ -13,204 +15,283 @@ using static DataTool.Helper.STUHelper;
 using static DataTool.Helper.IO;
 using SkinTheme = DataTool.SaveLogic.Unlock.SkinTheme;
 
-namespace DataTool.ToolLogic.Extract {
-    [Tool("extract-hero-voice", Description = "Extracts hero voicelines.", CustomFlags = typeof(ExtractFlags))]
-    class ExtractHeroVoice : ExtractHeroVoiceBetter {
-        protected override string Container => "HeroVoice";
-    }
+namespace DataTool.ToolLogic.Extract;
 
-    [Tool("extract-hero-voice-better", IsSensitive = true, Description = "Extracts hero voicelines but groups them a bit better.", CustomFlags = typeof(ExtractFlags))]
-    class ExtractHeroVoiceBetter : QueryParser, ITool {
-        public Dictionary<string, string> QueryNameOverrides => null;
-        public List<QueryType> QueryTypes => new List<QueryType>();
-        protected virtual string Container => "BetterHeroVoice";
-        private static readonly HashSet<ulong> SoundIdCache = new HashSet<ulong>();
+[Tool("extract-hero-voice", Description = "Extracts hero voicelines.", CustomFlags = typeof(ExtractFlags))]
+class ExtractHeroVoice : ExtractHeroVoiceBetter {
+    protected override string Container => "HeroVoice";
+}
 
-        public void Parse(ICLIFlags toolFlags) {
-            var flags = (ExtractFlags) toolFlags;
-            flags.EnsureOutputDirectory();
-            var outputPath = Path.Combine(flags.OutputPath, Container);
+[Tool("extract-hero-voice-better", IsSensitive = true, Description = "Extracts hero voicelines but groups them a bit better.", CustomFlags = typeof(ExtractFlags))]
+class ExtractHeroVoiceBetter : QueryParser, ITool, IQueryParser {
+    public List<QueryType> QueryTypes => new List<QueryType>();
+    public string DynamicChoicesKey => UtilDynamicChoices.VALID_HERO_NAMES;
+    protected virtual string Container => "BetterHeroVoice";
+    private static readonly HashSet<ulong> SoundIdCache = new HashSet<ulong>();
 
-            // Do normal heroes first then NPCs, this is because NPCs have a lot of duplicate sounds and normal heroes (should) have none
-            // so any duplicate sounds would only come up while processing NPCs which can be ignored as they (probably) belong to heroes
-            var heroesDict = Helpers.GetHeroes();
-            var heroes = heroesDict.Values
-                .OrderBy(x => !x.IsHero) // sort by hero first
-                .ThenBy(x => x.GUID.GUID) // then by GUID
-                .ToArray();
+    public void Parse(ICLIFlags toolFlags) {
+        var flags = (ExtractFlags) toolFlags;
+        flags.EnsureOutputDirectory();
+        var outputPath = Path.Combine(flags.OutputPath, Container);
 
-            var validHeroes = Helpers.GetHeroNamesMapping(heroesDict);
-            var parsedTypes = ParseQuery(flags, QueryTypes, namesForThisLocale: validHeroes);
+        // Do normal heroes first then NPCs, this is because NPCs have a lot of duplicate sounds and normal heroes (should) have none
+        // so any duplicate sounds would only come up while processing NPCs which can be ignored as they (probably) belong to heroes
+        var heroesDict = Helpers.GetHeroes();
+        var heroes = heroesDict.Values
+            .OrderBy(x => !x.IsHero) // sort by hero first
+            .ThenBy(x => x.GUID.GUID) // then by GUID
+            .ToArray();
 
-            foreach (var hero in heroes) {
-                // if we have a query, check if we should process this hero
-                if (parsedTypes != null) {
-                    var config = GetQuery(parsedTypes, hero.Name?.ToLowerInvariant(), "*", teResourceGUID.Index(hero.GUID).ToString("X"));
-                    if (config.Count == 0) {
-                        continue;
-                    }
+        var parsedTypes = ParseQuery(flags, QueryTypes, localizedNameOverrides: Helpers.GetHeroNameLocaleOverrides(heroesDict));
+
+        var criteriaContext = new CriteriaContext();
+        foreach (var hero in heroes) {
+            // if we have a query, check if we should process this hero
+            if (parsedTypes != null) {
+                var config = GetQuery(parsedTypes, hero.Name, "*", teResourceGUID.Index(hero.GUID).ToString("X"));
+                if (config.Count == 0) {
+                    continue;
+                }
+            }
+
+            string heroName = GetValidFilename(GetCleanString(hero.STU.m_0EDCE350) ?? $"Unknown{teResourceGUID.Index(hero.GUID)}");
+
+            Logger.Log($"Processing {heroName}");
+
+            var heroVoiceSetGuid = GetInstance<STUVoiceSetComponent>(hero.STU.m_gameplayEntity)?.m_voiceDefinition;
+
+            Combo.ComboInfo baseInfo = new Combo.ComboInfo();
+            var baseContext = new SaveSetContext {
+                m_flags = flags,
+                m_basePath = outputPath,
+                m_heroName = heroName,
+                m_unlockName = "Default",
+                m_voiceSetGUID = heroVoiceSetGuid,
+                m_info = baseInfo,
+                m_criteriaContext = criteriaContext
+            };
+
+            if (!SaveVoiceSet(baseContext)) {
+                // unknown failure
+                continue;
+            }
+                
+            var skinUnlocks = new ProgressionUnlocks(hero.STU).GetUnlocksOfType(UnlockType.Skin);
+
+            foreach (var unlock in skinUnlocks) {
+                var unlockSkinTheme = unlock.STU as STUUnlock_SkinTheme;
+                if (unlockSkinTheme?.m_0B1BA7C1 != 0) {
+                    // skip esports skins
+                    // they definitely won't have skin overrides
+                    continue;
                 }
 
-                string heroName = GetValidFilename(GetCleanString(hero.STU.m_0EDCE350) ?? $"Unknown{teResourceGUID.Index(hero.GUID)}");
+                Logger.Debug("Tool", $"Processing skin {unlock.GetName()}");
+                var skinThemeGUID = unlockSkinTheme.m_skinTheme;
+                var skinTheme = GetInstance<STUSkinBase>(skinThemeGUID);
+                if (skinTheme == null) {
+                    continue;
+                }
 
-                Logger.Log($"Processing {heroName}");
+                Combo.ComboInfo info = new Combo.ComboInfo();
+                var skinContext = baseContext with {
+                    m_info = info,
+                    m_baseInfo = baseContext.m_info,
+                    m_unlockName = GetValidFilename(unlock.GetName()),
+                    m_replacements = SkinTheme.GetReplacements(skinThemeGUID)
+                };
+                SaveVoiceSet(skinContext);
+            }
+        }
+        
+        LogUnknownQueries(parsedTypes);
+    }
 
-                Combo.ComboInfo baseInfo = default;
-                var heroVoiceSetGuid = GetInstance<STUVoiceSetComponent>(hero.STU.m_gameplayEntity)?.m_voiceDefinition;
+    public struct SaveSetContext {
+        public required ExtractFlags m_flags;
+        public required string m_basePath;
+        public required string m_heroName;
+        public required string m_unlockName;
+        public required ulong? m_voiceSetGUID;
+        public required Combo.ComboInfo m_info;
+        public Combo.ComboInfo m_baseInfo = null;
+        public Dictionary<ulong, ulong> m_replacements = null;
+        public bool m_ignoreGroups = false;
+            
+        public CriteriaContext m_criteriaContext;
 
-                if (SaveVoiceSet(flags, outputPath, heroName, "Default", heroVoiceSetGuid, ref baseInfo)) {
-                    var skins = new ProgressionUnlocks(hero.STU).GetUnlocksOfType(UnlockType.Skin);
+        public SaveSetContext() {
+        }
+    }
 
-                    foreach (var unlock in skins) {
-                        var unlockSkinTheme = unlock.STU as STUUnlock_SkinTheme;
-                        if (unlockSkinTheme?.m_0B1BA7C1 != 0) {
-                            continue; // no idea what this is
+    public static bool SaveVoiceSet(SaveSetContext context) {
+        if (context.m_voiceSetGUID == null || context.m_voiceSetGUID == 0) {
+            return false;
+        }
+
+        var flags = context.m_flags;
+        var basePath = context.m_basePath;
+        var heroName = context.m_heroName;
+        var unlockName = context.m_unlockName;
+        var voiceSetGuid = context.m_voiceSetGUID;
+        var info = context.m_info;
+        var baseCombo = context.m_baseInfo;
+        var replacements = context.m_replacements;
+        var ignoreGroups = context.m_ignoreGroups;
+            
+        Combo.Find(info, voiceSetGuid.Value, replacements);
+
+        var skinnedVoiceSet = Combo.GetReplacement(voiceSetGuid.Value, replacements);
+        if (!info.m_voiceSets.ContainsKey(skinnedVoiceSet)) {
+            if (Program.Client.ContainerHandler is StaticContainerHandler) {
+                // (steam)
+                Logger.Error("ExtractHeroVoice", $"Unable to load voice data {voiceSetGuid:X16}. Did you choose the correct voice locale and is the voice audio depot downloaded?");
+                return false;
+            }
+            Logger.Error("ExtractHeroVoice", $"Unable to load voice data {voiceSetGuid:X16}");
+            return false;
+        }
+
+        // if we're processing a skin, baseCombo is the combo from the hero, this remove duplicate check removes any sounds that belong to the base hero
+        // this ensures you only get sounds unique to the skin when processing a skin
+        if (baseCombo != null) {
+            if (!Combo.RemoveDuplicateVoiceSetEntries(baseCombo, ref info, voiceSetGuid.Value, skinnedVoiceSet))
+                return false;
+        }
+
+        foreach (var voiceSet in info.m_voiceSets) {
+            if (voiceSet.Value.VoiceLineInstances == null) continue;
+
+            foreach (var voicelineInstanceInfo in voiceSet.Value.VoiceLineInstances) {
+                foreach (var voiceLineInstance in voicelineInstanceInfo.Value) {
+                    // don't add this back !!
+                    // some hamster lines are non-voice audio only
+                    //if (!voiceLineInstance.SoundFiles.Any()) {
+                    //    continue;
+                    //}
+
+                    var stimulus = GetInstance<STUVoiceStimulus>(voiceLineInstance.VoiceStimulus);
+                    if (stimulus == null) continue;
+
+                    var groupName = GetVoiceGroup(voiceLineInstance.VoiceStimulus, stimulus.m_category) ??
+                                    Path.Combine("Unknown",$"{teResourceGUID.Index(voiceLineInstance.VoiceStimulus):X}.{teResourceGUID.Type(voiceLineInstance.VoiceStimulus):X3}");
+
+                    var stack = new List<string> { basePath };
+
+                    CalculatePathStack(flags, heroName, unlockName, ignoreGroups ? "" : groupName, stack);
+
+                    var path = Path.Combine(stack.Where(x => x.Length > 0).ToArray());
+
+                    stack.Clear();
+                    stack.Add(basePath);
+
+                    string hero03FDir;
+                    if (flags.VoiceFlat03F) {
+                        CalculatePathStack(flags, heroName, unlockName, "03F", stack);
+                        hero03FDir = Path.Combine(stack.ToArray());
+                    } else {
+                        var subtitle = GetSubtitleString(voiceLineInstance.Subtitle)?.Trim()?.TrimEnd('.');
+                        
+                        subtitle ??= "03F";
+                        hero03FDir = Path.Combine(path, GetValidFilename(subtitle));
+                    }
+
+                    string criteriaDesc = null;
+                    if (voiceLineInstance.m_criteria != null && context.m_criteriaContext != null) {
+                        var stringWriter = new StringWriter();
+                        var indentedWriter = new IndentedTextWriter(stringWriter);
+                            
+                        //indentedWriter.WriteLine(GetSubtitleString(voiceLineInstance.Subtitle));
+                        //indentedWriter.Indent++;
+                        context.m_criteriaContext.BuildCriteriaDescription(indentedWriter, voiceLineInstance.m_criteria);
+                        //indentedWriter.Indent--;
+                        //Console.Out.Write(stringWriter.ToString());
+
+                        criteriaDesc = stringWriter.ToString();
+                    }
+
+                    string weightDesc = null;
+                    // ReSharper disable once CompareOfFloatsByEqualityOperator
+                    if (voiceLineInstance.m_weight != null && voiceLineInstance.m_weight != 1) {
+                        weightDesc = $"{voiceLineInstance.m_weight}";
+                    }
+
+                    // 99% of voiceline instances only have a single sound file however there are cases where some NPCs have multiple
+                    // the Junkenstein Narrator is an example, the lines are the same however they are spoken differently.
+                    foreach (var soundFile in voiceLineInstance.SoundFiles) {
+                        var soundFileGuid = teResourceGUID.AsString(soundFile);
+                        string filename = null;
+
+                        if (!flags.VoiceGroupByHero && !ignoreGroups) {
+                            filename = $"{heroName}-{soundFileGuid}";
                         }
 
-                        Logger.Debug("Tool", $"Processing skin {unlock.GetName()}");
-                        Combo.ComboInfo info = default;
-                        var skinThemeGUID = unlockSkinTheme.m_skinTheme;
-                        var skinTheme = GetInstance<STUSkinBase>(skinThemeGUID);
-                        if (skinTheme == null) {
+                        if (SoundIdCache.Contains(soundFile)) {
+                            Logger.Debug("Tool", "Duplicate sound detected, ignoring.");
                             continue;
                         }
 
-                        SaveVoiceSet(flags, outputPath, heroName, GetValidFilename(unlock.GetName()), heroVoiceSetGuid, ref info, baseInfo, SkinTheme.GetReplacements(skinThemeGUID));
+                        SoundIdCache.Add(soundFile);
+                        //SaveLogic.Combo.SaveSoundFile(flags, path, saveContext, soundFile, true, filename);
+                        SaveLogic.Combo.SaveVoiceLineInstance(flags, path, voiceLineInstance, filename, soundFile);
+                            
+                        WriteFile(criteriaDesc, Path.Combine(path, $"{soundFileGuid}-criteria.txt"));
+                        WriteFile(weightDesc, Path.Combine(path, $"{soundFileGuid}-weight.txt"));
                     }
-                }
-            }
-        }
 
-        public static bool SaveVoiceSet(ExtractFlags flags, string basePath, string heroName, string unlockName, ulong? voiceSetGuid, ref Combo.ComboInfo info, Combo.ComboInfo baseCombo = null, Dictionary<ulong, ulong> replacements = null, bool ignoreGroups = false) {
-            if (voiceSetGuid == null) {
-                return false;
-            }
-
-            info = new Combo.ComboInfo();
-            var saveContext = new SaveLogic.Combo.SaveContext(info);
-            Combo.Find(info, voiceSetGuid.Value, replacements);
-
-            var skinnedVoiceSet = Combo.GetReplacement(voiceSetGuid.Value, replacements);
-            if (!info.m_voiceSets.ContainsKey(skinnedVoiceSet)) {
-                if (Program.Client.ContainerHandler is StaticContainerHandler) {
-                    // (steam)
-                    Logger.Error("ExtractHeroVoice", $"Unable to load voice data {voiceSetGuid:X16}. Did you choose the correct voice locale and is the voice audio depot downloaded?");
-                    return false;
-                }
-                Logger.Error("ExtractHeroVoice", $"Unable to load voice data {voiceSetGuid:X16}");
-                return false;
-            }
-
-            // if we're processing a skin, baseCombo is the combo from the hero, this remove duplicate check removes any sounds that belong to the base hero
-            // this ensures you only get sounds unique to the skin when processing a skin
-            if (baseCombo != null) {
-                if (!Combo.RemoveDuplicateVoiceSetEntries(baseCombo, ref info, voiceSetGuid.Value, skinnedVoiceSet))
-                    return false;
-            }
-
-            foreach (var voiceSet in info.m_voiceSets) {
-                if (voiceSet.Value.VoiceLineInstances == null) continue;
-
-                foreach (var voicelineInstanceInfo in voiceSet.Value.VoiceLineInstances) {
-                    foreach (var voiceLineInstance in voicelineInstanceInfo.Value) {
-                        // don't add this back !!
-                        // some hamster lines are non-voice audio only
-                        //if (!voiceLineInstance.SoundFiles.Any()) {
-                        //    continue;
-                        //}
-
-                        var stimulus = GetInstance<STUVoiceStimulus>(voiceLineInstance.VoiceStimulus);
-                        if (stimulus == null) continue;
-
-                        var groupName = GetVoiceGroup(voiceLineInstance.VoiceStimulus, stimulus.m_category) ??
-                                        Path.Combine("Unknown",$"{teResourceGUID.Index(voiceLineInstance.VoiceStimulus):X}.{teResourceGUID.Type(voiceLineInstance.VoiceStimulus):X3}");
-
-                        var stack = new List<string> { basePath };
-
-                        CalculatePathStack(flags, heroName, unlockName, ignoreGroups ? "" : groupName, stack);
-
-                        var path = Path.Combine(stack.Where(x => x.Length > 0).ToArray());
-
-                        stack.Clear();
-                        stack.Add(basePath);
-
-                        string hero03FDir;
-                        if (flags.VoiceGroup03FInType) {
-                            hero03FDir = Path.Combine(path, "03F");
-                        } else {
-                            CalculatePathStack(flags, heroName, unlockName, "03F", stack);
-                            hero03FDir = Path.Combine(stack.ToArray());
-                        }
-
-                        // 99% of voiceline instances only have a single sound file however there are cases where some NPCs have multiple
-                        // the Junkenstein Narrator is an example, the lines are the same however they are spoken differently.
-                        foreach (var soundFile in voiceLineInstance.SoundFiles) {
-                            var soundFileGuid = teResourceGUID.AsString(soundFile);
-                            string filename = null;
-
-                            if (!flags.VoiceGroupByHero && !ignoreGroups) {
-                                filename = $"{heroName}-{soundFileGuid}";
-                            }
-
-                            if (SoundIdCache.Contains(soundFile)) {
-                                Logger.Debug("Tool", "Duplicate sound detected, ignoring.");
+                    // Saves Wrecking Balls squeak sounds, no other heroes have sounds like this it seems
+                    var stuSound = GetInstance<STUSound>(voiceLineInstance.ExternalSound);
+                    if (stuSound?.m_C32C2195?.m_soundWEMFiles != null) {
+                        foreach (var mSoundWemFile in stuSound?.m_C32C2195?.m_soundWEMFiles) {
+                            if (BadSoundFiles.Contains(mSoundWemFile)) {
                                 continue;
                             }
 
-                            SoundIdCache.Add(soundFile);
-                            //SaveLogic.Combo.SaveSoundFile(flags, path, saveContext, soundFile, true, filename);
-                            SaveLogic.Combo.SaveVoiceLineInstance(flags, path, voiceLineInstance, filename, soundFile);
-                        }
-
-                        // Saves Wrecking Balls squeak sounds, no other heroes have sounds like this it seems
-                        var stuSound = GetInstance<STUSound>(voiceLineInstance.ExternalSound);
-                        if (stuSound?.m_C32C2195?.m_soundWEMFiles != null) {
-                            foreach (var mSoundWemFile in stuSound?.m_C32C2195?.m_soundWEMFiles) {
-                                if (BadSoundFiles.Contains(mSoundWemFile)) {
-                                    continue;
-                                }
-
-                                SaveLogic.Combo.SaveSoundFile(flags, hero03FDir, mSoundWemFile);
-                            }
+                            SaveLogic.Combo.SaveSoundFile(flags, hero03FDir, mSoundWemFile);
                         }
                     }
                 }
             }
-
-            return true;
         }
 
-        private static void CalculatePathStack(ExtractFlags flags, string heroName, string unlockName, string groupName, List<string> stack) {
-            if (flags.VoiceGroupByLocale) {
-                stack.Add(Program.Client.CreateArgs.SpeechLanguage ?? "enUS");
+        return true;
+    }
+
+    private static void CalculatePathStack(ExtractFlags flags, string heroName, string unlockName, string groupName, List<string> stack) {
+        if (flags.VoiceGroupByLocale) {
+            stack.Add(Program.Client.CreateArgs.SpeechLanguage ?? "enUS");
+        }
+
+        if (flags.VoiceGroupByHero) {
+            stack.Add(heroName);
+
+            if (flags.VoiceGroupBySkin) {
+                stack.Add(unlockName);
             }
 
-            if (flags.VoiceGroupByHero) {
-                stack.Add(heroName);
-
-                if (flags.VoiceGroupBySkin) {
-                    stack.Add(unlockName);
-                }
-
-                if (flags.VoiceGroupByType) {
-                    stack.Add(groupName);
-                }
-            } else if (flags.VoiceGroupByType) {
+            if (flags.VoiceGroupByType) {
                 stack.Add(groupName);
             }
+        } else if (flags.VoiceGroupByType) {
+            stack.Add(groupName);
         }
-
-        public static string GetVoiceGroup(ulong stimulusGuid, ulong categoryGuid) {
-            return GetNullableGUIDName(stimulusGuid) ?? GetNullableGUIDName(categoryGuid);
-        }
-
-        // these are weird UI sounds that seem to be on every STUSound
-        public static readonly HashSet<ulong> BadSoundFiles = new HashSet<ulong>() {
-            0x7C0000000147482, // 000000147482.03F
-            0x7C00000000958E8, // 0000000958E8.03F
-            0x7C00000000958E6, // 0000000958E6.03F
-            0x7C00000001BD800, // 0000001BD800.03F
-            0x07C00000001BD7FF, // 0000001BD7FF.03F
-        };
     }
+
+    public static string GetVoiceGroup(ulong stimulusGuid, ulong categoryGuid) {
+        return GetNullableGUIDName(stimulusGuid) ?? GetNullableGUIDName(categoryGuid);
+    }
+
+    // these are weird UI sounds that seem to be on every STUSound
+    public static readonly HashSet<ulong> BadSoundFiles = new HashSet<ulong>() {
+        0x7C0000000147482, // 000000147482.03F
+        0x7C00000000958E8, // 0000000958E8.03F
+        0x7C00000000958E6, // 0000000958E6.03F
+        0x7C00000001BD800, // 0000001BD800.03F
+        0x7C00000001BD7FF, // 0000001BD7FF.03F
+        
+        // after 2.20.1
+        0x7C00000002B2BF7, // 0000002B2BF7.03F
+        0x7C00000002B2C0A, // 0000002B2C0A.03F
+        0x7C00000002B2C61, // 0000002B2C61.03F
+    };
 }

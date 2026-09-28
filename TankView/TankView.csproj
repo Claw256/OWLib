@@ -1,20 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net9.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
     <OutputType>WinExe</OutputType>
     <LangVersion>8</LangVersion>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <NoWarn>CA1416</NoWarn>
-    <Version>2.14.0.0</Version>
+    <Version>2.24.1.0</Version>
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' OR '$(Configuration)' == 'ReleasePublish' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <Optimize>true</Optimize>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'DebugPublish' OR '$(Configuration)' == 'ReleasePublish' ">
-    <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>TankView.ico</ApplicationIcon>
@@ -37,14 +34,12 @@
   <ItemGroup>
     <PackageReference Include="AdonisUI" Version="1.17.1" />
     <PackageReference Include="AdonisUI.ClassicTheme" Version="1.17.1" />
-    <PackageReference Include="DirectXTexNet" Version="1.0.7" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NAudio" Version="2.2.1" />
     <PackageReference Include="NAudio.Vorbis" Version="1.5.0" />
     <PackageReference Include="NVorbis" Version="0.10.5" />
-    <PackageReference Include="VirtualizingWrapPanel" Version="2.1.0" />
-    <PackageReference Include="WindowsAPICodePackCore" Version="8.0.6" />
-    <PackageReference Include="WindowsAPICodePackShell" Version="8.0.6" />
+    <PackageReference Include="VirtualizingWrapPanel" Version="2.5.4" />
+    <PackageReference Include="WindowsAPICodePackCore" Version="8.0.15.2" />
+    <PackageReference Include="WindowsAPICodePackShell" Version="8.0.15.2" />
   </ItemGroup>
   <Target Name="SetSourceRevisionIdGit" BeforeTargets="BeforeBuild">
     <Exec Command="git describe --long --always --dirty --exclude=* --abbrev=8" ConsoleToMSBuild="True" IgnoreExitCode="False" ContinueOnError="True">

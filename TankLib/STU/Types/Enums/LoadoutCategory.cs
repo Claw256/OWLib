@@ -10,5 +10,8 @@ namespace TankLib.STU.Types.Enums
         [STUField(0xEE2EB06A)] Ability = 0x1,
         [STUField(0xF0DD1972)] PassiveAbility = 0x2,
         [STUField(0xB8B1437C)] UltimateAbility = 0x3,
+        [STUField(0x560D5787)] Perk = 0x4,
+        [STUField(0xEB644997)] HeroStats = 0x5,
+        [STUField(0x9DC906D6)] Subrole = 0x6,
     }
 }

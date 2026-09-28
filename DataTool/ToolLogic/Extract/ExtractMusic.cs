@@ -1,70 +1,86 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using DataTool.ConvertLogic.WEM;
+using DataTool.FindLogic;
 using DataTool.Flag;
-using DataTool.SaveLogic;
+using DataTool.Helper;
+using Spectre.Console;
 using TankLib.STU.Types;
-using static DataTool.Program;
-using static DataTool.Helper.STUHelper;
 
 namespace DataTool.ToolLogic.Extract {
-    [Tool("extract-music", Description = "Extracts sound files which are identified as music.", CustomFlags = typeof(ExtractFlags))]
+    [Tool("extract-music", Description = "Extracts every sound file classified as music", CustomFlags = typeof(ExtractFlags))]
     public class ExtractMusic : ITool {
         private const string Container = "Music";
-        
-        Dictionary<UInt32, string> music_types = new Dictionary<uint, string> {
-            { 0xE590A66D, "LoadingScreen" },
-            { 0xB5655E34, "Retribution" },
-            { 0x37C6AA44, "Uprising" },
-            { 0x735E53FB, "StormRising" },
-            { 0xB6F579B6, "StormRising" },
-            { 0x4CC4D335, "Junkenstein" },
-            { 0xBDFF9DE3, "PvP" },
-            { 0xEDF036D6, "Stinger" },
-            { 0x17B3A0BB, "PvE" },
-            { 0xAEAA8714, "MainMenuTheme" },
-            { 0xDBB66679, "RoundNearEnd" },
-            { 0xA367CA4E, "PostGameFlow" },
-            // ow2 musics, unclassified
-            { 0x2B058DFD, "2B058DFD" },
-            { 0x4C1C986B, "4C1C986B" },
-            { 0x8C529270, "8C529270" },
-            { 0x65E10B23, "65E10B23" },
-            { 0x85F1FDB8, "85F1FDB8" },
-            { 0x730BC8EB, "730BC8EB" },
-            { 0x981B9AB5, "981B9AB5" },
-            { 0x1845EE31, "1845EE31" },
-            { 0x56573649, "56573649" },
-            { 0xA45CBFCA, "A45CBFCA" },
-            { 0xC21B9447, "C21B9447" },
-            { 0xEBB2F2DD, "EBB2F2DD" },
-            { 0xEBB2F2DE, "EBB2F2DE" },
-            { 0xF322E374, "F322E374" }
-        };
 
         public void Parse(ICLIFlags toolFlags) {
-            ExtractType(toolFlags);
-        }
-
-        public void ExtractType(ICLIFlags toolFlags) {
             var flags = (ExtractFlags) toolFlags;
             flags.EnsureOutputDirectory();
             var outputPath = Path.Combine(flags.OutputPath, Container);
 
-            foreach (ulong @ulong in TrackedFiles[0x2C]) {
-                STUSound music = GetInstance<STUSound>(@ulong);
-                if (music?.m_C32C2195 == null) {
+            AnsiConsole.Progress().Start(context => Work(context, flags, outputPath));
+            AnsiConsole.MarkupLine("[bold yellow]VLC is unable to play Opus ogg files (which means most music). Use foobar2000 instead[/]");
+        }
+
+        private static void Work(ProgressContext context, ExtractFlags flags, string outputPath) {
+            var allBankGUIDs = Program.TrackedFiles[0x43];
+            var allSoundGUIDs = Program.TrackedFiles[0x2C];
+            var banksTask = context.AddTask("Scanning SoundBanks", true, allBankGUIDs.Count);
+            var soundsTask = context.AddTaskAfter("Scanning Sounds", banksTask, true, allSoundGUIDs.Count);
+            var extractingTask = context.AddTaskAfter("Extracting", soundsTask);
+
+            // many sounds share each bank.
+            // it's not good enough to say "this bank contains some music"
+            // we need to identify exactly which tracks are music
+            // todo: it's possible we need to store ids per bank to avoid false-positives. haven't checked
+            var musicIDs = new HashSet<uint>();
+            foreach (ulong bankGUID in allBankGUIDs) {
+                banksTask.Increment(1);
+
+                using var stream = IO.OpenFile(bankGUID);
+                if (stream == null) continue;
+
+                WwiseBank bank;
+                try {
+                    bank = new WwiseBank(stream);
+                } catch (Exception e) {
+                    Console.Out.WriteLine($"todo err: {e}");
                     continue;
                 }
 
-                var s_class = music.m_C32C2195.m_wwiseBankID;
-                if (music_types.ContainsKey(s_class)) {
-                    FindLogic.Combo.ComboInfo info = new FindLogic.Combo.ComboInfo();
-                    var context = new Combo.SaveContext(info);
-                    FindLogic.Combo.Find(info, @ulong);
-                    SaveLogic.Combo.SaveAllSoundFiles(flags, Path.Combine(outputPath, music_types[s_class]), context);
+                foreach (var musicTrack in bank.ObjectsOfType<BankObjectMusicTrack>()) {
+                    foreach (var musicSource in musicTrack.Sources) {
+                        musicIDs.Add(musicSource.Media.SourceID);
+                    }
                 }
             }
+            banksTask.StopTask();
+
+            var findInfo = new Combo.ComboInfo();
+            foreach (var soundGUID in allSoundGUIDs) {
+                soundsTask.Increment(1);
+
+                var sound = STUHelper.GetInstance<STUSound>(soundGUID);
+                if (sound == null) continue;
+
+                var soundIsMusic =
+                    sound.m_C32C2195.m_wwiseWEMFileIDs != null && musicIDs.Overlaps(sound.m_C32C2195.m_wwiseWEMFileIDs) ||
+                    sound.m_C32C2195.m_wwiseWEMStreamIDs != null && musicIDs.Overlaps(sound.m_C32C2195.m_wwiseWEMStreamIDs);
+                if (!soundIsMusic) {
+                    continue;
+                }
+
+                Combo.Find(findInfo, soundGUID);
+            }
+            soundsTask.StopTask();
+
+            extractingTask.MaxValue = findInfo.m_soundFiles.Count;
+            var saveContext = new SaveLogic.Combo.SaveContext(findInfo);
+            foreach (var soundFileGUID in findInfo.m_soundFiles.Keys) {
+                SaveLogic.Combo.SaveSoundFile(flags, outputPath, saveContext, soundFileGUID, false);
+                extractingTask.Increment(1);
+            }
+            extractingTask.StopTask();
         }
     }
 }

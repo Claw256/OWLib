@@ -32,10 +32,6 @@ D6954B53, Internal
 6C02F9A7, LegendaryAnniversary
 C026BA80, Hammond
 1F8953C7, Legendary
-F08392C2, Weapon
-EE2EB06A, Ability
-F0DD1972, PassiveAbility
-B8B1437C, UltimateAbility
 4FBE4DB7, TeamBlue
 1EC4639E, TeamRed
 36A550DF, FFA
@@ -46,10 +42,22 @@ A3D3317A, Pacific
 1745B921, Generic
 5123F4E9, Male
 AFA0BA5C, Female
-1A62C6F0, Enabled
-F4C0BC0F, Disabled
+
+# LoadoutCategory
+F08392C2, Weapon
+EE2EB06A, Ability
+F0DD1972, PassiveAbility
+B8B1437C, UltimateAbility
+560D5787, Perk
+EB644997, HeroStats
+9DC906D6, Subrole
+
+# STUWeaponType
 E87119C8, DEFAULT
 F63DFCBD, GOLDEN
+D65C735C, JADE
+7AC73B41, GALACTIC
+4A122485, CRIMSON_WOLF
 
 # Workshop Stuff
 45DAA27C, Generic
@@ -75,7 +83,10 @@ F7A961FD, Small
 C25BCFAD, Rare
 AF948D7A, Epic
 4585FFFF, Legendary
+F360C292, Exclusive
+1FFF8866, Evolution
 BD3BA67B, Mythic
+61A83201, Ultra
 3A3ADA03, None
 
 # POTGType

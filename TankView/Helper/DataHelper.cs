@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using DataTool.ConvertLogic;
 using DataTool.DataModels;
 using DataTool.DataModels.Hero;
 using DataTool.DataModels.Voice;
 using DataTool.Helper;
-using DirectXTexNet;
+using SixLabors.ImageSharp.PixelFormats;
+using TACTLib;
 using TankLib;
 using TankLib.STU.Types;
 using TankView.ViewModel;
@@ -107,32 +109,24 @@ namespace TankView.Helper {
                     return default;
                 }
                 if (texture.Header.IsCubemap) return default; // see combo but is currently broken
+
                 width = texture.Header.Width;
                 height = texture.Header.Height;
-                Stream ms = texture.SaveToDDS(1);
-                using var dds = new DDSConverter(ms, DXGI_FORMAT.UNKNOWN, true);
-                using var image = dds.GetFrame(0, 0, 1);
-                Memory<byte> rgb = new byte[image.Length];
-                var offset = 0;
-                while (offset < rgb.Length) {
-                    offset += image.Read(rgb[offset..].Span);
-                }
 
-                return rgb;
-            } catch {
+                var texDecoder = new TexDecoder(texture, false);
+                using var rgba = texDecoder.GetFrame(0);
+                using var bgra = rgba.CloneAs<Bgra32>(); // Rgba32 doesn't exist in wpf
+
+                var array = new byte[Unsafe.SizeOf<Bgra32>() * width * height];
+                bgra.CopyPixelDataTo(array);
+
+                return array;
+            } catch (Exception e) {
                 // ignored
+                Logger.Error(nameof(DataHelper), $"{e}");
             }
 
             return default;
-        }
-
-        public static void SaveImage(GUIDEntry value, Stream fileStream, Stream outStream) {
-            if (GetDataType(value) != DataType.Image) {
-                return;
-            }
-
-            teTexture texture = LoadTexture(value.GUID, fileStream);
-            texture.SaveToDDS(outStream, false, 1);
         }
 
         internal static teTexture LoadTexture(ulong guid, Stream fileStream = null) {
@@ -166,21 +160,21 @@ namespace TankView.Helper {
             if (value == null || value.GUID == 0)
                 return null;
 
-            return new MapHeader(value.GUID);
+            return MapHeader.Load(value.GUID);
         }
 
         internal static Hero GetHero(GUIDEntry value) {
             if (value == null || value.GUID == 0)
                 return null;
 
-            return new Hero(value.GUID);
+            return Hero.Load(value.GUID);
         }
 
         internal static Conversation GetConversation(GUIDEntry value) {
             if (value == null || value.GUID == 0)
                 return null;
 
-            return new Conversation(value);
+            return Conversation.Load(value);
         }
 
         private static object GetSubtitle(GUIDEntry value) {

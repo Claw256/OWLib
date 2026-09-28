@@ -1,48 +1,41 @@
 ﻿using System.IO;
 using DataTool.DataModels;
 using DataTool.Flag;
-using TankLib.STU.Types;
+using DataTool.ToolLogic.List;
 using static DataTool.Program;
-using static DataTool.Helper.STUHelper;
 
-namespace DataTool.ToolLogic.Extract {
-    [Tool("extract-general", Description = "Extract general unlocks", CustomFlags = typeof(ExtractFlags))]
-    public class ExtractGeneral : ITool {
-        public void Parse(ICLIFlags toolFlags) {
-            GetGeneralUnlocks(toolFlags);
-        }
+namespace DataTool.ToolLogic.Extract;
 
-        public void GetGeneralUnlocks(ICLIFlags toolFlags) {
-            var flags = (ExtractFlags) toolFlags;
-            flags.EnsureOutputDirectory();
+[Tool("extract-general", Description = "Extract general unlocks", CustomFlags = typeof(ExtractFlags))]
+public class ExtractGeneral : ITool {
+    public void Parse(ICLIFlags toolFlags) {
+        GetGeneralUnlocks(toolFlags);
+    }
 
-            string path = Path.Combine(flags.OutputPath, "General");
+    public void GetGeneralUnlocks(ICLIFlags toolFlags) {
+        var flags = (ExtractFlags) toolFlags;
+        flags.EnsureOutputDirectory();
 
-            foreach (var key in TrackedFiles[0x54]) {
-                STUGenericSettings_PlayerProgression progression = GetInstance<STUGenericSettings_PlayerProgression>(key);
-                if (progression == null) continue;
+        string path = Path.Combine(flags.OutputPath, "General");
 
-                PlayerProgression playerProgression = new PlayerProgression(progression);
-
-                if (playerProgression.LootBoxesUnlocks != null) {
-                    foreach (LootBoxUnlocks lootBoxUnlocks in playerProgression.LootBoxesUnlocks) {
-                        string boxName = LootBox.GetName(lootBoxUnlocks.LootBoxType);
-                        ExtractHeroUnlocks.SaveUnlocks(flags, lootBoxUnlocks.Unlocks, path, boxName, null, null, null, null);
-                    }
-                }
-
-                if (playerProgression.AdditionalUnlocks != null) {
-                    foreach (AdditionalUnlocks additionalUnlocks in playerProgression.AdditionalUnlocks) {
-                        ExtractHeroUnlocks.SaveUnlocks(flags, additionalUnlocks.Unlocks, path, "Standard", null, null, null, null);
-                    }
-                }
-
-                if (playerProgression.OtherUnlocks != null) {
-                    ExtractHeroUnlocks.SaveUnlocks(flags, playerProgression.OtherUnlocks, path, "Achievement", null, null, null, null);
-                }
-
-                SaveScratchDatabase();
+        var playerProgression = ListGeneralUnlocks.GetPlayerProgression();
+        if (playerProgression.LootBoxesUnlocks != null) {
+            foreach (var lootBoxUnlocks in playerProgression.LootBoxesUnlocks) {
+                string boxName = LootBox.GetName(lootBoxUnlocks.LootBoxType);
+                ExtractHeroUnlocks.SaveUnlocks(flags, lootBoxUnlocks.Unlocks, path, boxName, null, null, null, null);
             }
         }
+
+        if (playerProgression.AdditionalUnlocks != null) {
+            foreach (var additionalUnlocks in playerProgression.AdditionalUnlocks) {
+                ExtractHeroUnlocks.SaveUnlocks(flags, additionalUnlocks.Unlocks, path, "Standard", null, null, null, null);
+            }
+        }
+
+        if (playerProgression.OtherUnlocks != null) {
+            ExtractHeroUnlocks.SaveUnlocks(flags, playerProgression.OtherUnlocks, path, "Achievement", null, null, null, null);
+        }
+
+        SaveScratchDatabase();
     }
 }

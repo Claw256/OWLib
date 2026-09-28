@@ -152,6 +152,7 @@ namespace CASCEncDump {
                         string typeDir = Path.Combine(AllCMFDir, type.ToString("X3"));
                         Directory.CreateDirectory(typeDir);
                         using (Stream file = File.OpenWrite(Path.Combine(typeDir, teResourceGUID.AsString(asset.Key)))) {
+                            stream.SetLength(0);
                             stream.CopyTo(file);
                         }
                     }
@@ -251,6 +252,7 @@ namespace CASCEncDump {
                     if (stream == null) continue;
                     string md5 = ckey.ToHexString();
                     using (Stream fileStream = File.OpenWrite(Path.Combine(RawEncDir, md5))) {
+                        stream.SetLength(0);
                         stream.CopyTo(fileStream);
                     }
                     //TryConvertFile(stream, ConvertEncDir, md5);
@@ -328,7 +330,7 @@ namespace CASCEncDump {
                             texture.Header.Height < 10000 && texture.Header.Width < 10000 && texture.Header.DataSize > 68) {
                             using (Stream file = File.OpenWrite(Path.Combine(convertDir, md5) + ".dds")) {
                                 file.SetLength(0);
-                                texture.SaveToDDS(file, false, texture.Header.MipCount);
+                                texture.SaveToDDS(file, false);
                             }
                         }
                     } catch (Exception) {
